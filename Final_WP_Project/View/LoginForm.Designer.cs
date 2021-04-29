@@ -35,6 +35,8 @@ namespace Final_WP_Project.View
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.login_pn = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.submit_btn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.password_txt = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -42,12 +44,10 @@ namespace Final_WP_Project.View
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.manager_rbtn = new System.Windows.Forms.RadioButton();
             this.yourAre_lb = new System.Windows.Forms.Label();
-            this.submit_btn = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.login_pn.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -114,10 +114,34 @@ namespace Final_WP_Project.View
             this.login_pn.Size = new System.Drawing.Size(654, 622);
             this.login_pn.TabIndex = 4;
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.Window;
+            this.panel3.BackgroundImage = global::Final_WP_Project.Properties.Resources.Picture11;
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Controls.Add(this.submit_btn);
+            this.panel3.Location = new System.Drawing.Point(211, 425);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(232, 66);
+            this.panel3.TabIndex = 5;
+            // 
+            // submit_btn
+            // 
+            this.submit_btn.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.submit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.submit_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.submit_btn.ForeColor = System.Drawing.Color.White;
+            this.submit_btn.Location = new System.Drawing.Point(15, 9);
+            this.submit_btn.Name = "submit_btn";
+            this.submit_btn.Size = new System.Drawing.Size(203, 48);
+            this.submit_btn.TabIndex = 5;
+            this.submit_btn.Text = "Log in";
+            this.submit_btn.UseVisualStyleBackColor = false;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.Window;
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImage = global::Final_WP_Project.Properties.Resources.Picture31;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.password_txt);
             this.panel2.Location = new System.Drawing.Point(172, 301);
@@ -144,7 +168,7 @@ namespace Final_WP_Project.View
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImage = global::Final_WP_Project.Properties.Resources.Picture31;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.userName_txt);
             this.panel1.Location = new System.Drawing.Point(172, 205);
@@ -202,30 +226,6 @@ namespace Final_WP_Project.View
             this.yourAre_lb.TabIndex = 0;
             this.yourAre_lb.Text = "You are:";
             // 
-            // submit_btn
-            // 
-            this.submit_btn.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.submit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.submit_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.submit_btn.ForeColor = System.Drawing.Color.White;
-            this.submit_btn.Location = new System.Drawing.Point(15, 9);
-            this.submit_btn.Name = "submit_btn";
-            this.submit_btn.Size = new System.Drawing.Size(203, 48);
-            this.submit_btn.TabIndex = 5;
-            this.submit_btn.Text = "Log in";
-            this.submit_btn.UseVisualStyleBackColor = false;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.Window;
-            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel3.Controls.Add(this.submit_btn);
-            this.panel3.Location = new System.Drawing.Point(211, 425);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(232, 66);
-            this.panel3.TabIndex = 5;
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -241,11 +241,11 @@ namespace Final_WP_Project.View
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.login_pn.ResumeLayout(false);
             this.login_pn.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
