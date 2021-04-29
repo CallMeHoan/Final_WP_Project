@@ -38,6 +38,7 @@ namespace Final_WP_Project.View
             this.reception_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.main_pn = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.year_cb = new System.Windows.Forms.ComboBox();
             this.month_cb = new System.Windows.Forms.ComboBox();
@@ -64,7 +65,6 @@ namespace Final_WP_Project.View
             this.label3 = new System.Windows.Forms.Label();
             this.cancel_btn = new System.Windows.Forms.Button();
             this.save_btn = new System.Windows.Forms.Button();
-            this.main_pn = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
@@ -172,6 +172,13 @@ namespace Final_WP_Project.View
             this.label2.TabIndex = 3;
             this.label2.Text = "Manage";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // main_pn
+            // 
+            this.main_pn.Location = new System.Drawing.Point(1, 132);
+            this.main_pn.Name = "main_pn";
+            this.main_pn.Size = new System.Drawing.Size(2098, 902);
+            this.main_pn.TabIndex = 9;
             // 
             // panel2
             // 
@@ -287,7 +294,7 @@ namespace Final_WP_Project.View
             this.radioButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.radioButton2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.radioButton2.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(10, 3);
+            this.radioButton2.Location = new System.Drawing.Point(23, 3);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(89, 38);
             this.radioButton2.TabIndex = 0;
@@ -311,7 +318,7 @@ namespace Final_WP_Project.View
             this.female_rbtn.AutoSize = true;
             this.female_rbtn.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.female_rbtn.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.female_rbtn.Location = new System.Drawing.Point(10, 3);
+            this.female_rbtn.Location = new System.Drawing.Point(14, 3);
             this.female_rbtn.Name = "female_rbtn";
             this.female_rbtn.Size = new System.Drawing.Size(108, 38);
             this.female_rbtn.TabIndex = 0;
@@ -344,7 +351,7 @@ namespace Final_WP_Project.View
             this.male_rbtn.BackColor = System.Drawing.Color.White;
             this.male_rbtn.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.male_rbtn.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.male_rbtn.Location = new System.Drawing.Point(10, 3);
+            this.male_rbtn.Location = new System.Drawing.Point(25, 3);
             this.male_rbtn.Name = "male_rbtn";
             this.male_rbtn.Size = new System.Drawing.Size(82, 38);
             this.male_rbtn.TabIndex = 0;
@@ -500,13 +507,6 @@ namespace Final_WP_Project.View
             this.save_btn.TabIndex = 24;
             this.save_btn.Text = "Save";
             this.save_btn.UseVisualStyleBackColor = true;
-            // 
-            // main_pn
-            // 
-            this.main_pn.Location = new System.Drawing.Point(1, 132);
-            this.main_pn.Name = "main_pn";
-            this.main_pn.Size = new System.Drawing.Size(2098, 902);
-            this.main_pn.TabIndex = 9;
             // 
             // ReceptionLineClickForm_Manager_
             // 

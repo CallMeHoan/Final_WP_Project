@@ -56,6 +56,18 @@
     <Compile Include="View\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Manager\ClickAddButtonForm%28Manager%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Manager\ClickAddButtonForm%28Manager%29.Designer.cs">
+      <DependentUpon>ClickAddButtonForm%28Manager%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Manager\ClickNext%28Manage%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Manager\ClickNext%28Manage%29.Designer.cs">
+      <DependentUpon>ClickNext%28Manage%29.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Manager\MainForm%28Manager%29.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +104,12 @@
     </Compile>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Manager\ClickAddButtonForm%28Manager%29.resx">
+      <DependentUpon>ClickAddButtonForm%28Manager%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Manager\ClickNext%28Manage%29.resx">
+      <DependentUpon>ClickNext%28Manage%29.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Manager\MainForm%28Manager%29.resx">
       <DependentUpon>MainForm%28Manager%29.cs</DependentUpon>

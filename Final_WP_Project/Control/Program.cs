@@ -1,4 +1,5 @@
 ﻿using Final_WP_Project.View;
+using Final_WP_Project.View.Manager;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Final_WP_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new ClickNext_Manage_());
         }
     }
 }
