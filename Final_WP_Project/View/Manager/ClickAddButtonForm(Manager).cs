@@ -8,17 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Final_WP_Project.View
+namespace Final_WP_Project.View.Manager
 {
-    public partial class ReceptionLineClickForm_Manager_ : Form
+    public partial class ClickAddButtonForm_Manager_ : Form
     {
-        public ReceptionLineClickForm_Manager_()
+        public ClickAddButtonForm_Manager_()
         {
             InitializeComponent();
             Style();
-            
         }
-
         #region style
         /*These are styling form function*/
         public void Style()
@@ -30,6 +28,7 @@ namespace Final_WP_Project.View
             this.label5.ForeColor = Color.FromArgb(130, 130, 130);
             this.label6.ForeColor = Color.FromArgb(130, 130, 130);
 
+
             //color for textbox
             this.receptionID_txt.ForeColor = Color.FromArgb(130, 130, 130);
             this.firstName_txt.ForeColor = Color.FromArgb(130, 130, 130);
@@ -39,8 +38,8 @@ namespace Final_WP_Project.View
             //Color for button
 
             //save button
-            this.save_btn.BackColor = Color.FromArgb(48, 182, 251);
-            this.save_btn.ForeColor = Color.FromArgb(255, 255, 255);
+            this.next_btn.BackColor = Color.FromArgb(48, 182, 251);
+            this.next_btn.ForeColor = Color.FromArgb(255, 255, 255);
             //Cancel button
             this.cancel_btn.BackColor = Color.FromArgb(48, 182, 251);
             this.cancel_btn.ForeColor = Color.FromArgb(255, 255, 255);
@@ -78,7 +77,8 @@ namespace Final_WP_Project.View
         /*Create Placeholder for each textbox*/
 
         //Reception ID
-        private void receptionID_txt_Enter(object sender, EventArgs e)
+
+        private void receptionID_txt_Enter_1(object sender, EventArgs e)
         {
             if (receptionID_txt.Text == "Reception ID")
             {
@@ -86,7 +86,7 @@ namespace Final_WP_Project.View
             }
         }
 
-        private void receptionID_txt_Leave(object sender, EventArgs e)
+        private void receptionID_txt_Leave_1(object sender, EventArgs e)
         {
             if (receptionID_txt.Text == "")
             {
@@ -95,8 +95,11 @@ namespace Final_WP_Project.View
             }
         }
 
+
         //First name
-        private void firstName_txt_Enter(object sender, EventArgs e)
+
+
+        private void firstName_txt_Enter_1(object sender, EventArgs e)
         {
             if (firstName_txt.Text == "First name")
             {
@@ -104,17 +107,19 @@ namespace Final_WP_Project.View
             }
         }
 
-        private void firstName_txt_Leave(object sender, EventArgs e)
+        private void firstName_txt_Leave_1(object sender, EventArgs e)
         {
-            if(firstName_txt.Text == "")
+            if (firstName_txt.Text == "")
             {
                 firstName_txt.Text = "First name";
                 firstName_txt.ForeColor = Color.FromArgb(130, 130, 130);
-            }    
+            }
         }
 
+
         //Last name
-        private void lastName_txt_Enter(object sender, EventArgs e)
+
+        private void lastName_txt_Enter_1(object sender, EventArgs e)
         {
             if (lastName_txt.Text == "Last name")
             {
@@ -122,9 +127,9 @@ namespace Final_WP_Project.View
             }
         }
 
-        private void lastName_txt_Leave(object sender, EventArgs e)
+        private void lastName_txt_Leave_1(object sender, EventArgs e)
         {
-            if(lastName_txt.Text == "")
+            if (lastName_txt.Text == "")
             {
                 lastName_txt.Text = "First name";
                 lastName_txt.ForeColor = Color.FromArgb(130, 130, 130);
@@ -133,14 +138,15 @@ namespace Final_WP_Project.View
 
         //Phone number
 
-        private void phone_txt_Enter(object sender, EventArgs e)
+        private void phone_txt_Enter_1(object sender, EventArgs e)
         {
             if (phone_txt.Text == "Phone number")
             {
                 phone_txt.Text = "";
             }
         }
-        private void phone_txt_Leave(object sender, EventArgs e)
+
+        private void phone_txt_Leave_1(object sender, EventArgs e)
         {
             if (phone_txt.Text == "")
             {
@@ -148,7 +154,6 @@ namespace Final_WP_Project.View
                 phone_txt.ForeColor = Color.FromArgb(130, 130, 130);
             }
         }
-
         //Date combo Box
 
         private void date_cb_Enter(object sender, EventArgs e)
