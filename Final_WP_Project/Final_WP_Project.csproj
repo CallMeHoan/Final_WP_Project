@@ -68,6 +68,12 @@
     <Compile Include="View\Manager\ClickNext%28Manage%29.Designer.cs">
       <DependentUpon>ClickNext%28Manage%29.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Manager\ComputeSalaryClick.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Manager\ComputeSalaryClick.designer.cs">
+      <DependentUpon>ComputeSalaryClick.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Manager\MainForm%28Manager%29.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     <EmbeddedResource Include="View\Manager\ClickNext%28Manage%29.resx">
       <DependentUpon>ClickNext%28Manage%29.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Manager\ComputeSalaryClick.resx">
+      <DependentUpon>ComputeSalaryClick.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Manager\MainForm%28Manager%29.resx">
       <DependentUpon>MainForm%28Manager%29.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +149,7 @@
     <Content Include="Picture\Picture2.png" />
     <Content Include="Picture\Picture3.png" />
     <Content Include="Picture\Picture4.png" />
+    <None Include="Resources\Picture12.png" />
     <None Include="Resources\Picture11.png" />
     <None Include="Resources\Picture31.png" />
     <None Include="Resources\Picture10.png" />
