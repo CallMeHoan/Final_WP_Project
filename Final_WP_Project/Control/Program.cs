@@ -18,7 +18,7 @@ namespace Final_WP_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ClickNext_Manage_());
+            Application.Run(new ComputeSalaryClick());
         }
     }
 }
