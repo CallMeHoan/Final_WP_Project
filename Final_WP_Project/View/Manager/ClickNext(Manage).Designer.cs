@@ -161,6 +161,7 @@ namespace Final_WP_Project.View.Manager
             this.main_pn.Name = "main_pn";
             this.main_pn.Size = new System.Drawing.Size(2098, 902);
             this.main_pn.TabIndex = 27;
+            this.main_pn.Paint += new System.Windows.Forms.PaintEventHandler(this.main_pn_Paint);
             // 
             // panel2
             // 
@@ -189,6 +190,7 @@ namespace Final_WP_Project.View.Manager
             this.cancel_btn.TabIndex = 39;
             this.cancel_btn.Text = "Cancel";
             this.cancel_btn.UseVisualStyleBackColor = true;
+            this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
             // 
             // label7
             // 
@@ -295,6 +297,7 @@ namespace Final_WP_Project.View.Manager
             this.previous_btn.TabIndex = 25;
             this.previous_btn.Text = "Previous";
             this.previous_btn.UseVisualStyleBackColor = true;
+            this.previous_btn.Click += new System.EventHandler(this.previous_btn_Click);
             // 
             // submit_btn
             // 
@@ -305,6 +308,7 @@ namespace Final_WP_Project.View.Manager
             this.submit_btn.TabIndex = 24;
             this.submit_btn.Text = "Submit";
             this.submit_btn.UseVisualStyleBackColor = true;
+            this.submit_btn.Click += new System.EventHandler(this.submit_btn_Click);
             // 
             // ClickNext_Manage_
             // 
@@ -317,6 +321,7 @@ namespace Final_WP_Project.View.Manager
             this.Name = "ClickNext_Manage_";
             this.Text = "ClickNext_Manage_";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.ClickNext_Manage__Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

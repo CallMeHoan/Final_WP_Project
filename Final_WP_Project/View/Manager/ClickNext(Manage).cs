@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -118,8 +119,55 @@ namespace Final_WP_Project.View.Manager
 
         }
 
+
         #endregion
+        int id; string name; int phone; string position; string gender; int age;
+        public ClickNext_Manage_(int id, string name, int phone, string position,string gender, int age )
+        {
+            this.id = id;
+            this.name = name;
+            this.phone = phone;
+            this.position = position;
+            this.gender = gender;
+            this.age = age;
+            InitializeComponent();
+            Style();
+        }
 
+        private void submit_btn_Click(object sender, EventArgs e)
+        {
+            Human employee= new Human();
+            DialogResult a = MessageBox.Show("Are you sure to add this employee?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if(a == DialogResult.Yes)
+            {
+                if(employee.InsertHummans(id.ToString(), userName_txt.Text, password_txt.Text, name, phone, age, position))
+                {
+                    MessageBox.Show("Added Employee", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Check and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
 
+        private void main_pn_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ClickNext_Manage__Load(object sender, EventArgs e)
+        {
+        }
+
+        private void previous_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void cancel_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -39,5 +39,16 @@ namespace Final_WP_Project.View
             a.FlatAppearance.BorderSize = 0;
         }
         #endregion
+
+        private void main_pn_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void reception_btn_Click(object sender, EventArgs e)
+        {
+            ReceptionClickForm_Manager_ f = new ReceptionClickForm_Manager_();
+            f.Show();
+        }
     }
 }

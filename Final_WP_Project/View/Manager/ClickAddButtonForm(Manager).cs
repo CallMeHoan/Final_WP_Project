@@ -12,8 +12,21 @@ namespace Final_WP_Project.View.Manager
 {
     public partial class ClickAddButtonForm_Manager_ : Form
     {
+        int id1; string name1; int phone1; string position1; string gender1; int age1;
+        public ClickAddButtonForm_Manager_(int id1, string name1, int phone1, string position1, string gender1, int age1)
+        {
+            this.id1 = id1;
+            this.name1 = name1;
+            this.phone1 = phone1;
+            this.position1 = position1;
+            this.gender1 = gender1;
+            this.age1 = age1;
+            InitializeComponent();
+            Style();
+        }
         public ClickAddButtonForm_Manager_()
         {
+   
             InitializeComponent();
             Style();
         }
@@ -211,5 +224,178 @@ namespace Final_WP_Project.View.Manager
         }
         #endregion
 
+        private void main_pn_Paint(object sender, PaintEventArgs e)
+        {
+              
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void next_btn_Click(object sender, EventArgs e)
+        {
+            if (verif())
+            {
+                int id = Convert.ToInt32(receptionID_txt.Text);
+                string name = firstName_txt.Text + " " + lastName_txt.Text;
+                int phone = Convert.ToInt32(phone_txt.Text);
+                string position = position_cb.Text;
+                int age = Convert.ToInt32(DateTime.Now.Year) - Convert.ToInt32(year_cb.Text);
+                string gender;
+                if (male_rbtn.Checked)
+                {
+                    gender = "Male";
+                }
+                else if (female_rbtn.Checked)
+                {
+                    gender = "Female";
+                }
+                else
+                {
+                    gender = "Other";
+                }
+
+                ClickNext_Manage_ f = new ClickNext_Manage_(id, name, phone, position, gender, age);
+                f.Show();
+            }
+            else
+            {
+                MessageBox.Show("Empty Fields", "Eror", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }    
+        }
+
+        bool verif()
+        {
+            if ((receptionID_txt.Text.Trim() == "Reception ID")
+                || (firstName_txt.Text.Trim() == "First name")
+                || (lastName_txt.Text.Trim() == "Last name")
+                || (phone_txt.Text.Trim() == "Phone number")
+                || (year_cb.Text.Trim()== "Year")
+                ||(date_cb.Text.Trim()== "Date")
+                ||(month_cb.Text.Trim()=="Month"))
+            {
+                return false;
+            }
+             return true;
+        }
+        public void ClickAddButtonForm_Manager__Load(object sender, EventArgs e)
+        {
+          
+            int i = 2021;
+    
+            for (; i > 1900; i--)
+            {
+                year_cb.Items.Add(i.ToString());
+            }
+            int j = 1;
+            for (; j <=12; j++)
+            {
+                month_cb.Items.Add(j.ToString());
+            }
+          
+        }
+
+        private void date_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+               //Đưa ngày vào combobox
+        private void month_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            date_cb.Items.Clear();
+            switch (Convert.ToInt32(month_cb.Text))
+            {
+                case 1:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 2:
+                    if (DateTime.IsLeapYear(Convert.ToInt32(year_cb.Text)))
+                    {
+                        for (int t = 1; t <=29;t++ )
+                        {
+                            date_cb.Items.Add(t.ToString());
+                        }
+                    }
+                    else
+                    {
+                        for (int t = 1; t <= 28; t++)
+                        {
+                            date_cb.Items.Add(t.ToString());
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 4:
+                    for (int t = 1; t <= 30; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 5:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 6:
+                    for (int t = 1; t <= 30; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 7:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 8:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 9:
+                    for (int t = 1; t <= 30; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 10:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 11:
+                    for (int t = 1; t <= 30; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 12:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+            }
+        }
+
+        private void cancel_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

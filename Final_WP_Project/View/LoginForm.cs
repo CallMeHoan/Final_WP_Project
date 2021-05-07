@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -61,6 +62,29 @@ namespace Final_WP_Project.View
             submit_btn.TabStop = false;
             submit_btn.FlatStyle = FlatStyle.Flat;
             submit_btn.FlatAppearance.BorderSize = 0;
+        }
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void submit_btn_Click(object sender, EventArgs e)
+        {
+            Human log = new Human();
+            SqlCommand command = new SqlCommand("SELECT * FROM login where Account = @Acc and Password = @Pass");
+            command.Parameters.Add("@Acc", SqlDbType.NVarChar).Value = userName_txt.Text;
+            command.Parameters.Add("@Pass", SqlDbType.NVarChar).Value = password_txt.Text;
+            DataTable table = log.gethummans(command);
+            if(table.Rows.Count>0)
+            {
+                MainForm_Manager_ f = new MainForm_Manager_();
+                f.Show();
+            }
+            else
+            {
+                MessageBox.Show("Inavailable username or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

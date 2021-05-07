@@ -63,7 +63,7 @@ namespace Final_WP_Project.View
             // report_btn
             // 
             this.report_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.report_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.report_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.report_btn.Location = new System.Drawing.Point(1392, 0);
             this.report_btn.Name = "report_btn";
             this.report_btn.Size = new System.Drawing.Size(196, 128);
@@ -74,7 +74,7 @@ namespace Final_WP_Project.View
             // schedule_btn
             // 
             this.schedule_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.schedule_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schedule_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.schedule_btn.Location = new System.Drawing.Point(1197, 0);
             this.schedule_btn.Name = "schedule_btn";
             this.schedule_btn.Size = new System.Drawing.Size(196, 128);
@@ -85,7 +85,7 @@ namespace Final_WP_Project.View
             // room_btn
             // 
             this.room_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.room_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.room_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.room_btn.Location = new System.Drawing.Point(1002, 0);
             this.room_btn.Name = "room_btn";
             this.room_btn.Size = new System.Drawing.Size(196, 128);
@@ -96,7 +96,7 @@ namespace Final_WP_Project.View
             // employee_btn
             // 
             this.employee_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.employee_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employee_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employee_btn.Location = new System.Drawing.Point(807, 0);
             this.employee_btn.Name = "employee_btn";
             this.employee_btn.Size = new System.Drawing.Size(196, 128);
@@ -107,23 +107,24 @@ namespace Final_WP_Project.View
             // reception_btn
             // 
             this.reception_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.reception_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reception_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reception_btn.Location = new System.Drawing.Point(613, 0);
             this.reception_btn.Name = "reception_btn";
             this.reception_btn.Size = new System.Drawing.Size(196, 128);
             this.reception_btn.TabIndex = 4;
             this.reception_btn.Text = "Reception";
             this.reception_btn.UseVisualStyleBackColor = false;
+            this.reception_btn.Click += new System.EventHandler(this.reception_btn_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Window;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label1.Font = new System.Drawing.Font("Poppins", 34.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 34.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(44, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 102);
+            this.label1.Size = new System.Drawing.Size(169, 67);
             this.label1.TabIndex = 2;
             this.label1.Text = "Hotel";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -133,10 +134,10 @@ namespace Final_WP_Project.View
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.Window;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label2.Font = new System.Drawing.Font("Poppins", 34.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 34.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(253, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(288, 102);
+            this.label2.Size = new System.Drawing.Size(243, 67);
             this.label2.TabIndex = 3;
             this.label2.Text = "Manage";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -153,10 +154,10 @@ namespace Final_WP_Project.View
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(277, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(282, 44);
+            this.label3.Size = new System.Drawing.Size(255, 29);
             this.label3.TabIndex = 1;
             this.label3.Text = "Welcom @Username";
             // 
@@ -166,6 +167,7 @@ namespace Final_WP_Project.View
             this.main_pn.Name = "main_pn";
             this.main_pn.Size = new System.Drawing.Size(2098, 902);
             this.main_pn.TabIndex = 15;
+            this.main_pn.Paint += new System.Windows.Forms.PaintEventHandler(this.main_pn_Paint);
             // 
             // MainForm_Manager_
             // 

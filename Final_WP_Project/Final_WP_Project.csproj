@@ -49,6 +49,8 @@
     <Compile Include="Control\Program.cs" />
     <Compile Include="Model\AcountFunction.cs" />
     <Compile Include="Model\DbConnectFactory.cs" />
+    <Compile Include="Model\My_DB.cs" />
+    <Compile Include="Object\Human.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
