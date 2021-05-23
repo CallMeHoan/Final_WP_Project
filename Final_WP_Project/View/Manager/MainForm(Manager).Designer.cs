@@ -38,7 +38,7 @@ namespace Final_WP_Project.View
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lb_welcome = new System.Windows.Forms.Label();
             this.main_pn = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -81,6 +81,7 @@ namespace Final_WP_Project.View
             this.schedule_btn.TabIndex = 7;
             this.schedule_btn.Text = "Schedule";
             this.schedule_btn.UseVisualStyleBackColor = false;
+            this.schedule_btn.Click += new System.EventHandler(this.schedule_btn_Click);
             // 
             // room_btn
             // 
@@ -145,21 +146,21 @@ namespace Final_WP_Project.View
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.lb_welcome);
             this.panel2.Location = new System.Drawing.Point(548, 286);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(828, 509);
             this.panel2.TabIndex = 2;
             // 
-            // label3
+            // lb_welcome
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(277, 93);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(255, 29);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Welcom @Username";
+            this.lb_welcome.AutoSize = true;
+            this.lb_welcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_welcome.Location = new System.Drawing.Point(277, 99);
+            this.lb_welcome.Name = "lb_welcome";
+            this.lb_welcome.Size = new System.Drawing.Size(255, 29);
+            this.lb_welcome.TabIndex = 1;
+            this.lb_welcome.Text = "Welcom @Username";
             // 
             // main_pn
             // 
@@ -180,6 +181,7 @@ namespace Final_WP_Project.View
             this.Name = "MainForm_Manager_";
             this.Text = "MainForm_Manager_";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.MainForm_Manager__Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -199,7 +201,7 @@ namespace Final_WP_Project.View
         private System.Windows.Forms.Button schedule_btn;
         private System.Windows.Forms.Button report_btn;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lb_welcome;
         private System.Windows.Forms.Panel main_pn;
     }
 }

@@ -68,5 +68,15 @@ namespace Final_WP_Project.View
             a.FlatAppearance.BorderSize = 0;
         }
         #endregion
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void RoomClickForm_Manager__Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

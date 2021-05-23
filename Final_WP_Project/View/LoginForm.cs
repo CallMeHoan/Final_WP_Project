@@ -79,12 +79,17 @@ namespace Final_WP_Project.View
             if(table.Rows.Count>0)
             {
                 MainForm_Manager_ f = new MainForm_Manager_();
+                Global.SetID(userName_txt.Text);
+                Global.SetMana(2);
+                Global.SetRecep(4);
+                Global.SetLabor(6);
                 f.Show();
             }
             else
             {
                 MessageBox.Show("Inavailable username or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
     }
 }

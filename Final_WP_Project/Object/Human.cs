@@ -21,7 +21,7 @@ namespace Final_WP_Project
             mydb.closeConnection();
             return table;
         }
-        public bool InsertHummans(string id, string acc, string pass, string name, int phone, int age, string usertype )
+        public bool InsertHummans(string id, string acc, string pass, string name, int phone, int age, string usertype)
         {
             MY_DB my_db = new MY_DB();
             SqlCommand command = new SqlCommand("INSERT INTO Login VALUES( @id, @acc, @pass); INSERT INTO Employee(ID, Name, Phone,Age, UserType) VALUES(@id, @name, @phone, @age, @usertype); ");
@@ -42,6 +42,45 @@ namespace Final_WP_Project
             else
             {
                 my_db.closeConnection();
+                return false;
+            }
+        }
+        public bool UpdateHumans(string id, string name, int phone, int age, string usertype, string gender)
+        {
+            MY_DB mydb = new MY_DB();
+            SqlCommand command = new SqlCommand("UPDATE Employee SET id = @id, name = @name, phone = @phone, age = @age, Usertype = @usertype, gender = @gender WHERE id = @id", mydb.getConnection);
+            command.Parameters.Add("@id", SqlDbType.Int).Value = id;
+            command.Parameters.Add("@name", SqlDbType.VarChar).Value = name;
+            command.Parameters.Add("@phone", SqlDbType.VarChar).Value = phone;
+            command.Parameters.Add("@age", SqlDbType.Int).Value = age;
+            command.Parameters.Add("@Usertype", SqlDbType.VarChar).Value = usertype;
+            command.Parameters.Add("@gender", SqlDbType.VarChar).Value = gender;
+            mydb.openConnection();
+            if ((command.ExecuteNonQuery() == 1))
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
+                return false;
+            }
+        }
+        public bool deleteEmployee(string id)
+        {
+            MY_DB mydb = new MY_DB();
+            SqlCommand command = new SqlCommand("Delete from Employee where id = @id", mydb.getConnection);
+            command.Parameters.Add("@id", SqlDbType.NVarChar).Value = id;
+            mydb.openConnection();
+            if (command.ExecuteNonQuery() == 1)
+            {
+                mydb.closeConnection();
+                return true;
+            }
+            else
+            {
+                mydb.closeConnection();
                 return false;
             }
         }

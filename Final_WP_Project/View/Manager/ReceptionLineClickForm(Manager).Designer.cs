@@ -65,7 +65,9 @@ namespace Final_WP_Project.View
             this.label3 = new System.Windows.Forms.Label();
             this.cancel_btn = new System.Windows.Forms.Button();
             this.save_btn = new System.Windows.Forms.Button();
+            this.btn_remove = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
+            this.main_pn.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -175,16 +177,20 @@ namespace Final_WP_Project.View
             // 
             // main_pn
             // 
+            this.main_pn.Controls.Add(this.panel2);
             this.main_pn.Location = new System.Drawing.Point(1, 132);
             this.main_pn.Name = "main_pn";
             this.main_pn.Size = new System.Drawing.Size(2098, 902);
             this.main_pn.TabIndex = 9;
+            this.main_pn.Paint += new System.Windows.Forms.PaintEventHandler(this.main_pn_Paint);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.btn_remove);
+            this.panel2.Controls.Add(this.cancel_btn);
             this.panel2.Controls.Add(this.year_cb);
             this.panel2.Controls.Add(this.month_cb);
             this.panel2.Controls.Add(this.date_cb);
@@ -200,11 +206,10 @@ namespace Final_WP_Project.View
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.cancel_btn);
             this.panel2.Controls.Add(this.save_btn);
-            this.panel2.Location = new System.Drawing.Point(662, 208);
+            this.panel2.Location = new System.Drawing.Point(614, 118);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(723, 714);
+            this.panel2.Size = new System.Drawing.Size(896, 714);
             this.panel2.TabIndex = 23;
             // 
             // year_cb
@@ -232,6 +237,7 @@ namespace Final_WP_Project.View
             this.month_cb.Size = new System.Drawing.Size(135, 39);
             this.month_cb.TabIndex = 36;
             this.month_cb.Text = "Month";
+            this.month_cb.SelectedIndexChanged += new System.EventHandler(this.month_cb_SelectedIndexChanged);
             this.month_cb.Enter += new System.EventHandler(this.month_cb_Enter);
             this.month_cb.Leave += new System.EventHandler(this.month_cb_Leave);
             // 
@@ -322,7 +328,6 @@ namespace Final_WP_Project.View
             this.female_rbtn.Name = "female_rbtn";
             this.female_rbtn.Size = new System.Drawing.Size(108, 38);
             this.female_rbtn.TabIndex = 0;
-            this.female_rbtn.TabStop = true;
             this.female_rbtn.Text = "Female";
             this.female_rbtn.UseVisualStyleBackColor = true;
             // 
@@ -482,31 +487,47 @@ namespace Final_WP_Project.View
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.Window;
             this.label3.Font = new System.Drawing.Font("Poppins", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(30, 27);
+            this.label3.Location = new System.Drawing.Point(3, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(297, 58);
             this.label3.TabIndex = 0;
             this.label3.Text = "Edit Information";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // cancel_btn
             // 
             this.cancel_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel_btn.Location = new System.Drawing.Point(552, 36);
+            this.cancel_btn.Location = new System.Drawing.Point(535, 36);
             this.cancel_btn.Name = "cancel_btn";
-            this.cancel_btn.Size = new System.Drawing.Size(138, 44);
+            this.cancel_btn.Size = new System.Drawing.Size(161, 44);
             this.cancel_btn.TabIndex = 25;
             this.cancel_btn.Text = "Cancel";
             this.cancel_btn.UseVisualStyleBackColor = true;
+            this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
             // 
             // save_btn
             // 
             this.save_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.save_btn.Location = new System.Drawing.Point(384, 36);
+            this.save_btn.Location = new System.Drawing.Point(327, 36);
             this.save_btn.Name = "save_btn";
-            this.save_btn.Size = new System.Drawing.Size(151, 44);
+            this.save_btn.Size = new System.Drawing.Size(188, 44);
             this.save_btn.TabIndex = 24;
             this.save_btn.Text = "Save";
             this.save_btn.UseVisualStyleBackColor = true;
+            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
+            // 
+            // btn_remove
+            // 
+            this.btn_remove.BackColor = System.Drawing.Color.Red;
+            this.btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_remove.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_remove.Location = new System.Drawing.Point(713, 36);
+            this.btn_remove.Name = "btn_remove";
+            this.btn_remove.Size = new System.Drawing.Size(160, 44);
+            this.btn_remove.TabIndex = 26;
+            this.btn_remove.Text = "Remove";
+            this.btn_remove.UseVisualStyleBackColor = false;
+            this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
             // 
             // ReceptionLineClickForm_Manager_
             // 
@@ -514,13 +535,14 @@ namespace Final_WP_Project.View
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1033);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.main_pn);
             this.Name = "ReceptionLineClickForm_Manager_";
             this.Text = "ReceptionLineClickForm_Manager_";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.ReceptionLineClickForm_Manager__Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.main_pn.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -578,5 +600,6 @@ namespace Final_WP_Project.View
         private System.Windows.Forms.ComboBox date_cb;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel main_pn;
+        private System.Windows.Forms.Button btn_remove;
     }
 }

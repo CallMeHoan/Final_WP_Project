@@ -74,5 +74,44 @@ namespace Final_WP_Project.View
         {
 
         }
+
+        private void dataGirdview_Reception_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void edit_btn_Click(object sender, EventArgs e)
+        {
+            Select_Employee f = new Select_Employee();
+                        f.Show();
+        }
+
+        private void dataGirdview_Reception_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Human human = new Human();
+            SqlCommand command = new SqlCommand("Select id, name, phone, age, usertype, gender from Employee where id = @id");
+            command.Parameters.Add("@id", SqlDbType.NVarChar).Value = dataGirdview_Reception[0, e.RowIndex].Value.ToString();
+            DataTable table = human.gethummans(command);
+            int id; string name; int phone; string position; string gender; string age;
+            id = Convert.ToInt32(table.Rows[0][0]);
+            name = table.Rows[0][1].ToString();
+            phone = Convert.ToInt32(table.Rows[0][2].ToString());
+            age = table.Rows[0][3].ToString();
+            position = table.Rows[0][4].ToString();
+            gender = table.Rows[0][5].ToString();
+            ReceptionLineClickForm_Manager_ f = new ReceptionLineClickForm_Manager_(id, name, phone, position, gender, age);
+            f.Show();
+        }
+
+        private void refresh_btn_Click(object sender, EventArgs e)
+        {
+            ReceptionClickForm_Manager__Load(sender, e);
+        }
+
+        private void btn_remove_Click(object sender, EventArgs e)
+        {
+            Select_Employee f = new Select_Employee();
+            f.Show();
+        }
     }
 }

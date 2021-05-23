@@ -136,19 +136,88 @@ namespace Final_WP_Project.View.Manager
 
         private void submit_btn_Click(object sender, EventArgs e)
         {
-            Human employee= new Human();
-            DialogResult a = MessageBox.Show("Are you sure to add this employee?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-            if(a == DialogResult.Yes)
+            
+            Human employee = new Human();
+            string command1 = "";
+            if (position == "Manager")
             {
-                if(employee.InsertHummans(id.ToString(), userName_txt.Text, password_txt.Text, name, phone, age, position))
+                command1 = "Select Count(ID) From Employee where UserType = 'manager';";
+                SqlCommand command = new SqlCommand(command1);
+                DataTable table = employee.gethummans(command);
+                if (Convert.ToInt32(table.Rows[0][0]) >= Global.Mana)
                 {
-                    MessageBox.Show("Added Employee", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No more " + Global.Mana.ToString() + " Managers", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Check and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult a = MessageBox.Show("Are you sure to add this employee?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (a == DialogResult.Yes)
+                    {
+                        if (employee.InsertHummans(id.ToString(), userName_txt.Text, password_txt.Text, name, phone, age, position))
+                        {
+                            MessageBox.Show("Added Employee", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Check and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
                 }
             }
+            else if (position == "Reception")
+            {
+                command1 = "Select Count(ID) From Employee where UserType = 'reception';";
+                SqlCommand command = new SqlCommand(command1);
+                DataTable table = employee.gethummans(command);
+                if (Convert.ToInt32(table.Rows[0][0]) >= Global.Recep)
+                {
+                    MessageBox.Show("No more " + Global.Recep.ToString() + " Receptions", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    DialogResult a = MessageBox.Show("Are you sure to add this employee?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (a == DialogResult.Yes)
+                    {
+                        if (employee.InsertHummans(id.ToString(), userName_txt.Text, password_txt.Text, name, phone, age, position))
+                        {
+                            MessageBox.Show("Added Employee", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Check and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                command1 = "Select Count(ID) From Employee where UserType = 'labor';";
+                SqlCommand command = new SqlCommand(command1);
+                DataTable table = employee.gethummans(command);
+                if (Convert.ToInt32(table.Rows[0][0]) >= Global.Labor)
+                {
+                    MessageBox.Show("No more " + Global.Labor.ToString() + " Labors", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    DialogResult a = MessageBox.Show("Are you sure to add this employee?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    if (a == DialogResult.Yes)
+                    {
+                        if (employee.InsertHummans(id.ToString(), userName_txt.Text, password_txt.Text, name, phone, age, position))
+                        {
+                            MessageBox.Show("Added Employee", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Check and try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+
+
+
+
         }
 
         private void main_pn_Paint(object sender, PaintEventArgs e)

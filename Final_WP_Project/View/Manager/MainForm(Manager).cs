@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using Final_WP_Project.View.Manager;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +19,7 @@ namespace Final_WP_Project.View
             InitializeComponent();
             Style();
         }
-
+       
         #region style
         public void Style()
         {
@@ -48,6 +50,17 @@ namespace Final_WP_Project.View
         private void reception_btn_Click(object sender, EventArgs e)
         {
             ReceptionClickForm_Manager_ f = new ReceptionClickForm_Manager_();
+            f.Show();
+        }
+
+        private void MainForm_Manager__Load(object sender, EventArgs e)
+        {
+            lb_welcome.Text = "Welcome " + Global.GlobalId; 
+        }
+
+        private void schedule_btn_Click(object sender, EventArgs e)
+        {
+            Schedule f = new Schedule();
             f.Show();
         }
     }

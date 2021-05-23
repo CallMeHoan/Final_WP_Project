@@ -18,7 +18,18 @@ namespace Final_WP_Project.View
             Style();
             
         }
-
+        int id; string name; int phone; string position; string gender; string age;
+        public ReceptionLineClickForm_Manager_(int id, string name, int phone, string position, string gender, string age)
+        {
+            this.id = id;
+            this.name = name;
+            this.phone = phone;
+            this.position = position;
+            this.gender = gender;
+            this.age = age;
+            InitializeComponent();
+            Style();
+        }
         #region style
         /*These are styling form function*/
         public void Style()
@@ -206,5 +217,193 @@ namespace Final_WP_Project.View
         }
         #endregion
 
+        private void ReceptionLineClickForm_Manager__Load(object sender, EventArgs e)
+        {
+            int index = name.IndexOf(" ");
+           string a = name.Substring(0, index);
+            string b = name.Substring(index);      
+            firstName_txt.Text = a.Trim();
+             lastName_txt.Text = b.Trim();
+            receptionID_txt.Text = id.ToString();
+            phone_txt.Text = phone.ToString();
+            position_cb.Text = position;
+            date_cb.Text = "1";
+            month_cb.Text = "2";
+            if(gender.Contains("F"))
+            {
+                female_rbtn.Checked = true;
+            }
+            else if(gender.Trim()=="Male")
+            {
+                male_rbtn.Checked = true;
+            }
+            else
+            {
+                radioButton2.Checked = true;
+            }
+            int i = 2021;
+            for (; i > 1900; i--)
+            {
+                year_cb.Items.Add(i.ToString());
+            }
+            int j = 1;
+            for (; j <= 12; j++)
+            {
+                month_cb.Items.Add(j.ToString());
+            }
+            year_cb.Text = (DateTime.Now.Year - Convert.ToInt32(age)).ToString();
+        }
+
+        private void month_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            date_cb.Items.Clear();
+            switch (Convert.ToInt32(month_cb.Text))
+            {
+                case 1:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 2:
+                    if (DateTime.IsLeapYear(Convert.ToInt32(year_cb.Text)))
+                    {
+                        for (int t = 1; t <= 29; t++)
+                        {
+                            date_cb.Items.Add(t.ToString());
+                        }
+                    }
+                    else
+                    {
+                        for (int t = 1; t <= 28; t++)
+                        {
+                            date_cb.Items.Add(t.ToString());
+                        }
+                    }
+                    break;
+                case 3:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 4:
+                    for (int t = 1; t <= 30; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 5:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 6:
+                    for (int t = 1; t <= 30; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 7:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 8:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 9:
+                    for (int t = 1; t <= 30; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 10:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 11:
+                    for (int t = 1; t <= 30; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+                case 12:
+                    for (int t = 1; t <= 31; t++)
+                    {
+                        date_cb.Items.Add(t.ToString());
+                    }
+                    break;
+            }
+        }
+
+        private void save_btn_Click(object sender, EventArgs e)
+        {
+            Human human = new Human();
+            string a = firstName_txt.Text + " " + lastName_txt.Text;
+            string b;
+            if(male_rbtn.Checked)
+            {
+                b = "Male";
+
+            }
+            else if(female_rbtn.Checked)
+            {
+                b = "Female";
+            }
+            else
+            {
+                b = "Other";
+            }
+            if (human.UpdateHumans(id.ToString(),a , Convert.ToInt32(phone_txt.Text), DateTime.Now.Year - Convert.ToInt32(year_cb.Text), position_cb.Text, b))
+            {
+                MessageBox.Show("Employee Updated", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Try again", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void cancel_btn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void main_pn_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_remove_Click(object sender, EventArgs e)
+        {
+            Human h = new Human();
+            DialogResult a = MessageBox.Show("Are you sure to delete this employee?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (a == DialogResult.Yes)
+            {
+                    if (h.deleteEmployee(receptionID_txt.Text))
+                    {
+                        MessageBox.Show("Employee deleted!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Try again!", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+            }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
