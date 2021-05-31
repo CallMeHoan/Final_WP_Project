@@ -41,5 +41,20 @@ namespace Final_WP_Project.View.Manager
             a.FlatAppearance.BorderSize = 0;
         }
         #endregion
+
+        private void report_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void refresh_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ComputeSalaryClick_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

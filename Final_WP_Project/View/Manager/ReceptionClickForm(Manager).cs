@@ -113,5 +113,11 @@ namespace Final_WP_Project.View
             Select_Employee f = new Select_Employee();
             f.Show();
         }
+
+        private void computeSalary_btn_Click(object sender, EventArgs e)
+        {
+            Select_Employee f = new Select_Employee();
+            f.Show();
+        }
     }
 }

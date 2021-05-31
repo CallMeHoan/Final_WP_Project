@@ -39,6 +39,7 @@ namespace Final_WP_Project.View.Manager
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.printPaycheck_btn = new System.Windows.Forms.Panel();
+            this.btn_Save = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel80 = new System.Windows.Forms.Panel();
             this.panel73 = new System.Windows.Forms.Panel();
@@ -186,6 +187,7 @@ namespace Final_WP_Project.View.Manager
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.printPaycheck_btn.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -319,12 +321,26 @@ namespace Final_WP_Project.View.Manager
             // 
             // printPaycheck_btn
             // 
+            this.printPaycheck_btn.Controls.Add(this.btn_refresh);
+            this.printPaycheck_btn.Controls.Add(this.btn_Save);
             this.printPaycheck_btn.Controls.Add(this.panel3);
             this.printPaycheck_btn.Location = new System.Drawing.Point(1, 132);
             this.printPaycheck_btn.Name = "printPaycheck_btn";
             this.printPaycheck_btn.Size = new System.Drawing.Size(2098, 902);
             this.printPaycheck_btn.TabIndex = 29;
+            this.printPaycheck_btn.Click += new System.EventHandler(this.printPaycheck_btn_Click);
             this.printPaycheck_btn.Paint += new System.Windows.Forms.PaintEventHandler(this.printPaycheck_btn_Paint);
+            // 
+            // btn_Save
+            // 
+            this.btn_Save.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Save.Location = new System.Drawing.Point(34, 125);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(130, 51);
+            this.btn_Save.TabIndex = 28;
+            this.btn_Save.Text = "Save Schedule";
+            this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // panel3
             // 
@@ -1548,6 +1564,7 @@ namespace Final_WP_Project.View.Manager
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(188, 73);
             this.panel10.TabIndex = 3;
+            this.panel10.Click += new System.EventHandler(this.panel10_Click);
             this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
             // 
             // label8
@@ -1559,6 +1576,7 @@ namespace Final_WP_Project.View.Manager
             this.label8.Size = new System.Drawing.Size(93, 25);
             this.label8.TabIndex = 0;
             this.label8.Text = "View detail";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // panel9
             // 
@@ -1791,6 +1809,17 @@ namespace Final_WP_Project.View.Manager
             this.label3.Size = new System.Drawing.Size(83, 44);
             this.label3.TabIndex = 0;
             this.label3.Text = "Time";
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.Location = new System.Drawing.Point(34, 40);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(130, 55);
+            this.btn_refresh.TabIndex = 30;
+            this.btn_refresh.Text = "Refresh";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // Schedule
             // 
@@ -2026,5 +2055,7 @@ namespace Final_WP_Project.View.Manager
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel30;
         private System.Windows.Forms.Panel panel33;
+        private System.Windows.Forms.Button btn_Save;
+        private System.Windows.Forms.Button btn_refresh;
     }
 }

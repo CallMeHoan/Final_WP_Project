@@ -29,15 +29,16 @@ namespace Final_WP_Project.View.Manager
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClickSchdule_Schedule_));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_mana = new System.Windows.Forms.TextBox();
+            this.txt_recep = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_lab = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,6 +52,16 @@ namespace Final_WP_Project.View.Manager
             this.panel2 = new System.Windows.Forms.Panel();
             this.close_btn = new System.Windows.Forms.Button();
             this.save_btn = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.ckb_outEmp = new System.Windows.Forms.CheckBox();
+            this.ckb_out_Mana = new System.Windows.Forms.CheckBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lb_dow = new System.Windows.Forms.Label();
+            this.lb_hour = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -59,12 +70,16 @@ namespace Final_WP_Project.View.Manager
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.lb_dow);
+            this.panel1.Controls.Add(this.lb_hour);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-4, -4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(878, 87);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -87,6 +102,7 @@ namespace Final_WP_Project.View.Manager
             this.pictureBox1.Size = new System.Drawing.Size(40, 40);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label2
             // 
@@ -98,21 +114,23 @@ namespace Final_WP_Project.View.Manager
             this.label2.TabIndex = 2;
             this.label2.Text = "Manager:";
             // 
-            // textBox1
+            // txt_mana
             // 
-            this.textBox1.Location = new System.Drawing.Point(51, 152);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(292, 41);
-            this.textBox1.TabIndex = 6;
+            this.txt_mana.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_mana.Location = new System.Drawing.Point(51, 152);
+            this.txt_mana.Multiline = true;
+            this.txt_mana.Name = "txt_mana";
+            this.txt_mana.Size = new System.Drawing.Size(321, 41);
+            this.txt_mana.TabIndex = 6;
             // 
-            // textBox2
+            // txt_recep
             // 
-            this.textBox2.Location = new System.Drawing.Point(487, 152);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(292, 41);
-            this.textBox2.TabIndex = 8;
+            this.txt_recep.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_recep.Location = new System.Drawing.Point(487, 152);
+            this.txt_recep.Multiline = true;
+            this.txt_recep.Name = "txt_recep";
+            this.txt_recep.Size = new System.Drawing.Size(312, 41);
+            this.txt_recep.TabIndex = 8;
             // 
             // label3
             // 
@@ -124,13 +142,14 @@ namespace Final_WP_Project.View.Manager
             this.label3.TabIndex = 7;
             this.label3.Text = "Reception:";
             // 
-            // textBox3
+            // txt_lab
             // 
-            this.textBox3.Location = new System.Drawing.Point(51, 301);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(292, 41);
-            this.textBox3.TabIndex = 10;
+            this.txt_lab.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_lab.Location = new System.Drawing.Point(51, 301);
+            this.txt_lab.Multiline = true;
+            this.txt_lab.Name = "txt_lab";
+            this.txt_lab.Size = new System.Drawing.Size(321, 41);
+            this.txt_lab.TabIndex = 10;
             // 
             // label4
             // 
@@ -144,10 +163,11 @@ namespace Final_WP_Project.View.Manager
             // 
             // textBox4
             // 
+            this.textBox4.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(487, 301);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(292, 41);
+            this.textBox4.Size = new System.Drawing.Size(312, 41);
             this.textBox4.TabIndex = 12;
             // 
             // label5
@@ -162,10 +182,11 @@ namespace Final_WP_Project.View.Manager
             // 
             // textBox5
             // 
+            this.textBox5.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(51, 442);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(292, 41);
+            this.textBox5.Size = new System.Drawing.Size(321, 41);
             this.textBox5.TabIndex = 14;
             // 
             // label6
@@ -184,10 +205,11 @@ namespace Final_WP_Project.View.Manager
             this.manager_checkbox.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.manager_checkbox.Location = new System.Drawing.Point(51, 199);
             this.manager_checkbox.Name = "manager_checkbox";
-            this.manager_checkbox.Size = new System.Drawing.Size(193, 34);
+            this.manager_checkbox.Size = new System.Drawing.Size(109, 34);
             this.manager_checkbox.TabIndex = 15;
-            this.manager_checkbox.Text = "Check attendance";
+            this.manager_checkbox.Text = "Check in";
             this.manager_checkbox.UseVisualStyleBackColor = true;
+            this.manager_checkbox.CheckedChanged += new System.EventHandler(this.manager_checkbox_CheckedChanged);
             // 
             // reception_checkbox
             // 
@@ -195,10 +217,11 @@ namespace Final_WP_Project.View.Manager
             this.reception_checkbox.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reception_checkbox.Location = new System.Drawing.Point(487, 199);
             this.reception_checkbox.Name = "reception_checkbox";
-            this.reception_checkbox.Size = new System.Drawing.Size(193, 34);
+            this.reception_checkbox.Size = new System.Drawing.Size(109, 34);
             this.reception_checkbox.TabIndex = 16;
-            this.reception_checkbox.Text = "Check attendance";
+            this.reception_checkbox.Text = "Check in";
             this.reception_checkbox.UseVisualStyleBackColor = true;
+            this.reception_checkbox.CheckedChanged += new System.EventHandler(this.reception_checkbox_CheckedChanged);
             // 
             // emp1_checkbox
             // 
@@ -206,10 +229,11 @@ namespace Final_WP_Project.View.Manager
             this.emp1_checkbox.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp1_checkbox.Location = new System.Drawing.Point(51, 348);
             this.emp1_checkbox.Name = "emp1_checkbox";
-            this.emp1_checkbox.Size = new System.Drawing.Size(193, 34);
+            this.emp1_checkbox.Size = new System.Drawing.Size(109, 34);
             this.emp1_checkbox.TabIndex = 17;
-            this.emp1_checkbox.Text = "Check attendance";
+            this.emp1_checkbox.Text = "Check in";
             this.emp1_checkbox.UseVisualStyleBackColor = true;
+            this.emp1_checkbox.CheckedChanged += new System.EventHandler(this.emp1_checkbox_CheckedChanged);
             // 
             // emp2_checkbox
             // 
@@ -217,9 +241,9 @@ namespace Final_WP_Project.View.Manager
             this.emp2_checkbox.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp2_checkbox.Location = new System.Drawing.Point(487, 348);
             this.emp2_checkbox.Name = "emp2_checkbox";
-            this.emp2_checkbox.Size = new System.Drawing.Size(193, 34);
+            this.emp2_checkbox.Size = new System.Drawing.Size(109, 34);
             this.emp2_checkbox.TabIndex = 18;
-            this.emp2_checkbox.Text = "Check attendance";
+            this.emp2_checkbox.Text = "Check in";
             this.emp2_checkbox.UseVisualStyleBackColor = true;
             // 
             // emp3_checkbox
@@ -228,14 +252,16 @@ namespace Final_WP_Project.View.Manager
             this.emp3_checkbox.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emp3_checkbox.Location = new System.Drawing.Point(51, 489);
             this.emp3_checkbox.Name = "emp3_checkbox";
-            this.emp3_checkbox.Size = new System.Drawing.Size(193, 34);
+            this.emp3_checkbox.Size = new System.Drawing.Size(109, 34);
             this.emp3_checkbox.TabIndex = 19;
-            this.emp3_checkbox.Text = "Check attendance";
+            this.emp3_checkbox.Text = "Check in";
             this.emp3_checkbox.UseVisualStyleBackColor = true;
+            this.emp3_checkbox.CheckedChanged += new System.EventHandler(this.emp3_checkbox_CheckedChanged);
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.btn_refresh);
             this.panel2.Controls.Add(this.close_btn);
             this.panel2.Controls.Add(this.save_btn);
             this.panel2.Location = new System.Drawing.Point(-2, 540);
@@ -266,12 +292,121 @@ namespace Final_WP_Project.View.Manager
             this.save_btn.TabIndex = 1;
             this.save_btn.Text = "Save changes";
             this.save_btn.UseVisualStyleBackColor = true;
+            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(250, 489);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(122, 34);
+            this.checkBox1.TabIndex = 21;
+            this.checkBox1.Text = "Check out";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // ckb_outEmp
+            // 
+            this.ckb_outEmp.AutoSize = true;
+            this.ckb_outEmp.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_outEmp.Location = new System.Drawing.Point(250, 348);
+            this.ckb_outEmp.Name = "ckb_outEmp";
+            this.ckb_outEmp.Size = new System.Drawing.Size(122, 34);
+            this.ckb_outEmp.TabIndex = 22;
+            this.ckb_outEmp.Text = "Check out";
+            this.ckb_outEmp.UseVisualStyleBackColor = true;
+            // 
+            // ckb_out_Mana
+            // 
+            this.ckb_out_Mana.AutoSize = true;
+            this.ckb_out_Mana.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckb_out_Mana.Location = new System.Drawing.Point(250, 199);
+            this.ckb_out_Mana.Name = "ckb_out_Mana";
+            this.ckb_out_Mana.Size = new System.Drawing.Size(122, 34);
+            this.ckb_out_Mana.TabIndex = 23;
+            this.ckb_out_Mana.Text = "Check out";
+            this.ckb_out_Mana.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox4.Location = new System.Drawing.Point(677, 199);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(122, 34);
+            this.checkBox4.TabIndex = 24;
+            this.checkBox4.Text = "Check out";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox5.Location = new System.Drawing.Point(677, 348);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(122, 34);
+            this.checkBox5.TabIndex = 25;
+            this.checkBox5.Text = "Check out";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Poppins", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(486, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(25, 42);
+            this.label7.TabIndex = 11;
+            this.label7.Text = ",";
+            // 
+            // lb_dow
+            // 
+            this.lb_dow.AutoSize = true;
+            this.lb_dow.Font = new System.Drawing.Font("Poppins", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dow.Location = new System.Drawing.Point(304, 28);
+            this.lb_dow.Name = "lb_dow";
+            this.lb_dow.Size = new System.Drawing.Size(118, 42);
+            this.lb_dow.TabIndex = 9;
+            this.lb_dow.Text = "Monday";
+            // 
+            // lb_hour
+            // 
+            this.lb_hour.AutoSize = true;
+            this.lb_hour.Font = new System.Drawing.Font("Poppins", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_hour.Location = new System.Drawing.Point(517, 28);
+            this.lb_hour.Name = "lb_hour";
+            this.lb_hour.Size = new System.Drawing.Size(41, 42);
+            this.lb_hour.TabIndex = 7;
+            this.lb_hour.Text = "12";
+            this.lb_hour.Click += new System.EventHandler(this.lb_hour_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btn_refresh
+            // 
+            this.btn_refresh.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_refresh.Font = new System.Drawing.Font("Poppins", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.ForeColor = System.Drawing.Color.White;
+            this.btn_refresh.Location = new System.Drawing.Point(52, 19);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(136, 46);
+            this.btn_refresh.TabIndex = 26;
+            this.btn_refresh.Text = "Refresh";
+            this.btn_refresh.UseVisualStyleBackColor = false;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // ClickSchdule_Schedule_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 620);
+            this.Controls.Add(this.checkBox5);
+            this.Controls.Add(this.checkBox4);
+            this.Controls.Add(this.ckb_out_Mana);
+            this.Controls.Add(this.ckb_outEmp);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.emp3_checkbox);
             this.Controls.Add(this.emp2_checkbox);
@@ -282,17 +417,18 @@ namespace Final_WP_Project.View.Manager
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txt_lab);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_recep);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_mana);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ClickSchdule_Schedule_";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ClickSchdule_Schedule_";
+            this.Load += new System.EventHandler(this.ClickSchdule_Schedule__Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -308,10 +444,10 @@ namespace Final_WP_Project.View.Manager
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_mana;
+        private System.Windows.Forms.TextBox txt_recep;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_lab;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
@@ -325,5 +461,15 @@ namespace Final_WP_Project.View.Manager
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button close_btn;
         private System.Windows.Forms.Button save_btn;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox ckb_outEmp;
+        private System.Windows.Forms.CheckBox ckb_out_Mana;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lb_dow;
+        private System.Windows.Forms.Label lb_hour;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btn_refresh;
     }
 }

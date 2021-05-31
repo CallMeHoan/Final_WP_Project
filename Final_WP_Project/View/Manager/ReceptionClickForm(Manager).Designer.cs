@@ -46,6 +46,7 @@ namespace Final_WP_Project.View
             this.main_pn = new System.Windows.Forms.Panel();
             this.btn_remove = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.computeSalary_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGirdview_Reception)).BeginInit();
@@ -182,9 +183,9 @@ namespace Final_WP_Project.View
             // edit_btn
             // 
             this.edit_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.edit_btn.Location = new System.Drawing.Point(1147, 748);
+            this.edit_btn.Location = new System.Drawing.Point(884, 756);
             this.edit_btn.Name = "edit_btn";
-            this.edit_btn.Size = new System.Drawing.Size(151, 42);
+            this.edit_btn.Size = new System.Drawing.Size(174, 42);
             this.edit_btn.TabIndex = 19;
             this.edit_btn.Text = "Edit";
             this.edit_btn.UseVisualStyleBackColor = true;
@@ -193,9 +194,9 @@ namespace Final_WP_Project.View
             // refresh_btn
             // 
             this.refresh_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refresh_btn.Location = new System.Drawing.Point(1549, 880);
+            this.refresh_btn.Location = new System.Drawing.Point(1278, 756);
             this.refresh_btn.Name = "refresh_btn";
-            this.refresh_btn.Size = new System.Drawing.Size(151, 42);
+            this.refresh_btn.Size = new System.Drawing.Size(174, 42);
             this.refresh_btn.TabIndex = 20;
             this.refresh_btn.Text = "Refresh";
             this.refresh_btn.UseVisualStyleBackColor = true;
@@ -204,9 +205,9 @@ namespace Final_WP_Project.View
             // add_btn
             // 
             this.add_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_btn.Location = new System.Drawing.Point(951, 748);
+            this.add_btn.Location = new System.Drawing.Point(688, 756);
             this.add_btn.Name = "add_btn";
-            this.add_btn.Size = new System.Drawing.Size(151, 42);
+            this.add_btn.Size = new System.Drawing.Size(174, 42);
             this.add_btn.TabIndex = 18;
             this.add_btn.Text = "Add";
             this.add_btn.UseVisualStyleBackColor = true;
@@ -214,8 +215,10 @@ namespace Final_WP_Project.View
             // 
             // main_pn
             // 
+            this.main_pn.Controls.Add(this.computeSalary_btn);
             this.main_pn.Controls.Add(this.btn_remove);
             this.main_pn.Controls.Add(this.edit_btn);
+            this.main_pn.Controls.Add(this.refresh_btn);
             this.main_pn.Controls.Add(this.add_btn);
             this.main_pn.Location = new System.Drawing.Point(1, 132);
             this.main_pn.Name = "main_pn";
@@ -226,13 +229,24 @@ namespace Final_WP_Project.View
             // btn_remove
             // 
             this.btn_remove.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_remove.Location = new System.Drawing.Point(1341, 748);
+            this.btn_remove.Location = new System.Drawing.Point(1078, 756);
             this.btn_remove.Name = "btn_remove";
-            this.btn_remove.Size = new System.Drawing.Size(151, 42);
+            this.btn_remove.Size = new System.Drawing.Size(174, 42);
             this.btn_remove.TabIndex = 20;
             this.btn_remove.Text = "Remove";
             this.btn_remove.UseVisualStyleBackColor = true;
             this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
+            // 
+            // computeSalary_btn
+            // 
+            this.computeSalary_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.computeSalary_btn.Location = new System.Drawing.Point(1469, 756);
+            this.computeSalary_btn.Name = "computeSalary_btn";
+            this.computeSalary_btn.Size = new System.Drawing.Size(265, 42);
+            this.computeSalary_btn.TabIndex = 26;
+            this.computeSalary_btn.Text = "Compute salary";
+            this.computeSalary_btn.UseVisualStyleBackColor = true;
+            this.computeSalary_btn.Click += new System.EventHandler(this.computeSalary_btn_Click);
             // 
             // ReceptionClickForm_Manager_
             // 
@@ -242,7 +256,6 @@ namespace Final_WP_Project.View
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.refresh_btn);
             this.Controls.Add(this.main_pn);
             this.Name = "ReceptionClickForm_Manager_";
             this.Text = "ReceptionClickForm_Manager_";
@@ -276,5 +289,6 @@ namespace Final_WP_Project.View
         private System.Windows.Forms.DataGridView dataGirdview_Reception;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button btn_remove;
+        private System.Windows.Forms.Button computeSalary_btn;
     }
 }

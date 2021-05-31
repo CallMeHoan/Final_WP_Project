@@ -95,6 +95,7 @@ namespace Final_WP_Project.View.Manager
             this.report_btn.TabIndex = 8;
             this.report_btn.Text = "Report";
             this.report_btn.UseVisualStyleBackColor = false;
+            this.report_btn.Click += new System.EventHandler(this.report_btn_Click);
             // 
             // schedule_btn
             // 
@@ -180,17 +181,18 @@ namespace Final_WP_Project.View.Manager
             this.refresh_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refresh_btn.Location = new System.Drawing.Point(1226, 746);
             this.refresh_btn.Name = "refresh_btn";
-            this.refresh_btn.Size = new System.Drawing.Size(247, 42);
+            this.refresh_btn.Size = new System.Drawing.Size(247, 49);
             this.refresh_btn.TabIndex = 27;
             this.refresh_btn.Text = "Print paycheck";
             this.refresh_btn.UseVisualStyleBackColor = true;
+            this.refresh_btn.Click += new System.EventHandler(this.refresh_btn_Click);
             // 
             // Cancel_btn
             // 
             this.Cancel_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cancel_btn.Location = new System.Drawing.Point(1548, 746);
             this.Cancel_btn.Name = "Cancel_btn";
-            this.Cancel_btn.Size = new System.Drawing.Size(151, 42);
+            this.Cancel_btn.Size = new System.Drawing.Size(151, 49);
             this.Cancel_btn.TabIndex = 26;
             this.Cancel_btn.Text = "Cancel";
             this.Cancel_btn.UseVisualStyleBackColor = true;
@@ -466,6 +468,7 @@ namespace Final_WP_Project.View.Manager
             this.Name = "ComputeSalaryClick";
             this.Text = "ComputeSalaryClick";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.ComputeSalaryClick_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.printPaycheck_btn.ResumeLayout(false);

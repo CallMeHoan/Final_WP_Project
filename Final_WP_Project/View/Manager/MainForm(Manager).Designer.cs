@@ -29,17 +29,25 @@ namespace Final_WP_Project.View
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.report_btn = new System.Windows.Forms.Button();
             this.schedule_btn = new System.Windows.Forms.Button();
-            this.room_btn = new System.Windows.Forms.Button();
             this.employee_btn = new System.Windows.Forms.Button();
             this.reception_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lb_dow = new System.Windows.Forms.Label();
+            this.lb_minute = new System.Windows.Forms.Label();
+            this.lb_hour = new System.Windows.Forms.Label();
             this.lb_welcome = new System.Windows.Forms.Label();
             this.main_pn = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btn_room = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -47,9 +55,10 @@ namespace Final_WP_Project.View
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.btn_room);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.report_btn);
             this.panel1.Controls.Add(this.schedule_btn);
-            this.panel1.Controls.Add(this.room_btn);
             this.panel1.Controls.Add(this.employee_btn);
             this.panel1.Controls.Add(this.reception_btn);
             this.panel1.Controls.Add(this.label1);
@@ -59,6 +68,18 @@ namespace Final_WP_Project.View
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2112, 128);
             this.panel1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Window;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(1584, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(211, 128);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "View Schedule";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // report_btn
             // 
@@ -70,6 +91,7 @@ namespace Final_WP_Project.View
             this.report_btn.TabIndex = 8;
             this.report_btn.Text = "Report";
             this.report_btn.UseVisualStyleBackColor = false;
+            this.report_btn.Click += new System.EventHandler(this.report_btn_Click);
             // 
             // schedule_btn
             // 
@@ -79,20 +101,9 @@ namespace Final_WP_Project.View
             this.schedule_btn.Name = "schedule_btn";
             this.schedule_btn.Size = new System.Drawing.Size(196, 128);
             this.schedule_btn.TabIndex = 7;
-            this.schedule_btn.Text = "Schedule";
+            this.schedule_btn.Text = "Set Schedule";
             this.schedule_btn.UseVisualStyleBackColor = false;
             this.schedule_btn.Click += new System.EventHandler(this.schedule_btn_Click);
-            // 
-            // room_btn
-            // 
-            this.room_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.room_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.room_btn.Location = new System.Drawing.Point(1002, 0);
-            this.room_btn.Name = "room_btn";
-            this.room_btn.Size = new System.Drawing.Size(196, 128);
-            this.room_btn.TabIndex = 6;
-            this.room_btn.Text = "Room";
-            this.room_btn.UseVisualStyleBackColor = false;
             // 
             // employee_btn
             // 
@@ -104,6 +115,7 @@ namespace Final_WP_Project.View
             this.employee_btn.TabIndex = 5;
             this.employee_btn.Text = "Employee";
             this.employee_btn.UseVisualStyleBackColor = false;
+            this.employee_btn.Click += new System.EventHandler(this.employee_btn_Click);
             // 
             // reception_btn
             // 
@@ -146,11 +158,67 @@ namespace Final_WP_Project.View
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.lb_dow);
+            this.panel2.Controls.Add(this.lb_minute);
+            this.panel2.Controls.Add(this.lb_hour);
             this.panel2.Controls.Add(this.lb_welcome);
             this.panel2.Location = new System.Drawing.Point(548, 286);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(828, 509);
             this.panel2.TabIndex = 2;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Poppins", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(368, 232);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 50);
+            this.label7.TabIndex = 6;
+            this.label7.Text = ",";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Poppins", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(459, 232);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(30, 50);
+            this.label6.TabIndex = 5;
+            this.label6.Text = ":";
+            // 
+            // lb_dow
+            // 
+            this.lb_dow.AutoSize = true;
+            this.lb_dow.Font = new System.Drawing.Font("Poppins", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dow.Location = new System.Drawing.Point(208, 232);
+            this.lb_dow.Name = "lb_dow";
+            this.lb_dow.Size = new System.Drawing.Size(141, 50);
+            this.lb_dow.TabIndex = 4;
+            this.lb_dow.Text = "Monday";
+            // 
+            // lb_minute
+            // 
+            this.lb_minute.AutoSize = true;
+            this.lb_minute.Font = new System.Drawing.Font("Poppins", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_minute.Location = new System.Drawing.Point(486, 232);
+            this.lb_minute.Name = "lb_minute";
+            this.lb_minute.Size = new System.Drawing.Size(59, 50);
+            this.lb_minute.TabIndex = 3;
+            this.lb_minute.Text = "40";
+            // 
+            // lb_hour
+            // 
+            this.lb_hour.AutoSize = true;
+            this.lb_hour.Font = new System.Drawing.Font("Poppins", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_hour.Location = new System.Drawing.Point(404, 232);
+            this.lb_hour.Name = "lb_hour";
+            this.lb_hour.Size = new System.Drawing.Size(49, 50);
+            this.lb_hour.TabIndex = 2;
+            this.lb_hour.Text = "12";
             // 
             // lb_welcome
             // 
@@ -169,6 +237,22 @@ namespace Final_WP_Project.View
             this.main_pn.Size = new System.Drawing.Size(2098, 902);
             this.main_pn.TabIndex = 15;
             this.main_pn.Paint += new System.Windows.Forms.PaintEventHandler(this.main_pn_Paint);
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // btn_room
+            // 
+            this.btn_room.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_room.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_room.Location = new System.Drawing.Point(1000, 0);
+            this.btn_room.Name = "btn_room";
+            this.btn_room.Size = new System.Drawing.Size(200, 128);
+            this.btn_room.TabIndex = 6;
+            this.btn_room.Text = "Room";
+            this.btn_room.UseVisualStyleBackColor = false;
+            this.btn_room.Click += new System.EventHandler(this.btn_room_Click);
             // 
             // MainForm_Manager_
             // 
@@ -197,11 +281,18 @@ namespace Final_WP_Project.View
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button reception_btn;
         private System.Windows.Forms.Button employee_btn;
-        private System.Windows.Forms.Button room_btn;
         private System.Windows.Forms.Button schedule_btn;
         private System.Windows.Forms.Button report_btn;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lb_welcome;
         private System.Windows.Forms.Panel main_pn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lb_dow;
+        private System.Windows.Forms.Label lb_minute;
+        private System.Windows.Forms.Label lb_hour;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btn_room;
     }
 }

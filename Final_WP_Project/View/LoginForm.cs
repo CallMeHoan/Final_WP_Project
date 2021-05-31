@@ -83,6 +83,8 @@ namespace Final_WP_Project.View
                 Global.SetMana(2);
                 Global.SetRecep(4);
                 Global.SetLabor(6);
+                Global.SetLateSalary(20);
+                Global.SetAbsentSalary(30);
                 f.Show();
             }
             else
@@ -90,6 +92,11 @@ namespace Final_WP_Project.View
                 MessageBox.Show("Inavailable username or password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
+        }
+
+        private void submit_btn_MouseHover(object sender, EventArgs e)
+        {
+            submit_btn.BackColor = Color.FromArgb(48,182,251);
         }
     }
 }

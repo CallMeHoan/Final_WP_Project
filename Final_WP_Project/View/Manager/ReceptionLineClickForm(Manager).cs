@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Final_WP_Project.View.Manager.Employee_click;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -404,6 +405,12 @@ namespace Final_WP_Project.View
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Salary_btn_Click(object sender, EventArgs e)
+        {
+            SalaryCompute f = new SalaryCompute(id.ToString().Trim());
+            f.Show();
         }
     }
 }

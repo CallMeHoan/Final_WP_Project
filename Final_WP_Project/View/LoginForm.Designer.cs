@@ -99,7 +99,7 @@ namespace Final_WP_Project.View
             // login_pn
             // 
             this.login_pn.AutoSize = true;
-            this.login_pn.BackColor = System.Drawing.SystemColors.Control;
+            this.login_pn.BackColor = System.Drawing.Color.Transparent;
             this.login_pn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("login_pn.BackgroundImage")));
             this.login_pn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.login_pn.Controls.Add(this.panel3);
@@ -127,7 +127,7 @@ namespace Final_WP_Project.View
             // 
             // submit_btn
             // 
-            this.submit_btn.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.submit_btn.BackColor = System.Drawing.Color.Transparent;
             this.submit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.submit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.submit_btn.ForeColor = System.Drawing.Color.White;

@@ -41,6 +41,7 @@ namespace Final_WP_Project
             this.cbb_Select.Name = "cbb_Select";
             this.cbb_Select.Size = new System.Drawing.Size(214, 24);
             this.cbb_Select.TabIndex = 0;
+            this.cbb_Select.SelectedIndexChanged += new System.EventHandler(this.cbb_Select_SelectedIndexChanged);
             // 
             // btn_OK
             // 

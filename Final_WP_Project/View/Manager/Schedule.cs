@@ -49,13 +49,28 @@ namespace Final_WP_Project.View.Manager
             a.FlatStyle = 0;
         }
         #endregion
-
+        Label[,] A = new Label[10, 10];
+        string[,] AA = new string[8, 7];
+        bool noice = true;
         private void Schedule_Load(object sender, EventArgs e)
         {
            
             Notification_Schedule_ f = new Notification_Schedule_();
-            f.ShowDialog();
-            Label[,] A = new Label[10, 10];
+            if (noice == true)
+            {
+                f.ShowDialog();
+            }
+            noice = false;
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    this.Controls.Remove(A[i, j]);
+                    
+                   
+                }
+
+            } 
             int x0 = 323;
             int y0 = 219;
             int dx = 0;
@@ -124,6 +139,7 @@ namespace Final_WP_Project.View.Manager
 
             SqlCommand command2 = new SqlCommand("Select name from Employee where usertype = 'Labor'");
             DataTable table2 = h.gethummans(command2); // table chứa Lao công
+
             int k = 1;
             int k1 = 0;
             string te = "";
@@ -383,7 +399,13 @@ namespace Final_WP_Project.View.Manager
                 }
                 l = 0;
             }
-
+            //for(int i = 0; i <A[0,0].Text.Length;i++)
+            //{
+            //    if(A[0,0].Text[i]== '\n')
+            //    {
+            //        MessageBox.Show(i.ToString());
+            //    }
+            //}
             SqlCommand command3 = new SqlCommand("Select name,usertype from Employee where usertype = 'reception' or usertype = 'Manager'");
             DataTable table3 = h.gethummans(command3);
             SqlCommand command4 = new SqlCommand("Select name,usertype from Employee where usertype = 'Labor'");
@@ -400,16 +422,37 @@ namespace Final_WP_Project.View.Manager
                 A[i, 6].Text = table3.Rows[randomd][0].ToString() + "(" + table3.Rows[randomd][1].ToString().Substring(0, 5) + ")";
                 A[i, 6].Text += "\n" + table4.Rows[randomd][0].ToString() + "(" + table4.Rows[randomd][1].ToString().Substring(0, 5) + ")";
             }
+       
+
             for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 7; j++)
                 {
                     this.Controls.Add(A[i, j]);
                     A[i,j].BringToFront();
+                    AA[i, j] = A[i, j].Text;
                 }
                
             } // Xuất mảng label
 
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    if ((i == 0 && j != 6) || (i == 4 && j != 6))
+                    {
+                        int kk = 0;
+                        int[] S = new int[3];
+                        string[] arrListStr = AA[i, j].Split(')');
+                        string mana = arrListStr[0].Substring(0, arrListStr[0].Length - 6);
+                        string recep = arrListStr[1].Substring(0, arrListStr[1].Length - 6);
+                        string labo = arrListStr[2].Substring(0, arrListStr[2].Length - 4);
+                        // SqlCommand command = new SqlCommand("INSERT INTO WorkDay(EmployeeID, StartTime, EndTime, Attendance, DayofWeek) VALUES(@id, @start, @end, @attend, @week);");
+                        //MessageBox.Show(mana + " ?" + recep + " ?" + labo);
+
+                    }
+                }
+            }
         }
 
         private void printPaycheck_btn_Paint(object sender, PaintEventArgs e)
@@ -419,7 +462,7 @@ namespace Final_WP_Project.View.Manager
 
         private void panel10_Paint(object sender, PaintEventArgs e)
         {
-
+            
         }
 
         private void panel11_Paint(object sender, PaintEventArgs e)
@@ -435,6 +478,45 @@ namespace Final_WP_Project.View.Manager
         private void panel65_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel10_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void printPaycheck_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Save_Click(object sender, EventArgs e)
+        {
+            Human h = new Human();
+            DialogResult a = MessageBox.Show("Are you sure to save this schedule", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (a == DialogResult.Yes)
+            {
+                if (h.CreateSchedule(AA))
+                {
+                    MessageBox.Show("Added Schedule", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Global.SetSchedule(AA);
+                }
+                else
+                {
+                    MessageBox.Show("Error", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+        }
+
+        private void btn_refresh_Click(object sender, EventArgs e)
+        {
+            Schedule_Load(sender, e);
         }
     }
 

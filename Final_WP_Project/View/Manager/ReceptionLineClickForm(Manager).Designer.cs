@@ -40,6 +40,8 @@ namespace Final_WP_Project.View
             this.label2 = new System.Windows.Forms.Label();
             this.main_pn = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_remove = new System.Windows.Forms.Button();
+            this.cancel_btn = new System.Windows.Forms.Button();
             this.year_cb = new System.Windows.Forms.ComboBox();
             this.month_cb = new System.Windows.Forms.ComboBox();
             this.date_cb = new System.Windows.Forms.ComboBox();
@@ -63,9 +65,8 @@ namespace Final_WP_Project.View
             this.panel3 = new System.Windows.Forms.Panel();
             this.receptionID_txt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cancel_btn = new System.Windows.Forms.Button();
             this.save_btn = new System.Windows.Forms.Button();
-            this.btn_remove = new System.Windows.Forms.Button();
+            this.Salary_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.main_pn.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -81,6 +82,7 @@ namespace Final_WP_Project.View
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.Salary_btn);
             this.panel1.Controls.Add(this.report_btn);
             this.panel1.Controls.Add(this.schedule_btn);
             this.panel1.Controls.Add(this.room_btn);
@@ -211,6 +213,30 @@ namespace Final_WP_Project.View
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(896, 714);
             this.panel2.TabIndex = 23;
+            // 
+            // btn_remove
+            // 
+            this.btn_remove.BackColor = System.Drawing.Color.Red;
+            this.btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_remove.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_remove.Location = new System.Drawing.Point(713, 36);
+            this.btn_remove.Name = "btn_remove";
+            this.btn_remove.Size = new System.Drawing.Size(160, 44);
+            this.btn_remove.TabIndex = 26;
+            this.btn_remove.Text = "Remove";
+            this.btn_remove.UseVisualStyleBackColor = false;
+            this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
+            // 
+            // cancel_btn
+            // 
+            this.cancel_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_btn.Location = new System.Drawing.Point(535, 36);
+            this.cancel_btn.Name = "cancel_btn";
+            this.cancel_btn.Size = new System.Drawing.Size(161, 44);
+            this.cancel_btn.TabIndex = 25;
+            this.cancel_btn.Text = "Cancel";
+            this.cancel_btn.UseVisualStyleBackColor = true;
+            this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
             // 
             // year_cb
             // 
@@ -494,17 +520,6 @@ namespace Final_WP_Project.View
             this.label3.Text = "Edit Information";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // cancel_btn
-            // 
-            this.cancel_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel_btn.Location = new System.Drawing.Point(535, 36);
-            this.cancel_btn.Name = "cancel_btn";
-            this.cancel_btn.Size = new System.Drawing.Size(161, 44);
-            this.cancel_btn.TabIndex = 25;
-            this.cancel_btn.Text = "Cancel";
-            this.cancel_btn.UseVisualStyleBackColor = true;
-            this.cancel_btn.Click += new System.EventHandler(this.cancel_btn_Click);
-            // 
             // save_btn
             // 
             this.save_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -516,18 +531,17 @@ namespace Final_WP_Project.View
             this.save_btn.UseVisualStyleBackColor = true;
             this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
             // 
-            // btn_remove
+            // Salary_btn
             // 
-            this.btn_remove.BackColor = System.Drawing.Color.Red;
-            this.btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_remove.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_remove.Location = new System.Drawing.Point(713, 36);
-            this.btn_remove.Name = "btn_remove";
-            this.btn_remove.Size = new System.Drawing.Size(160, 44);
-            this.btn_remove.TabIndex = 26;
-            this.btn_remove.Text = "Remove";
-            this.btn_remove.UseVisualStyleBackColor = false;
-            this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
+            this.Salary_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.Salary_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Salary_btn.Location = new System.Drawing.Point(1585, 0);
+            this.Salary_btn.Name = "Salary_btn";
+            this.Salary_btn.Size = new System.Drawing.Size(196, 128);
+            this.Salary_btn.TabIndex = 22;
+            this.Salary_btn.Text = "Salary";
+            this.Salary_btn.UseVisualStyleBackColor = false;
+            this.Salary_btn.Click += new System.EventHandler(this.Salary_btn_Click);
             // 
             // ReceptionLineClickForm_Manager_
             // 
@@ -601,5 +615,6 @@ namespace Final_WP_Project.View
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel main_pn;
         private System.Windows.Forms.Button btn_remove;
+        private System.Windows.Forms.Button Salary_btn;
     }
 }
