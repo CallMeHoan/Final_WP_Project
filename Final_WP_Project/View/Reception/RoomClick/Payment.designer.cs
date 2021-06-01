@@ -30,10 +30,11 @@ namespace Final_WP_Project.View.Reception.Room
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.save_btn = new System.Windows.Forms.Button();
             this.cancel_btn = new System.Windows.Forms.Button();
             this.print_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -61,7 +62,6 @@ namespace Final_WP_Project.View.Reception.Room
             this.label13 = new System.Windows.Forms.Label();
             this.cusName_cb = new System.Windows.Forms.ComboBox();
             this.cusID_cb = new System.Windows.Forms.ComboBox();
-            this.save_btn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -92,6 +92,18 @@ namespace Final_WP_Project.View.Reception.Room
             this.panel2.Size = new System.Drawing.Size(1972, 110);
             this.panel2.TabIndex = 66;
             // 
+            // save_btn
+            // 
+            this.save_btn.Font = new System.Drawing.Font("Poppins", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.save_btn.ForeColor = System.Drawing.Color.White;
+            this.save_btn.Location = new System.Drawing.Point(858, 31);
+            this.save_btn.Name = "save_btn";
+            this.save_btn.Size = new System.Drawing.Size(200, 46);
+            this.save_btn.TabIndex = 3;
+            this.save_btn.Text = "Save changes";
+            this.save_btn.UseVisualStyleBackColor = true;
+            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
+            // 
             // cancel_btn
             // 
             this.cancel_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -115,6 +127,7 @@ namespace Final_WP_Project.View.Reception.Room
             this.print_btn.TabIndex = 1;
             this.print_btn.Text = "Print bill";
             this.print_btn.UseVisualStyleBackColor = true;
+            this.print_btn.Click += new System.EventHandler(this.print_btn_Click);
             // 
             // label1
             // 
@@ -135,6 +148,7 @@ namespace Final_WP_Project.View.Reception.Room
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2067, 87);
             this.panel1.TabIndex = 63;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label2
             // 
@@ -246,24 +260,24 @@ namespace Final_WP_Project.View.Reception.Room
             // 
             this.service_dgv.BackgroundColor = System.Drawing.Color.White;
             this.service_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.service_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.service_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.service_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.service_dgv.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.service_dgv.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.service_dgv.DefaultCellStyle = dataGridViewCellStyle6;
             this.service_dgv.Location = new System.Drawing.Point(1031, 149);
             this.service_dgv.Name = "service_dgv";
             this.service_dgv.RowHeadersVisible = false;
@@ -279,6 +293,7 @@ namespace Final_WP_Project.View.Reception.Room
             this.date_dtp.Name = "date_dtp";
             this.date_dtp.Size = new System.Drawing.Size(396, 37);
             this.date_dtp.TabIndex = 100;
+            this.date_dtp.Value = new System.DateTime(2021, 6, 1, 10, 45, 18, 0);
             // 
             // label9
             // 
@@ -359,6 +374,7 @@ namespace Final_WP_Project.View.Reception.Room
             // 
             // cusName_cb
             // 
+            this.cusName_cb.DisplayMember = "Name";
             this.cusName_cb.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cusName_cb.FormattingEnabled = true;
             this.cusName_cb.Location = new System.Drawing.Point(634, 208);
@@ -377,18 +393,6 @@ namespace Final_WP_Project.View.Reception.Room
             this.cusID_cb.Size = new System.Drawing.Size(125, 38);
             this.cusID_cb.TabIndex = 109;
             this.cusID_cb.SelectedIndexChanged += new System.EventHandler(this.cusID_cb_SelectedIndexChanged);
-            // 
-            // save_btn
-            // 
-            this.save_btn.Font = new System.Drawing.Font("Poppins", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.save_btn.ForeColor = System.Drawing.Color.White;
-            this.save_btn.Location = new System.Drawing.Point(858, 31);
-            this.save_btn.Name = "save_btn";
-            this.save_btn.Size = new System.Drawing.Size(200, 46);
-            this.save_btn.TabIndex = 3;
-            this.save_btn.Text = "Save changes";
-            this.save_btn.UseVisualStyleBackColor = true;
-            this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
             // 
             // Payment
             // 

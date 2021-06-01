@@ -30,8 +30,6 @@ namespace Final_WP_Project.View
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.report_btn = new System.Windows.Forms.Button();
-            this.schedule_btn = new System.Windows.Forms.Button();
             this.room_btn = new System.Windows.Forms.Button();
             this.employee_btn = new System.Windows.Forms.Button();
             this.reception_btn = new System.Windows.Forms.Button();
@@ -44,9 +42,11 @@ namespace Final_WP_Project.View
             this.refresh_btn = new System.Windows.Forms.Button();
             this.add_btn = new System.Windows.Forms.Button();
             this.main_pn = new System.Windows.Forms.Panel();
+            this.computeSalary_btn = new System.Windows.Forms.Button();
             this.btn_remove = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.computeSalary_btn = new System.Windows.Forms.Button();
+            this.schedule_btn = new System.Windows.Forms.Button();
+            this.report_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGirdview_Reception)).BeginInit();
@@ -69,28 +69,6 @@ namespace Final_WP_Project.View
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2112, 128);
             this.panel1.TabIndex = 15;
-            // 
-            // report_btn
-            // 
-            this.report_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.report_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.report_btn.Location = new System.Drawing.Point(1392, 0);
-            this.report_btn.Name = "report_btn";
-            this.report_btn.Size = new System.Drawing.Size(196, 128);
-            this.report_btn.TabIndex = 8;
-            this.report_btn.Text = "Report";
-            this.report_btn.UseVisualStyleBackColor = false;
-            // 
-            // schedule_btn
-            // 
-            this.schedule_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.schedule_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.schedule_btn.Location = new System.Drawing.Point(1197, 0);
-            this.schedule_btn.Name = "schedule_btn";
-            this.schedule_btn.Size = new System.Drawing.Size(196, 128);
-            this.schedule_btn.TabIndex = 7;
-            this.schedule_btn.Text = "Schedule";
-            this.schedule_btn.UseVisualStyleBackColor = false;
             // 
             // room_btn
             // 
@@ -226,6 +204,17 @@ namespace Final_WP_Project.View
             this.main_pn.TabIndex = 21;
             this.main_pn.Paint += new System.Windows.Forms.PaintEventHandler(this.main_pn_Paint);
             // 
+            // computeSalary_btn
+            // 
+            this.computeSalary_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.computeSalary_btn.Location = new System.Drawing.Point(1469, 756);
+            this.computeSalary_btn.Name = "computeSalary_btn";
+            this.computeSalary_btn.Size = new System.Drawing.Size(265, 42);
+            this.computeSalary_btn.TabIndex = 26;
+            this.computeSalary_btn.Text = "Compute salary";
+            this.computeSalary_btn.UseVisualStyleBackColor = true;
+            this.computeSalary_btn.Click += new System.EventHandler(this.computeSalary_btn_Click);
+            // 
             // btn_remove
             // 
             this.btn_remove.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -237,16 +226,27 @@ namespace Final_WP_Project.View
             this.btn_remove.UseVisualStyleBackColor = true;
             this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
             // 
-            // computeSalary_btn
+            // schedule_btn
             // 
-            this.computeSalary_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.computeSalary_btn.Location = new System.Drawing.Point(1469, 756);
-            this.computeSalary_btn.Name = "computeSalary_btn";
-            this.computeSalary_btn.Size = new System.Drawing.Size(265, 42);
-            this.computeSalary_btn.TabIndex = 26;
-            this.computeSalary_btn.Text = "Compute salary";
-            this.computeSalary_btn.UseVisualStyleBackColor = true;
-            this.computeSalary_btn.Click += new System.EventHandler(this.computeSalary_btn_Click);
+            this.schedule_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.schedule_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schedule_btn.Location = new System.Drawing.Point(1197, 0);
+            this.schedule_btn.Name = "schedule_btn";
+            this.schedule_btn.Size = new System.Drawing.Size(196, 128);
+            this.schedule_btn.TabIndex = 7;
+            this.schedule_btn.Text = "Schedule";
+            this.schedule_btn.UseVisualStyleBackColor = false;
+            // 
+            // report_btn
+            // 
+            this.report_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.report_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.report_btn.Location = new System.Drawing.Point(1392, 0);
+            this.report_btn.Name = "report_btn";
+            this.report_btn.Size = new System.Drawing.Size(196, 128);
+            this.report_btn.TabIndex = 8;
+            this.report_btn.Text = "Report";
+            this.report_btn.UseVisualStyleBackColor = false;
             // 
             // ReceptionClickForm_Manager_
             // 
@@ -273,8 +273,6 @@ namespace Final_WP_Project.View
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button report_btn;
-        private System.Windows.Forms.Button schedule_btn;
         private System.Windows.Forms.Button room_btn;
         private System.Windows.Forms.Button employee_btn;
         private System.Windows.Forms.Button reception_btn;
@@ -290,5 +288,7 @@ namespace Final_WP_Project.View
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button btn_remove;
         private System.Windows.Forms.Button computeSalary_btn;
+        private System.Windows.Forms.Button report_btn;
+        private System.Windows.Forms.Button schedule_btn;
     }
 }

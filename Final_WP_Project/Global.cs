@@ -18,9 +18,44 @@ namespace Final_WP_Project
         public static float LateSalary { get; private set; }
         public static float AbsentSalary { get; private set; }
         public static string[,] Schedule { get; private set; }
+        public static bool isManager { get; private set; }
+        public static string s1 { get; private set; }
+        public static string s2 { get; private set; }
+        public static string s3 { get; private set; }
+        public static string s4 { get; private set; }
+        public static string s5 { get; private set; }
+        public static string s6 { get; private set; }
         public static void SetID(string userid)
         {
             GlobalId = userid;
+        }
+        public static void s1a(string userid)
+        {
+            s1 = userid;
+        }
+        public static void s2a(string userid)
+        {
+            s2 = userid;
+        }
+        public static void s3a(string userid)
+        {
+            s3 = userid;
+        }
+        public static void s4a(string userid)
+        {
+            s4 = userid;
+        }
+        public static void s5a(string userid)
+        {
+            s5 = userid;
+        }
+        public static void s6a(string userid)
+        {
+            s6 = userid;
+        }
+        public static void GetBoolManager(bool ismana)
+        {
+            isManager = ismana;
         }
         public static void SetLateSalary(float lateSalaryy)
         {

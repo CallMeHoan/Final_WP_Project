@@ -50,7 +50,7 @@ namespace Final_WP_Project.View.Reception.RoomClick
             amount_txt.Text = "";
             unitprice_txt.Text = "";
             totalprice_txt.Text = "";
-            this.goodsTableAdapter.Fill(this.hotel_DatabaseDataSet.Goods);
+            import_Load(sender, e);
         }
         public bool Verify()
         {
@@ -83,7 +83,7 @@ namespace Final_WP_Project.View.Reception.RoomClick
 
             // TODO: This line of code loads data into the 'viduDataSet2.Goods' table. You can move, or remove it, as needed.
             Human h = new Human();
-            SqlCommand command = new SqlCommand("Select * from Goods");
+            SqlCommand command = new SqlCommand("Select Goodid, name, amount, unitprice from Goods");
             DataTable table = h.gethummans(command);
             dataGridView1.DataSource = table;
 
@@ -101,6 +101,11 @@ namespace Final_WP_Project.View.Reception.RoomClick
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

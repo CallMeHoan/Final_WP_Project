@@ -72,7 +72,17 @@ namespace Final_WP_Project.View
         private void submit_btn_Click(object sender, EventArgs e)
         {
             Human log = new Human();
-            SqlCommand command = new SqlCommand("SELECT * FROM login where Account = @Acc and Password = @Pass");
+            SqlCommand command = new SqlCommand("SELECT * FROM login where Account = @Acc and Password = @Pass and UserType =@u");
+            string u = "";
+            if(radioButton1.Checked)
+            {
+                u = "Reception"; 
+            }
+            else if(manager_rbtn.Checked)
+            {
+                u = "Manager";
+            }
+            command.Parameters.Add("@u", SqlDbType.NVarChar).Value= u;
             command.Parameters.Add("@Acc", SqlDbType.NVarChar).Value = userName_txt.Text;
             command.Parameters.Add("@Pass", SqlDbType.NVarChar).Value = password_txt.Text;
             DataTable table = log.gethummans(command);
@@ -85,6 +95,21 @@ namespace Final_WP_Project.View
                 Global.SetLabor(6);
                 Global.SetLateSalary(20);
                 Global.SetAbsentSalary(30);
+                Global.s1a("Please wear a mask and wash your hands entering the company");
+                Global.s2a("Come to work on time and be honest");
+                Global.s3a("Friendly, sociable and helping each other");
+                Global.s4a("Violating the law in the company will be severely punished");
+                Global.s5a("Safety first");
+                Global.s6a("Follow the rules");
+
+                if (u == "Manager")
+                {
+                    Global.GetBoolManager(true);
+                }
+                else
+                {
+                    Global.GetBoolManager(false);
+                }
                 f.Show();
             }
             else

@@ -31,7 +31,7 @@ namespace Final_WP_Project.View
             //no border button
             NoBorderButton(reception_btn);
             NoBorderButton(employee_btn);
-            NoBorderButton(room_btn);
+      
             NoBorderButton(schedule_btn);
             NoBorderButton(report_btn);
             
@@ -60,7 +60,11 @@ namespace Final_WP_Project.View
             lb_welcome.Text = "Welcome " + Global.GlobalId;
            timer1.Enabled = true;
             timer1.Start();
-
+            if(Global.isManager==false)
+            {
+                report_btn.Visible =false;
+                schedule_btn.Visible = false;
+            }
         }
 
         private void schedule_btn_Click(object sender, EventArgs e)
@@ -157,24 +161,27 @@ namespace Final_WP_Project.View
 
         private void report_btn_Click(object sender, EventArgs e)
         {
+            ReportClick f = new ReportClick();
+            f.Show();
 
         }
 
         private void employee_btn_Click(object sender, EventArgs e)
         {
-            //EmployeeClick f = new EmployeeClick();
-            RoomMain f = new RoomMain();
+            EmployeeClick f = new EmployeeClick();
             f.Show();
         }
 
         private void room_btn_Click(object sender, EventArgs e)
         {
-           
+            RoomMain f = new RoomMain();
+            f.Show();
         }
 
         private void btn_room_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("qưer");
+            RoomMain f = new RoomMain();
+            f.Show();
         }
     }
 }

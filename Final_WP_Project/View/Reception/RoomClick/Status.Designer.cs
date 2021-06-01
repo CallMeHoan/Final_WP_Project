@@ -44,13 +44,10 @@ namespace Final_WP_Project.View.Reception.RoomClick
             this.label4 = new System.Windows.Forms.Label();
             this.date_dtp = new System.Windows.Forms.DateTimePicker();
             this.id_cb = new System.Windows.Forms.ComboBox();
-         
             this.roomBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-   
             ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,6 +115,7 @@ namespace Final_WP_Project.View.Reception.RoomClick
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1054, 87);
             this.panel1.TabIndex = 63;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
@@ -187,23 +185,17 @@ namespace Final_WP_Project.View.Reception.RoomClick
             // 
             // id_cb
             // 
-            this.id_cb.DataSource = this.roomBindingSource;
-            this.id_cb.DisplayMember = "RoomID";
             this.id_cb.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.id_cb.FormattingEnabled = true;
             this.id_cb.Location = new System.Drawing.Point(68, 172);
             this.id_cb.Name = "id_cb";
             this.id_cb.Size = new System.Drawing.Size(211, 38);
             this.id_cb.TabIndex = 100;
-            // 
-            // viduDataSet
-            // 
-            
+            this.id_cb.SelectedIndexChanged += new System.EventHandler(this.id_cb_SelectedIndexChanged);
             // 
             // roomBindingSource
             // 
             this.roomBindingSource.DataMember = "Room";
-         
             // 
             // Status
             // 
@@ -228,7 +220,6 @@ namespace Final_WP_Project.View.Reception.RoomClick
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-     
             ((System.ComponentModel.ISupportInitialize)(this.roomBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

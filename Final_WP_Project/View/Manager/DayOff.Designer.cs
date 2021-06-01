@@ -48,6 +48,7 @@ namespace Final_WP_Project.View.Manager
             this.fulll = new System.Windows.Forms.Label();
             this.finee = new System.Windows.Forms.Label();
             this.cnn = new System.Windows.Forms.Label();
+            this.btn_notice = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.S0)).BeginInit();
             this.SuspendLayout();
@@ -207,11 +208,23 @@ namespace Final_WP_Project.View.Manager
             this.cnn.TabIndex = 8;
             this.cnn.Text = "label3";
             // 
+            // btn_notice
+            // 
+            this.btn_notice.Font = new System.Drawing.Font("Poppins", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_notice.Location = new System.Drawing.Point(589, 801);
+            this.btn_notice.Name = "btn_notice";
+            this.btn_notice.Size = new System.Drawing.Size(266, 66);
+            this.btn_notice.TabIndex = 9;
+            this.btn_notice.Text = "Add Notification";
+            this.btn_notice.UseVisualStyleBackColor = true;
+            this.btn_notice.Click += new System.EventHandler(this.btn_notice_Click);
+            // 
             // DayOff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1326, 911);
+            this.ClientSize = new System.Drawing.Size(1326, 995);
+            this.Controls.Add(this.btn_notice);
             this.Controls.Add(this.cnn);
             this.Controls.Add(this.finee);
             this.Controls.Add(this.fulll);
@@ -249,5 +262,6 @@ namespace Final_WP_Project.View.Manager
         private System.Windows.Forms.Label fulll;
         private System.Windows.Forms.Label finee;
         private System.Windows.Forms.Label cnn;
+        private System.Windows.Forms.Button btn_notice;
     }
 }

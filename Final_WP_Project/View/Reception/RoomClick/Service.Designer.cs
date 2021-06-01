@@ -31,9 +31,9 @@ namespace Final_WP_Project.View.Reception.Room
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Service));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.save_btn = new System.Windows.Forms.Button();
             this.add_btn = new System.Windows.Forms.Button();
@@ -45,19 +45,16 @@ namespace Final_WP_Project.View.Reception.Room
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.food_cb = new System.Windows.Forms.ComboBox();
             this.goodsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-       
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.unitprice_txt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.total_txt = new System.Windows.Forms.TextBox();
-       
             this.showService_dgv = new System.Windows.Forms.DataGridView();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).BeginInit();
-        
             ((System.ComponentModel.ISupportInitialize)(this.showService_dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,6 +145,7 @@ namespace Final_WP_Project.View.Reception.Room
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1054, 87);
             this.panel1.TabIndex = 38;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // pictureBox1
             // 
@@ -164,24 +162,17 @@ namespace Final_WP_Project.View.Reception.Room
             // 
             // food_cb
             // 
-            this.food_cb.DataSource = this.goodsBindingSource;
-            this.food_cb.DisplayMember = "Name";
             this.food_cb.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.food_cb.FormattingEnabled = true;
             this.food_cb.Location = new System.Drawing.Point(85, 152);
             this.food_cb.Name = "food_cb";
             this.food_cb.Size = new System.Drawing.Size(190, 38);
             this.food_cb.TabIndex = 56;
-            this.food_cb.ValueMember = "GoodID";
+            this.food_cb.SelectedIndexChanged += new System.EventHandler(this.food_cb_SelectedIndexChanged);
             // 
             // goodsBindingSource
             // 
             this.goodsBindingSource.DataMember = "Goods";
-       
-            // 
-            // viduDataSet2
-            // 
-         
             // 
             // label7
             // 
@@ -231,47 +222,46 @@ namespace Final_WP_Project.View.Reception.Room
             this.total_txt.Size = new System.Drawing.Size(150, 38);
             this.total_txt.TabIndex = 60;
             // 
-            // goodsTableAdapter
-            // 
-      
-            // 
             // showService_dgv
             // 
             this.showService_dgv.AllowUserToAddRows = false;
+            this.showService_dgv.AllowUserToDeleteRows = false;
             this.showService_dgv.BackgroundColor = System.Drawing.Color.White;
             this.showService_dgv.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.showService_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.showService_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.showService_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.showService_dgv.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.showService_dgv.DefaultCellStyle = dataGridViewCellStyle2;
             this.showService_dgv.Location = new System.Drawing.Point(85, 230);
             this.showService_dgv.Name = "showService_dgv";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.showService_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.showService_dgv.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.showService_dgv.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.showService_dgv.RowHeadersVisible = false;
             this.showService_dgv.RowHeadersWidth = 51;
             this.showService_dgv.RowTemplate.Height = 24;
             this.showService_dgv.Size = new System.Drawing.Size(736, 226);
             this.showService_dgv.TabIndex = 62;
+            this.showService_dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.showService_dgv_CellContentClick);
             // 
             // Service
             // 
@@ -299,7 +289,6 @@ namespace Final_WP_Project.View.Reception.Room
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).EndInit();
-       
             ((System.ComponentModel.ISupportInitialize)(this.showService_dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

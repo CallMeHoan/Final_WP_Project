@@ -78,7 +78,7 @@ namespace Final_WP_Project.View.Manager
                 {
                     cn += table.Rows[i][1].ToString().Trim() + ", ";
                 }
-                dataGridView1.Rows.Add(table.Rows[i][0], table.Rows[i][1], late, absent, present, late * Global.LateSalary, (Convert.ToInt32(table2.Rows[0][0]) * 2 * presentc + (present + late) * Convert.ToInt32(table2.Rows[0][0]) - (late * Global.LateSalary)).ToString());
+                dataGridView1.Rows.Add(table.Rows[i][0], table.Rows[i][1], late, absent, present, late * Global.LateSalary, (Convert.ToInt32(table2.Rows[0][0]) * 2 * presentc + (present + late) * Convert.ToInt32(table2.Rows[0][0]) - (late * Global.LateSalary)).ToString()+".000");
             }
             S0.Series["S0"].IsValueShownAsLabel = true;
             S0.Series["S0"].Points.AddXY("Absent", Convert.ToString(a*100/(a+p+l)));
@@ -106,6 +106,12 @@ namespace Final_WP_Project.View.Manager
         private void S0_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_notice_Click(object sender, EventArgs e)
+        {
+            ChangeText f = new ChangeText();
+            f.Show();
         }
     }
 }

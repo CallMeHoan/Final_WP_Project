@@ -55,6 +55,7 @@ namespace Final_WP_Project.View.Manager
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(808, 87);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -99,6 +100,7 @@ namespace Final_WP_Project.View.Manager
             this.label2.Size = new System.Drawing.Size(378, 39);
             this.label2.TabIndex = 2;
             this.label2.Text = "- Nhà bao việc cũng phải đi sớm";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -109,6 +111,7 @@ namespace Final_WP_Project.View.Manager
             this.label3.Size = new System.Drawing.Size(537, 39);
             this.label3.TabIndex = 3;
             this.label3.Text = "- Làm việc phải tập trung không sẽ bị trừ lương";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -179,6 +182,7 @@ namespace Final_WP_Project.View.Manager
             this.Name = "Notification_Schedule_";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Notification_Schedule_";
+            this.Load += new System.EventHandler(this.Notification_Schedule__Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

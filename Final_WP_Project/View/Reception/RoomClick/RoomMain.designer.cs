@@ -692,6 +692,7 @@ namespace Final_WP_Project.View.Reception
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(155, 140);
             this.panel13.TabIndex = 42;
+            this.panel13.Paint += new System.Windows.Forms.PaintEventHandler(this.panel13_Paint);
             this.panel13.DoubleClick += new System.EventHandler(this.panel13_DoubleClick);
             // 
             // panel11

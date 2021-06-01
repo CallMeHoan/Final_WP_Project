@@ -1573,5 +1573,10 @@ namespace Final_WP_Project.View.Reception
             Status status = new Status();
             status.Show();
         }
+
+        private void panel13_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

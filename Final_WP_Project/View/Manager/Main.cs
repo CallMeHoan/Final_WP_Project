@@ -55,6 +55,10 @@ namespace Final_WP_Project.View.Reception.Schedule
        
         private void Main_Load(object sender, EventArgs e)
         {
+            if(Global.isManager==false)
+            {
+                button3.Visible = false;
+            }
             int x0 = 333;
             int y0 = 219;
             int dx = 0;

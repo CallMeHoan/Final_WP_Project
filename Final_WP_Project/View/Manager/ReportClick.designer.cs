@@ -73,17 +73,18 @@ namespace Final_WP_Project.View.Manager
             this.refresh_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.refresh_btn.Location = new System.Drawing.Point(1255, 746);
             this.refresh_btn.Name = "refresh_btn";
-            this.refresh_btn.Size = new System.Drawing.Size(247, 42);
+            this.refresh_btn.Size = new System.Drawing.Size(247, 52);
             this.refresh_btn.TabIndex = 27;
             this.refresh_btn.Text = "Print paycheck";
             this.refresh_btn.UseVisualStyleBackColor = true;
+            this.refresh_btn.Click += new System.EventHandler(this.refresh_btn_Click);
             // 
             // Cancel_btn
             // 
             this.Cancel_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Cancel_btn.Location = new System.Drawing.Point(1577, 746);
             this.Cancel_btn.Name = "Cancel_btn";
-            this.Cancel_btn.Size = new System.Drawing.Size(151, 42);
+            this.Cancel_btn.Size = new System.Drawing.Size(151, 52);
             this.Cancel_btn.TabIndex = 26;
             this.Cancel_btn.Text = "Cancel";
             this.Cancel_btn.UseVisualStyleBackColor = true;
@@ -194,6 +195,7 @@ namespace Final_WP_Project.View.Manager
             this.printPaycheck_btn.Name = "printPaycheck_btn";
             this.printPaycheck_btn.Size = new System.Drawing.Size(2098, 902);
             this.printPaycheck_btn.TabIndex = 32;
+            this.printPaycheck_btn.Paint += new System.Windows.Forms.PaintEventHandler(this.printPaycheck_btn_Paint);
             // 
             // panel2
             // 

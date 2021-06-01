@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -47,7 +48,7 @@ namespace Final_WP_Project.View.Reception.RoomClick
             food_cb.Text = "";
             amount_txt.Text = "";
             unitprice_txt.Text = "";
-            this.goodsTableAdapter.Fill(this.viduDataSet1.Goods);
+            updateGoods_Load(sender, e);
         }
         public bool Verify()
         {
@@ -61,14 +62,23 @@ namespace Final_WP_Project.View.Reception.RoomClick
             {
                 return true;
             }
-
+          
         }
 
         private void updateGoods_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'viduDataSet1.Goods' table. You can move, or remove it, as needed.
-            this.goodsTableAdapter.Fill(this.viduDataSet1.Goods);
+            Human h = new Human();
+            SqlCommand command = new SqlCommand("Select Goodid, name, amount, unitprice from Goods");
+            DataTable table = h.gethummans(command);
+            dataGridView1.DataSource = table;
 
+           
+            SqlCommand command1 = new SqlCommand("Select name from Goods");
+            DataTable table1 = h.gethummans(command1);
+            for(int i = 0;i < table1.Rows.Count;i++)
+            {
+                food_cb.Items.Add(table1.Rows[i][0].ToString());
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -89,6 +99,21 @@ namespace Final_WP_Project.View.Reception.RoomClick
                 totalprice_txt.Text = res.ToString() + ".000";
             }
             catch { }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void food_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

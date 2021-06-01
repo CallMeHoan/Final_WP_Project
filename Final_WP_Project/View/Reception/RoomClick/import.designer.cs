@@ -240,6 +240,7 @@ namespace Final_WP_Project.View.Reception.RoomClick
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(694, 222);
             this.dataGridView1.TabIndex = 74;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // goodsBindingSource1
             // 
@@ -289,7 +290,7 @@ namespace Final_WP_Project.View.Reception.RoomClick
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotel_DatabaseDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goodsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.viduDataSet2BindingSource)).EndInit();
+           
             this.ResumeLayout(false);
             this.PerformLayout();
 

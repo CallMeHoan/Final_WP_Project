@@ -81,7 +81,7 @@ namespace Final_WP_Project.View.Manager
                 {
                     Label label = new Label();
                     label.AutoSize = true;
-                    label.Text = "Dat(5)\n" + "Hoan(6)\n" + "Vu(1), Duc(2), An(3)";
+                  //  label.Text = "Dat(5)\n" + "Hoan(6)\n" + "Vu(1), Duc(2), An(3)";
                     label.Location = new Point(x0 + dx, y0 +dy);
                     label.Font = new Font("Poppins", 8);
                     if (i <= 3 && j<=5)

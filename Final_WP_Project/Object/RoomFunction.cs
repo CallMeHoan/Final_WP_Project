@@ -228,8 +228,8 @@ namespace Final_WP_Project.Object
             SqlCommand command = new SqlCommand("INSERT INTO Bill (RoomID, CustomerID, Service, RoomPrice, Total) VALUES(@rid, @cusid, @service, @rMoney, @total); ");
             command.Connection = my_db.getConnection;
             my_db.openConnection();
-            command.Parameters.Add("@rid", SqlDbType.Int).Value = rid;
-            command.Parameters.Add("@cusid", SqlDbType.Int).Value = cusid;
+            command.Parameters.Add("@rid", SqlDbType.NVarChar).Value = rid;
+            command.Parameters.Add("@cusid", SqlDbType.NVarChar).Value = cusid;
             command.Parameters.Add("@service", SqlDbType.Money).Value = service;
             command.Parameters.Add("@rMoney", SqlDbType.Money).Value = roomMoney;
             command.Parameters.Add("@total", SqlDbType.Money).Value = total;

@@ -32,7 +32,10 @@ namespace Final_WP_Project.View.Reception.Room
         public void add_btn_Click(object sender, EventArgs e)
         {
             int amount = Convert.ToInt32(amount_txt.Text);
-            string gid = food_cb.SelectedValue.ToString();
+            SqlCommand command = new SqlCommand("Select Goodid from goods where name = '" + food_cb.Text + "'");
+            Human h = new Human();
+            DataTable table = h.gethummans(command);
+            string gid = table.Rows[0][0].ToString();
 
             if (Verify())
             {
@@ -105,7 +108,13 @@ namespace Final_WP_Project.View.Reception.Room
         private void Service_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'viduDataSet2.Goods' table. You can move, or remove it, as needed.
-            this.goodsTableAdapter.Fill(this.viduDataSet2.Goods);
+            SqlCommand command = new SqlCommand("Select Name from Goods");
+            Human h = new Human();
+            DataTable table = h.gethummans(command);
+            for(int i = 0; i < table.Rows.Count;i++)
+            {
+                food_cb.Items.Add(table.Rows[i][0].ToString());
+            }
 
         }
         void LoadData(string cmd)
@@ -142,5 +151,22 @@ namespace Final_WP_Project.View.Reception.Room
             Close();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void food_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlCommand command = new SqlCommand("Select Unitprice from goods where name = '"+food_cb.Text+"'");
+            Human h = new Human();
+            DataTable table = h.gethummans(command);
+            unitprice_txt.Text = table.Rows[0][0].ToString();
+        }
+
+        private void showService_dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

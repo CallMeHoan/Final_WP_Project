@@ -31,6 +31,7 @@ namespace Final_WP_Project.View
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_room = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.report_btn = new System.Windows.Forms.Button();
             this.schedule_btn = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@ namespace Final_WP_Project.View
             this.lb_welcome = new System.Windows.Forms.Label();
             this.main_pn = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn_room = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -69,11 +69,23 @@ namespace Final_WP_Project.View
             this.panel1.Size = new System.Drawing.Size(2112, 128);
             this.panel1.TabIndex = 0;
             // 
+            // btn_room
+            // 
+            this.btn_room.BackColor = System.Drawing.SystemColors.Window;
+            this.btn_room.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_room.Location = new System.Drawing.Point(1000, 0);
+            this.btn_room.Name = "btn_room";
+            this.btn_room.Size = new System.Drawing.Size(200, 128);
+            this.btn_room.TabIndex = 6;
+            this.btn_room.Text = "Room";
+            this.btn_room.UseVisualStyleBackColor = false;
+            this.btn_room.Click += new System.EventHandler(this.btn_room_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Window;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1584, 0);
+            this.button1.Location = new System.Drawing.Point(1195, 0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(211, 128);
             this.button1.TabIndex = 9;
@@ -85,7 +97,7 @@ namespace Final_WP_Project.View
             // 
             this.report_btn.BackColor = System.Drawing.SystemColors.Window;
             this.report_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.report_btn.Location = new System.Drawing.Point(1392, 0);
+            this.report_btn.Location = new System.Drawing.Point(1594, 0);
             this.report_btn.Name = "report_btn";
             this.report_btn.Size = new System.Drawing.Size(196, 128);
             this.report_btn.TabIndex = 8;
@@ -97,7 +109,7 @@ namespace Final_WP_Project.View
             // 
             this.schedule_btn.BackColor = System.Drawing.SystemColors.Window;
             this.schedule_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.schedule_btn.Location = new System.Drawing.Point(1197, 0);
+            this.schedule_btn.Location = new System.Drawing.Point(1402, 0);
             this.schedule_btn.Name = "schedule_btn";
             this.schedule_btn.Size = new System.Drawing.Size(196, 128);
             this.schedule_btn.TabIndex = 7;
@@ -241,18 +253,6 @@ namespace Final_WP_Project.View
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btn_room
-            // 
-            this.btn_room.BackColor = System.Drawing.SystemColors.Window;
-            this.btn_room.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_room.Location = new System.Drawing.Point(1000, 0);
-            this.btn_room.Name = "btn_room";
-            this.btn_room.Size = new System.Drawing.Size(200, 128);
-            this.btn_room.TabIndex = 6;
-            this.btn_room.Text = "Room";
-            this.btn_room.UseVisualStyleBackColor = false;
-            this.btn_room.Click += new System.EventHandler(this.btn_room_Click);
             // 
             // MainForm_Manager_
             // 
