@@ -25,6 +25,7 @@ namespace Final_WP_Project
         public static string s4 { get; private set; }
         public static string s5 { get; private set; }
         public static string s6 { get; private set; }
+        public static string RoomID { get; private set; }
         public static void SetID(string userid)
         {
             GlobalId = userid;
@@ -93,6 +94,10 @@ namespace Final_WP_Project
         public static void SetSchedule(string[,] Schedulee)
         {
             Schedule = Schedulee;
+        }
+        public static void SetRoomID( string roomid)
+        {
+            RoomID = roomid;
         }
     }
 }

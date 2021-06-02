@@ -223,7 +223,7 @@ namespace Final_WP_Project.Object
                 my_db.closeConnection();
             }
         }
-        public bool Bill(int rid, string cusid, double service, double roomMoney, double total)
+        public bool Bill(string rid, string cusid, double service, double roomMoney, double total)
         {
             SqlCommand command = new SqlCommand("INSERT INTO Bill (RoomID, CustomerID, Service, RoomPrice, Total) VALUES(@rid, @cusid, @service, @rMoney, @total); ");
             command.Connection = my_db.getConnection;
@@ -233,6 +233,28 @@ namespace Final_WP_Project.Object
             command.Parameters.Add("@service", SqlDbType.Money).Value = service;
             command.Parameters.Add("@rMoney", SqlDbType.Money).Value = roomMoney;
             command.Parameters.Add("@total", SqlDbType.Money).Value = total;
+            if ((command.ExecuteNonQuery() == 1))
+            {
+                my_db.closeConnection();
+                return true;
+            }
+            else
+            {
+                my_db.closeConnection();
+                return false;
+            }
+        }
+        public bool UpdateBooking(string empid, string roomid, string cusid, TimeSpan start, TimeSpan end, string date)
+        {
+            SqlCommand command = new SqlCommand("  Update Booking set State = 'Paid' where EmployeeID = @empID and RoomID = @RoomID and CustomerID = @CusID and StartTime = @start and EndTime = @end and Date = @date");
+            command.Connection = my_db.getConnection;
+            my_db.openConnection();
+            command.Parameters.Add("@empID", SqlDbType.NVarChar).Value = empid;
+            command.Parameters.Add("@RoomID", SqlDbType.NVarChar).Value = roomid;
+            command.Parameters.Add("@CusID", SqlDbType.NVarChar).Value = cusid;
+            command.Parameters.Add("@start", SqlDbType.Time).Value = start;
+            command.Parameters.Add("@end", SqlDbType.Time).Value = end;
+            command.Parameters.Add("@date", SqlDbType.Date).Value = date;
             if ((command.ExecuteNonQuery() == 1))
             {
                 my_db.closeConnection();

@@ -41,8 +41,6 @@ namespace Final_WP_Project.View.Reception.Room
             this.label7 = new System.Windows.Forms.Label();
             this.empID_txt = new System.Windows.Forms.TextBox();
             this.roomID_txt = new System.Windows.Forms.TextBox();
-            this.cusID_txt = new System.Windows.Forms.TextBox();
-            this.cusName_txt = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -57,6 +55,8 @@ namespace Final_WP_Project.View.Reception.Room
             this.label9 = new System.Windows.Forms.Label();
             this.label = new System.Windows.Forms.Label();
             this.cmnd_txt = new System.Windows.Forms.TextBox();
+            this.cusID_cb = new System.Windows.Forms.ComboBox();
+            this.cusName_cb = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -174,24 +174,6 @@ namespace Final_WP_Project.View.Reception.Room
             this.roomID_txt.Size = new System.Drawing.Size(123, 38);
             this.roomID_txt.TabIndex = 89;
             // 
-            // cusID_txt
-            // 
-            this.cusID_txt.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cusID_txt.Location = new System.Drawing.Point(263, 210);
-            this.cusID_txt.Multiline = true;
-            this.cusID_txt.Name = "cusID_txt";
-            this.cusID_txt.Size = new System.Drawing.Size(123, 38);
-            this.cusID_txt.TabIndex = 90;
-            // 
-            // cusName_txt
-            // 
-            this.cusName_txt.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cusName_txt.Location = new System.Drawing.Point(673, 210);
-            this.cusName_txt.Multiline = true;
-            this.cusName_txt.Name = "cusName_txt";
-            this.cusName_txt.Size = new System.Drawing.Size(323, 38);
-            this.cusName_txt.TabIndex = 91;
-            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -201,7 +183,6 @@ namespace Final_WP_Project.View.Reception.Room
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1054, 87);
             this.panel1.TabIndex = 94;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -342,11 +323,35 @@ namespace Final_WP_Project.View.Reception.Room
             this.cmnd_txt.Size = new System.Drawing.Size(148, 38);
             this.cmnd_txt.TabIndex = 105;
             // 
+            // cusID_cb
+            // 
+            this.cusID_cb.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cusID_cb.FormattingEnabled = true;
+            this.cusID_cb.Location = new System.Drawing.Point(259, 210);
+            this.cusID_cb.Name = "cusID_cb";
+            this.cusID_cb.Size = new System.Drawing.Size(125, 38);
+            this.cusID_cb.TabIndex = 111;
+            this.cusID_cb.SelectedIndexChanged += new System.EventHandler(this.cusID_cb_SelectedIndexChanged);
+            // 
+            // cusName_cb
+            // 
+            this.cusName_cb.DisplayMember = "Name";
+            this.cusName_cb.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cusName_cb.FormattingEnabled = true;
+            this.cusName_cb.Location = new System.Drawing.Point(669, 210);
+            this.cusName_cb.Name = "cusName_cb";
+            this.cusName_cb.Size = new System.Drawing.Size(323, 38);
+            this.cusName_cb.TabIndex = 110;
+            this.cusName_cb.ValueMember = "Name";
+            this.cusName_cb.SelectedIndexChanged += new System.EventHandler(this.cusName_cb_SelectedIndexChanged);
+            // 
             // Booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1021, 682);
+            this.Controls.Add(this.cusID_cb);
+            this.Controls.Add(this.cusName_cb);
             this.Controls.Add(this.cmnd_txt);
             this.Controls.Add(this.phone_txt);
             this.Controls.Add(this.label9);
@@ -357,8 +362,6 @@ namespace Final_WP_Project.View.Reception.Room
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.cusName_txt);
-            this.Controls.Add(this.cusID_txt);
             this.Controls.Add(this.roomID_txt);
             this.Controls.Add(this.empID_txt);
             this.Controls.Add(this.label7);
@@ -372,6 +375,7 @@ namespace Final_WP_Project.View.Reception.Room
             this.Name = "Booking";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Booking";
+            this.Load += new System.EventHandler(this.Booking_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -395,8 +399,6 @@ namespace Final_WP_Project.View.Reception.Room
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox empID_txt;
         private System.Windows.Forms.TextBox roomID_txt;
-        private System.Windows.Forms.TextBox cusID_txt;
-        private System.Windows.Forms.TextBox cusName_txt;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -411,5 +413,7 @@ namespace Final_WP_Project.View.Reception.Room
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.TextBox cmnd_txt;
+        public System.Windows.Forms.ComboBox cusID_cb;
+        public System.Windows.Forms.ComboBox cusName_cb;
     }
 }

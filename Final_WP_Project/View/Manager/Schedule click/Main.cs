@@ -57,6 +57,8 @@ namespace Final_WP_Project.View.Reception.Schedule
        
         private void Main_Load(object sender, EventArgs e)
         {
+            Notification_Schedule_ f = new Notification_Schedule_();
+            f.ShowDialog();
             if (Global.isManager == false)
             {
                 reception_btn.Visible = false;

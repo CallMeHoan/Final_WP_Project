@@ -1,8 +1,10 @@
-﻿using Final_WP_Project.Object;
+﻿using Final_WP_Project.Model;
+using Final_WP_Project.Object;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -14,6 +16,7 @@ namespace Final_WP_Project.View.Reception.Room
 {
     public partial class Booking : Form
     {
+        MY_DB mydb = new MY_DB();
         public Booking()
         {
             InitializeComponent();
@@ -25,8 +28,8 @@ namespace Final_WP_Project.View.Reception.Room
             RoomFunction room = new RoomFunction();
             string EmpID = empID_txt.Text;
             string RoomID = roomID_txt.Text;
-            string CusID = cusID_txt.Text;
-            string name = cusName_txt.Text;
+            string CusID = cusID_cb.Text;
+            string name = cusName_cb.Text;
             string phone = phone_txt.Text;
             string cmnd = cmnd_txt.Text;
             string start = start_dtp.Text;
@@ -86,8 +89,8 @@ namespace Final_WP_Project.View.Reception.Room
         {
             if ((empID_txt.Text.Trim() == "")
                 || (roomID_txt.Text.Trim() == "")
-                || (cusID_txt.Text.Trim() == "")
-                || (cusName_txt.Text.Trim() == "")
+                || (cusID_cb.Text.Trim() == "")
+                || (cusName_cb.Text.Trim() == "")
                 || (phone_txt.Text.Trim() == "")
                 || (cmnd_txt.Text.Trim() == "")
                 || (date_dtp.Text.Trim() == "")
@@ -113,9 +116,52 @@ namespace Final_WP_Project.View.Reception.Room
             Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Booking_Load(object sender, EventArgs e)
         {
+            Human h = new Human();
+            roomID_txt.Text = Global.RoomID;
+            SqlCommand cmd = new SqlCommand("Select id from Login where Account = '"+ Global.GlobalId +"'");
+            DataTable dt = h.gethummans(cmd);
+            empID_txt.Text = dt.Rows[0][0].ToString();
 
+
+            SqlCommand loaddata = new SqlCommand("Select CustomerID, Name from Customer");
+            DataTable dtt = h.gethummans(loaddata);
+            for (int i = 0; i < dtt.Rows.Count; i++)
+            {
+                cusID_cb.Items.Add(dtt.Rows[i][0]);
+                cusName_cb.Items.Add(dtt.Rows[i][1]);
+            }
+
+        }
+
+        private void cusID_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Load data
+            Human h = new Human();
+            string cmd = "Select Name, Phone, CMND from Customer where CustomerID = '" + cusID_cb.Text + "'";
+            SqlCommand command = new SqlCommand(cmd, mydb.getConnection);
+            DataTable dt = new DataTable();
+            dt = h.gethummans(command);
+
+            cusName_cb.Text = dt.Rows[0][0].ToString();
+            phone_txt.Text = dt.Rows[0][1].ToString();
+            cmnd_txt.Text = dt.Rows[0][2].ToString();
+
+        }
+
+        private void cusName_cb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Load data
+            Human h = new Human();
+            string cmd = "Select CustomerID, Phone, CMND from Customer where Name ='" + cusName_cb.Text + "'";
+            SqlCommand command = new SqlCommand(cmd, mydb.getConnection);
+            DataTable dt = new DataTable();
+            dt = h.gethummans(command);
+
+            cusID_cb.Text = dt.Rows[0][0].ToString();
+            phone_txt.Text = dt.Rows[0][1].ToString();
+            cmnd_txt.Text = dt.Rows[0][2].ToString();
         }
     }
 }

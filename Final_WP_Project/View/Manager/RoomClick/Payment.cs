@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -30,10 +31,15 @@ namespace Final_WP_Project.View.Reception.Room
 
         private void Payment_Load(object sender, EventArgs e)
         {
+            Human h = new Human();
+            roomID_txt.Text = Global.RoomID;
+            SqlCommand newcmd = new SqlCommand("Select id from Login where Account = '" + Global.GlobalId + "'");
+            DataTable dtt = h.gethummans(newcmd);
+            empID_txt.Text = dtt.Rows[0][0].ToString();
             cusName_cb.Items.Clear();
             cusID_cb.Items.Clear();
             SqlCommand cmd = new SqlCommand("Select Name from Customer");
-            Human h = new Human();
+
             DataTable dt = h.gethummans(cmd);
             for (int i = 0; i < dt.Rows.Count; i++)
             {
@@ -179,14 +185,40 @@ namespace Final_WP_Project.View.Reception.Room
         {
             RoomFunction room = new RoomFunction();
 
-            int rid = Convert.ToInt32(roomID_txt.Text);
+            string empID = empID_txt.Text;
+            string rid = roomID_txt.Text;
             string cid = cusID_cb.Text;
+            string start = start_txt.Text;
+            string end = end_txt.Text;
+            string date = date_dtp.Text;
+
+            //Take time
+            DateTime dt;
+            if (!DateTime.TryParseExact(start, "HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out dt))
+            {
+                // handle validation error
+            }
+            TimeSpan StartTime = dt.TimeOfDay;
+
+            DateTime time;
+            if (!DateTime.TryParseExact(end, "HH:mm:ss", CultureInfo.InvariantCulture, DateTimeStyles.None, out time))
+            {
+                // handle validation error
+            }
+            TimeSpan EndTime = time.TimeOfDay;
+
+            CultureInfo culture = new CultureInfo("es-ES");
+            DateTime newdate = DateTime.Parse(date, culture);
+            string formatdate = newdate.ToString("yyyy-MM-dd");
+
+
             double service = Convert.ToDouble(serviceMoney_txt.Text);
             double roomMoney = Convert.ToDouble(roomMoney_txt.Text);
             double total = Convert.ToDouble(totalMoney_txt.Text);
 
             if (room.Bill(rid, cid, service, roomMoney, total))
             {
+                room.UpdateBooking(empID, rid, cid, StartTime, EndTime, date);
                 MessageBox.Show("Check bill succesfully!", "Payment", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }

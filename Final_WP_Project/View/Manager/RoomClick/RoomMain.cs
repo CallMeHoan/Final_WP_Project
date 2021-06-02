@@ -1278,11 +1278,17 @@ namespace Final_WP_Project.View.Reception
             Menu.Items.Add(item1);
             Menu.Items.Add(item2);
             Menu.Items.Add(item3);
-            item1.Click += Item1_Click;
+            if(a.BackColor != Color.FromArgb(255, 255, 0))
+            {
+                item1.Click += Item1_Click;
+            }
             if(a.BackColor != Color.FromArgb(166, 166, 166))
             {
                 item2.Click += Item2_Click;
-                item3.Click += Item3_Click;
+                if(a.BackColor != Color.FromArgb(53, 211, 53))
+                {
+                    item3.Click += Item3_Click;
+                }        
             }
             
             Menu.Show(this, this.PointToClient(MousePosition));
@@ -1296,8 +1302,8 @@ namespace Final_WP_Project.View.Reception
 
         private void Item2_Click(object sender, EventArgs e)
         {
-            Booking book = new Booking();
-            book.Show();
+            Booking f = new Booking();
+            f.Show();
         }
 
         private void Item1_Click(object sender, EventArgs e)
@@ -1315,7 +1321,8 @@ namespace Final_WP_Project.View.Reception
             if(panel5.BackColor != Color.FromArgb(181, 34, 61))
             {
                 AddConstripMenu(panel5);
-            }    
+            }
+            Global.SetRoomID(room1_lb.Text.Substring(room1_lb.Text.Length-3,3));
         }
 
         private void panel9_DoubleClick(object sender, EventArgs e)
@@ -1324,6 +1331,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel9);
             }
+            Global.SetRoomID(room1_lb.Text.Substring(room1_lb.Text.Length - 3, 3));
         }
 
         private void panel13_DoubleClick(object sender, EventArgs e)
@@ -1332,6 +1340,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel13);
             }
+            Global.SetRoomID(room1_lb.Text.Substring(room1_lb.Text.Length - 3, 3));
         }
 
         private void panel17_DoubleClick(object sender, EventArgs e)
@@ -1340,6 +1349,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel17);
             }
+            Global.SetRoomID(room1_lb.Text.Substring(room1_lb.Text.Length - 3, 3));
         }
 
         private void panel21_DoubleClick(object sender, EventArgs e)
@@ -1348,6 +1358,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel21);
             }
+            Global.SetRoomID(room1_lb.Text.Substring(room1_lb.Text.Length - 3, 3));
         }
 
         private void panel25_DoubleClick(object sender, EventArgs e)
@@ -1356,6 +1367,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel25);
             }
+            Global.SetRoomID(room1_lb.Text.Substring(room1_lb.Text.Length - 3, 3));
         }
 
         private void panel29_DoubleClick(object sender, EventArgs e)
@@ -1364,6 +1376,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel29);
             }
+            Global.SetRoomID(room1_lb.Text.Substring(room1_lb.Text.Length - 3, 3));
         }
 
         private void panel6_DoubleClick(object sender, EventArgs e)
@@ -1372,6 +1385,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel6);
             }
+            Global.SetRoomID(room2_lb.Text.Substring(room2_lb.Text.Length - 3, 3));
         }
 
         private void panel10_DoubleClick(object sender, EventArgs e)
@@ -1380,6 +1394,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel10);
             }
+            Global.SetRoomID(room2_lb.Text.Substring(room2_lb.Text.Length - 3, 3));
         }
 
         private void panel14_DoubleClick(object sender, EventArgs e)
@@ -1388,6 +1403,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel14);
             }
+            Global.SetRoomID(room2_lb.Text.Substring(room2_lb.Text.Length - 3, 3));
         }
 
         private void panel18_DoubleClick(object sender, EventArgs e)
@@ -1396,6 +1412,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel18);
             }
+            Global.SetRoomID(room2_lb.Text.Substring(room2_lb.Text.Length - 3, 3));
         }
 
         private void panel22_DoubleClick(object sender, EventArgs e)
@@ -1404,6 +1421,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel22);
             }
+            Global.SetRoomID(room2_lb.Text.Substring(room2_lb.Text.Length - 3, 3));
         }
 
         private void panel26_DoubleClick(object sender, EventArgs e)
@@ -1412,6 +1430,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel26);
             }
+            Global.SetRoomID(room2_lb.Text.Substring(room2_lb.Text.Length - 3, 3));
         }
 
         private void panel30_DoubleClick(object sender, EventArgs e)
@@ -1420,6 +1439,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel30);
             }
+            Global.SetRoomID(room2_lb.Text.Substring(room2_lb.Text.Length - 3, 3));
         }
 
         private void panel7_DoubleClick(object sender, EventArgs e)
@@ -1428,6 +1448,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel17);
             }
+            Global.SetRoomID(room3_lb.Text.Substring(room3_lb.Text.Length - 3, 3));
         }
 
         private void panel11_DoubleClick(object sender, EventArgs e)
@@ -1436,6 +1457,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel11);
             }
+            Global.SetRoomID(room3_lb.Text.Substring(room3_lb.Text.Length - 3, 3));
         }
 
         private void panel15_DoubleClick(object sender, EventArgs e)
@@ -1444,6 +1466,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel15);
             }
+            Global.SetRoomID(room3_lb.Text.Substring(room3_lb.Text.Length - 3, 3));
         }
 
         private void panel19_DoubleClick(object sender, EventArgs e)
@@ -1452,6 +1475,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel19);
             }
+            Global.SetRoomID(room3_lb.Text.Substring(room3_lb.Text.Length - 3, 3));
         }
 
         private void panel23_DoubleClick(object sender, EventArgs e)
@@ -1460,6 +1484,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel23);
             }
+            Global.SetRoomID(room3_lb.Text.Substring(room3_lb.Text.Length - 3, 3));
         }
 
         private void panel27_DoubleClick(object sender, EventArgs e)
@@ -1468,6 +1493,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel27);
             }
+            Global.SetRoomID(room3_lb.Text.Substring(room3_lb.Text.Length - 3, 3));
         }
 
         private void panel31_DoubleClick(object sender, EventArgs e)
@@ -1476,6 +1502,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel31);
             }
+            Global.SetRoomID(room3_lb.Text.Substring(room3_lb.Text.Length - 3, 3));
         }
 
         private void panel8_DoubleClick(object sender, EventArgs e)
@@ -1484,6 +1511,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel18);
             }
+            Global.SetRoomID(room4_lb.Text.Substring(room4_lb.Text.Length - 3, 3));
         }
 
         private void panel12_DoubleClick(object sender, EventArgs e)
@@ -1492,6 +1520,8 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel12);
             }
+            Global.SetRoomID(room4_lb.Text);
+            Global.SetRoomID(room4_lb.Text.Substring(room4_lb.Text.Length - 3, 3));
         }
 
         private void panel16_DoubleClick(object sender, EventArgs e)
@@ -1500,6 +1530,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel16);
             }
+            Global.SetRoomID(room4_lb.Text.Substring(room4_lb.Text.Length - 3, 3));
         }
 
         private void panel20_DoubleClick(object sender, EventArgs e)
@@ -1508,6 +1539,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel20);
             }
+            Global.SetRoomID(room4_lb.Text.Substring(room4_lb.Text.Length - 3, 3));
         }
 
         private void panel24_DoubleClick(object sender, EventArgs e)
@@ -1516,6 +1548,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel24);
             }
+            Global.SetRoomID(room4_lb.Text.Substring(room4_lb.Text.Length - 3, 3));
         }
 
         private void panel28_DoubleClick(object sender, EventArgs e)
@@ -1524,6 +1557,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel28);
             }
+            Global.SetRoomID(room4_lb.Text.Substring(room4_lb.Text.Length - 3, 3));
         }
 
         private void panel32_DoubleClick(object sender, EventArgs e)
@@ -1532,6 +1566,7 @@ namespace Final_WP_Project.View.Reception
             {
                 AddConstripMenu(panel32);
             }
+            Global.SetRoomID(room4_lb.Text.Substring(room4_lb.Text.Length - 3, 3));
         }
         #endregion
 
@@ -1583,10 +1618,6 @@ namespace Final_WP_Project.View.Reception
             status.Show();
         }
 
-        private void panel13_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         private void reception_btn_Click(object sender, EventArgs e)
         {
             Close();
