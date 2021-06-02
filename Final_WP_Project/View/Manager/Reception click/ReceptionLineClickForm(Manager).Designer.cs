@@ -31,6 +31,7 @@ namespace Final_WP_Project.View
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReceptionLineClickForm_Manager_));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.static_btn = new System.Windows.Forms.Button();
             this.report_btn = new System.Windows.Forms.Button();
             this.schedule_btn = new System.Windows.Forms.Button();
             this.room_btn = new System.Windows.Forms.Button();
@@ -38,6 +39,7 @@ namespace Final_WP_Project.View
             this.reception_btn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Salary_btn = new System.Windows.Forms.Button();
             this.main_pn = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btn_remove = new System.Windows.Forms.Button();
@@ -66,7 +68,7 @@ namespace Final_WP_Project.View
             this.receptionID_txt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.save_btn = new System.Windows.Forms.Button();
-            this.Salary_btn = new System.Windows.Forms.Button();
+            this.logout_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.main_pn.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -82,7 +84,8 @@ namespace Final_WP_Project.View
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.Salary_btn);
+            this.panel1.Controls.Add(this.logout_btn);
+            this.panel1.Controls.Add(this.static_btn);
             this.panel1.Controls.Add(this.report_btn);
             this.panel1.Controls.Add(this.schedule_btn);
             this.panel1.Controls.Add(this.room_btn);
@@ -96,6 +99,18 @@ namespace Final_WP_Project.View
             this.panel1.Size = new System.Drawing.Size(2112, 128);
             this.panel1.TabIndex = 21;
             // 
+            // static_btn
+            // 
+            this.static_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.static_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.static_btn.Location = new System.Drawing.Point(1587, 0);
+            this.static_btn.Name = "static_btn";
+            this.static_btn.Size = new System.Drawing.Size(196, 128);
+            this.static_btn.TabIndex = 9;
+            this.static_btn.Text = "Static";
+            this.static_btn.UseVisualStyleBackColor = false;
+            this.static_btn.Click += new System.EventHandler(this.static_btn_Click);
+            // 
             // report_btn
             // 
             this.report_btn.BackColor = System.Drawing.SystemColors.Window;
@@ -106,6 +121,7 @@ namespace Final_WP_Project.View
             this.report_btn.TabIndex = 8;
             this.report_btn.Text = "Report";
             this.report_btn.UseVisualStyleBackColor = false;
+            this.report_btn.Click += new System.EventHandler(this.report_btn_Click);
             // 
             // schedule_btn
             // 
@@ -128,6 +144,7 @@ namespace Final_WP_Project.View
             this.room_btn.TabIndex = 6;
             this.room_btn.Text = "Room";
             this.room_btn.UseVisualStyleBackColor = false;
+            this.room_btn.Click += new System.EventHandler(this.room_btn_Click);
             // 
             // employee_btn
             // 
@@ -139,6 +156,7 @@ namespace Final_WP_Project.View
             this.employee_btn.TabIndex = 5;
             this.employee_btn.Text = "Employee";
             this.employee_btn.UseVisualStyleBackColor = false;
+            this.employee_btn.Click += new System.EventHandler(this.employee_btn_Click);
             // 
             // reception_btn
             // 
@@ -150,6 +168,7 @@ namespace Final_WP_Project.View
             this.reception_btn.TabIndex = 4;
             this.reception_btn.Text = "Reception";
             this.reception_btn.UseVisualStyleBackColor = false;
+            this.reception_btn.Click += new System.EventHandler(this.reception_btn_Click);
             // 
             // label1
             // 
@@ -177,6 +196,18 @@ namespace Final_WP_Project.View
             this.label2.Text = "Manage";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // Salary_btn
+            // 
+            this.Salary_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.Salary_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Salary_btn.Location = new System.Drawing.Point(569, 667);
+            this.Salary_btn.Name = "Salary_btn";
+            this.Salary_btn.Size = new System.Drawing.Size(273, 44);
+            this.Salary_btn.TabIndex = 22;
+            this.Salary_btn.Text = "Compute Salary";
+            this.Salary_btn.UseVisualStyleBackColor = false;
+            this.Salary_btn.Click += new System.EventHandler(this.Salary_btn_Click);
+            // 
             // main_pn
             // 
             this.main_pn.Controls.Add(this.panel2);
@@ -191,6 +222,7 @@ namespace Final_WP_Project.View
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Controls.Add(this.Salary_btn);
             this.panel2.Controls.Add(this.btn_remove);
             this.panel2.Controls.Add(this.cancel_btn);
             this.panel2.Controls.Add(this.year_cb);
@@ -209,9 +241,9 @@ namespace Final_WP_Project.View
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.save_btn);
-            this.panel2.Location = new System.Drawing.Point(614, 118);
+            this.panel2.Location = new System.Drawing.Point(614, 63);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(896, 714);
+            this.panel2.Size = new System.Drawing.Size(896, 747);
             this.panel2.TabIndex = 23;
             // 
             // btn_remove
@@ -219,7 +251,7 @@ namespace Final_WP_Project.View
             this.btn_remove.BackColor = System.Drawing.Color.Red;
             this.btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_remove.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_remove.Location = new System.Drawing.Point(713, 36);
+            this.btn_remove.Location = new System.Drawing.Point(53, 667);
             this.btn_remove.Name = "btn_remove";
             this.btn_remove.Size = new System.Drawing.Size(160, 44);
             this.btn_remove.TabIndex = 26;
@@ -230,7 +262,7 @@ namespace Final_WP_Project.View
             // cancel_btn
             // 
             this.cancel_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel_btn.Location = new System.Drawing.Point(535, 36);
+            this.cancel_btn.Location = new System.Drawing.Point(683, 36);
             this.cancel_btn.Name = "cancel_btn";
             this.cancel_btn.Size = new System.Drawing.Size(161, 44);
             this.cancel_btn.TabIndex = 25;
@@ -244,7 +276,7 @@ namespace Final_WP_Project.View
             this.year_cb.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.year_cb.FormattingEnabled = true;
             this.year_cb.ItemHeight = 31;
-            this.year_cb.Location = new System.Drawing.Point(422, 601);
+            this.year_cb.Location = new System.Drawing.Point(422, 582);
             this.year_cb.Name = "year_cb";
             this.year_cb.Size = new System.Drawing.Size(135, 39);
             this.year_cb.TabIndex = 37;
@@ -258,7 +290,7 @@ namespace Final_WP_Project.View
             this.month_cb.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.month_cb.FormattingEnabled = true;
             this.month_cb.ItemHeight = 31;
-            this.month_cb.Location = new System.Drawing.Point(234, 601);
+            this.month_cb.Location = new System.Drawing.Point(234, 582);
             this.month_cb.Name = "month_cb";
             this.month_cb.Size = new System.Drawing.Size(135, 39);
             this.month_cb.TabIndex = 36;
@@ -273,7 +305,7 @@ namespace Final_WP_Project.View
             this.date_cb.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.date_cb.FormattingEnabled = true;
             this.date_cb.ItemHeight = 31;
-            this.date_cb.Location = new System.Drawing.Point(49, 601);
+            this.date_cb.Location = new System.Drawing.Point(49, 582);
             this.date_cb.Name = "date_cb";
             this.date_cb.Size = new System.Drawing.Size(135, 39);
             this.date_cb.TabIndex = 35;
@@ -286,7 +318,7 @@ namespace Final_WP_Project.View
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.Window;
             this.label6.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(39, 554);
+            this.label6.Location = new System.Drawing.Point(39, 535);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(174, 44);
             this.label6.TabIndex = 34;
@@ -302,7 +334,7 @@ namespace Final_WP_Project.View
             "Reception",
             "Manager",
             "Employee"});
-            this.position_cb.Location = new System.Drawing.Point(49, 390);
+            this.position_cb.Location = new System.Drawing.Point(49, 371);
             this.position_cb.Name = "position_cb";
             this.position_cb.Size = new System.Drawing.Size(135, 39);
             this.position_cb.TabIndex = 30;
@@ -314,7 +346,7 @@ namespace Final_WP_Project.View
             this.panel10.BackgroundImage = global::Final_WP_Project.Properties.Resources.Picture8;
             this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel10.Controls.Add(this.radioButton2);
-            this.panel10.Location = new System.Drawing.Point(422, 497);
+            this.panel10.Location = new System.Drawing.Point(422, 478);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(135, 45);
             this.panel10.TabIndex = 33;
@@ -340,7 +372,7 @@ namespace Final_WP_Project.View
             this.panel9.BackgroundImage = global::Final_WP_Project.Properties.Resources.Picture8;
             this.panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel9.Controls.Add(this.female_rbtn);
-            this.panel9.Location = new System.Drawing.Point(234, 497);
+            this.panel9.Location = new System.Drawing.Point(234, 478);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(135, 45);
             this.panel9.TabIndex = 33;
@@ -364,7 +396,7 @@ namespace Final_WP_Project.View
             this.panel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel8.Controls.Add(this.textBox2);
             this.panel8.Controls.Add(this.male_rbtn);
-            this.panel8.Location = new System.Drawing.Point(48, 497);
+            this.panel8.Location = new System.Drawing.Point(48, 478);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(134, 45);
             this.panel8.TabIndex = 32;
@@ -395,7 +427,7 @@ namespace Final_WP_Project.View
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.Window;
             this.label5.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(41, 450);
+            this.label5.Location = new System.Drawing.Point(41, 431);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(111, 44);
             this.label5.TabIndex = 31;
@@ -406,7 +438,7 @@ namespace Final_WP_Project.View
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.Window;
             this.label4.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(41, 343);
+            this.label4.Location = new System.Drawing.Point(41, 324);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 44);
             this.label4.TabIndex = 24;
@@ -418,7 +450,7 @@ namespace Final_WP_Project.View
             this.panel6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel6.BackgroundImage")));
             this.panel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel6.Controls.Add(this.phone_txt);
-            this.panel6.Location = new System.Drawing.Point(47, 283);
+            this.panel6.Location = new System.Drawing.Point(47, 264);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(626, 45);
             this.panel6.TabIndex = 27;
@@ -442,7 +474,7 @@ namespace Final_WP_Project.View
             this.panel5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel5.BackgroundImage")));
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel5.Controls.Add(this.lastName_txt);
-            this.panel5.Location = new System.Drawing.Point(381, 225);
+            this.panel5.Location = new System.Drawing.Point(381, 206);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(292, 45);
             this.panel5.TabIndex = 28;
@@ -466,7 +498,7 @@ namespace Final_WP_Project.View
             this.panel4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel4.BackgroundImage")));
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel4.Controls.Add(this.firstName_txt);
-            this.panel4.Location = new System.Drawing.Point(47, 225);
+            this.panel4.Location = new System.Drawing.Point(47, 206);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(292, 45);
             this.panel4.TabIndex = 27;
@@ -490,7 +522,7 @@ namespace Final_WP_Project.View
             this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel3.Controls.Add(this.receptionID_txt);
-            this.panel3.Location = new System.Drawing.Point(47, 167);
+            this.panel3.Location = new System.Drawing.Point(47, 148);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(197, 45);
             this.panel3.TabIndex = 26;
@@ -513,7 +545,7 @@ namespace Final_WP_Project.View
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.Window;
             this.label3.Font = new System.Drawing.Font("Poppins", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 36);
+            this.label3.Location = new System.Drawing.Point(25, 36);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(297, 58);
             this.label3.TabIndex = 0;
@@ -523,25 +555,24 @@ namespace Final_WP_Project.View
             // save_btn
             // 
             this.save_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.save_btn.Location = new System.Drawing.Point(327, 36);
+            this.save_btn.Location = new System.Drawing.Point(504, 36);
             this.save_btn.Name = "save_btn";
-            this.save_btn.Size = new System.Drawing.Size(188, 44);
+            this.save_btn.Size = new System.Drawing.Size(161, 44);
             this.save_btn.TabIndex = 24;
             this.save_btn.Text = "Save";
             this.save_btn.UseVisualStyleBackColor = true;
             this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
             // 
-            // Salary_btn
+            // logout_btn
             // 
-            this.Salary_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.Salary_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Salary_btn.Location = new System.Drawing.Point(1585, 0);
-            this.Salary_btn.Name = "Salary_btn";
-            this.Salary_btn.Size = new System.Drawing.Size(196, 128);
-            this.Salary_btn.TabIndex = 22;
-            this.Salary_btn.Text = "Salary";
-            this.Salary_btn.UseVisualStyleBackColor = false;
-            this.Salary_btn.Click += new System.EventHandler(this.Salary_btn_Click);
+            this.logout_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout_btn.Location = new System.Drawing.Point(1807, 42);
+            this.logout_btn.Name = "logout_btn";
+            this.logout_btn.Size = new System.Drawing.Size(89, 44);
+            this.logout_btn.TabIndex = 40;
+            this.logout_btn.Text = "Out";
+            this.logout_btn.UseVisualStyleBackColor = true;
+            this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
             // 
             // ReceptionLineClickForm_Manager_
             // 
@@ -616,5 +647,7 @@ namespace Final_WP_Project.View
         private System.Windows.Forms.Panel main_pn;
         private System.Windows.Forms.Button btn_remove;
         private System.Windows.Forms.Button Salary_btn;
+        private System.Windows.Forms.Button static_btn;
+        private System.Windows.Forms.Button logout_btn;
     }
 }

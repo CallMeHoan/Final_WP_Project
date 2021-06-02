@@ -10,7 +10,7 @@ namespace Final_WP_Project.Model
 {
     class MY_DB
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=Hotel_Database;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-1559CCJ;Initial Catalog=Hotel_Database;Integrated Security=True");
 
         // get the connection
         public SqlConnection getConnection

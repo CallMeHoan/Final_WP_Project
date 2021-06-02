@@ -23,7 +23,7 @@ namespace Final_WP_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new DayOff());
         }
     }
 }

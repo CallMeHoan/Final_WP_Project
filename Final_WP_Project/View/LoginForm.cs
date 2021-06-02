@@ -18,7 +18,12 @@ namespace Final_WP_Project.View
             InitializeComponent();
             Style();
         }
-
+        public void NoBorderButton(Button a)
+        {
+            a.TabStop = false;
+            a.FlatStyle = FlatStyle.Flat;
+            a.FlatAppearance.BorderSize = 0;
+        }
         private void userName_txt_Enter(object sender, EventArgs e)
         {
             if(userName_txt.Text== "Username")
@@ -54,7 +59,7 @@ namespace Final_WP_Project.View
 
         public void Style()
         {
-            this.label2.ForeColor = Color.FromArgb(48, 182, 251);
+            label8.ForeColor = Color.FromArgb(48, 182, 251);
             this.yourAre_lb.ForeColor = Color.FromArgb(48, 182, 251);
             this.userName_txt.ForeColor = Color.FromArgb(48, 182, 251);
             this.password_txt.ForeColor = Color.FromArgb(48, 182, 251);
@@ -62,6 +67,7 @@ namespace Final_WP_Project.View
             submit_btn.TabStop = false;
             submit_btn.FlatStyle = FlatStyle.Flat;
             submit_btn.FlatAppearance.BorderSize = 0;
+            NoBorderButton(submit_btn);
         }
 
         private void LoginForm_Load(object sender, EventArgs e)
@@ -121,7 +127,8 @@ namespace Final_WP_Project.View
 
         private void submit_btn_MouseHover(object sender, EventArgs e)
         {
-            submit_btn.BackColor = Color.FromArgb(48,182,251);
+            submit_btn.BackColor = Color.FromArgb(48, 182, 251);
+            panel3.BackColor = Color.FromArgb(48, 182, 251);
         }
     }
 }

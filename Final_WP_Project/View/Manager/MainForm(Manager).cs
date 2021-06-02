@@ -21,7 +21,7 @@ namespace Final_WP_Project.View
             InitializeComponent();
             Style();
         }
-       
+
         #region style
         public void Style()
         {
@@ -31,11 +31,13 @@ namespace Final_WP_Project.View
             //no border button
             NoBorderButton(reception_btn);
             NoBorderButton(employee_btn);
-      
+            NoBorderButton(btn_room);
+            NoBorderButton(static_btn);
             NoBorderButton(schedule_btn);
             NoBorderButton(report_btn);
-            
-        }    
+            NoBorderButton(static_btn);
+
+        }
         public void NoBorderButton(Button a)
         {
             a.TabStop = false;
@@ -51,6 +53,7 @@ namespace Final_WP_Project.View
 
         private void reception_btn_Click(object sender, EventArgs e)
         {
+            Close();
             ReceptionClickForm_Manager_ f = new ReceptionClickForm_Manager_();
             f.Show();
         }
@@ -58,29 +61,51 @@ namespace Final_WP_Project.View
         private void MainForm_Manager__Load(object sender, EventArgs e)
         {
             lb_welcome.Text = "Welcome " + Global.GlobalId;
-           timer1.Enabled = true;
+            timer1.Enabled = true;
             timer1.Start();
-            if(Global.isManager==false)
+            if (Global.isManager == false)
             {
-                report_btn.Visible =false;
-                schedule_btn.Visible = false;
+                reception_btn.Visible = false;
+                static_btn.Visible = false;
             }
         }
 
         private void schedule_btn_Click(object sender, EventArgs e)
         {
-            Schedule f = new Schedule();
-            f.Show();
-            
+
+            AddConstripMenuButton(schedule_btn);
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        public void AddConstripMenuButton(Button a)
+        {
+            ContextMenuStrip Menu = new ContextMenuStrip();
+            var choose1 = new ToolStripButton() { Text = "Set schedule", AutoSize = true };
+            var choose2 = new ToolStripButton() { Text = "View schedule", AutoSize = true };
+            Menu.Items.Add(choose1);
+            Menu.Items.Add(choose2);
+            choose1.Click += Choose1_Click;
+            choose2.Click += Choose2_Click;
+
+            Menu.Show(900, 132);
+        }
+
+        private void Choose2_Click(object sender, EventArgs e)
         {
             Global.GetDay(d.ToString());
             Global.GetHour(h.ToString());
             Global.GetMinute(m.ToString());
-           
+
+            Close();
             Main f = new Main();
+            f.Show();
+        }
+
+        private void Choose1_Click(object sender, EventArgs e)
+        {
+            Close();
+            Schedule f = new Schedule();
             f.Show();
         }
 
@@ -100,7 +125,7 @@ namespace Final_WP_Project.View
         private void timer1_Tick(object sender, EventArgs e)
         {
             m++;
-            if(d==2)
+            if (d == 2)
             {
                 w = "Monday";
             }
@@ -132,7 +157,7 @@ namespace Final_WP_Project.View
                 lb_minute.Text = m.ToString();
                 lb_dow.Text = w;
             }
-          
+
             if (h > 23)
             {
                 h = 0;
@@ -161,6 +186,7 @@ namespace Final_WP_Project.View
 
         private void report_btn_Click(object sender, EventArgs e)
         {
+            Close();
             ReportClick f = new ReportClick();
             f.Show();
 
@@ -168,20 +194,35 @@ namespace Final_WP_Project.View
 
         private void employee_btn_Click(object sender, EventArgs e)
         {
+            Close();
             EmployeeClick f = new EmployeeClick();
             f.Show();
         }
 
         private void room_btn_Click(object sender, EventArgs e)
         {
+            Close();
             RoomMain f = new RoomMain();
             f.Show();
         }
 
         private void btn_room_Click(object sender, EventArgs e)
         {
+            Close();
             RoomMain f = new RoomMain();
             f.Show();
+        }
+
+        private void static_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+            DayOff f = new DayOff();
+            f.Show();
+        }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

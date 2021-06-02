@@ -38,8 +38,10 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.schedule_btn = new System.Windows.Forms.Button();
             this.report_btn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.static_btn = new System.Windows.Forms.Button();
             this.main_pn = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txt_pos = new System.Windows.Forms.TextBox();
             this.year_cb = new System.Windows.Forms.ComboBox();
             this.month_cb = new System.Windows.Forms.ComboBox();
             this.date_cb = new System.Windows.Forms.ComboBox();
@@ -64,7 +66,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.label3 = new System.Windows.Forms.Label();
             this.cancel_btn = new System.Windows.Forms.Button();
             this.add_btn = new System.Windows.Forms.Button();
-            this.txt_pos = new System.Windows.Forms.TextBox();
+            this.logout_btn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.main_pn.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -113,6 +115,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.reception_btn.TabIndex = 4;
             this.reception_btn.Text = "Reception";
             this.reception_btn.UseVisualStyleBackColor = false;
+            this.reception_btn.Click += new System.EventHandler(this.reception_btn_Click);
             // 
             // employee_btn
             // 
@@ -124,6 +127,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.employee_btn.TabIndex = 5;
             this.employee_btn.Text = "Employee";
             this.employee_btn.UseVisualStyleBackColor = false;
+            this.employee_btn.Click += new System.EventHandler(this.employee_btn_Click);
             // 
             // room_btn
             // 
@@ -135,6 +139,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.room_btn.TabIndex = 6;
             this.room_btn.Text = "Room";
             this.room_btn.UseVisualStyleBackColor = false;
+            this.room_btn.Click += new System.EventHandler(this.room_btn_Click);
             // 
             // schedule_btn
             // 
@@ -157,10 +162,13 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.report_btn.TabIndex = 8;
             this.report_btn.Text = "Report";
             this.report_btn.UseVisualStyleBackColor = false;
+            this.report_btn.Click += new System.EventHandler(this.report_btn_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.logout_btn);
+            this.panel1.Controls.Add(this.static_btn);
             this.panel1.Controls.Add(this.report_btn);
             this.panel1.Controls.Add(this.schedule_btn);
             this.panel1.Controls.Add(this.room_btn);
@@ -173,6 +181,18 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2112, 128);
             this.panel1.TabIndex = 22;
+            // 
+            // static_btn
+            // 
+            this.static_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.static_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.static_btn.Location = new System.Drawing.Point(1587, 0);
+            this.static_btn.Name = "static_btn";
+            this.static_btn.Size = new System.Drawing.Size(196, 128);
+            this.static_btn.TabIndex = 9;
+            this.static_btn.Text = "Static";
+            this.static_btn.UseVisualStyleBackColor = false;
+            this.static_btn.Click += new System.EventHandler(this.static_btn_Click);
             // 
             // main_pn
             // 
@@ -208,6 +228,16 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(723, 724);
             this.panel2.TabIndex = 27;
+            // 
+            // txt_pos
+            // 
+            this.txt_pos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_pos.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_pos.Location = new System.Drawing.Point(163, 352);
+            this.txt_pos.Name = "txt_pos";
+            this.txt_pos.Size = new System.Drawing.Size(192, 38);
+            this.txt_pos.TabIndex = 38;
+            this.txt_pos.Text = "Labor";
             // 
             // year_cb
             // 
@@ -492,15 +522,16 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.add_btn.UseVisualStyleBackColor = true;
             this.add_btn.Click += new System.EventHandler(this.add_btn_Click);
             // 
-            // txt_pos
+            // logout_btn
             // 
-            this.txt_pos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_pos.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_pos.Location = new System.Drawing.Point(163, 352);
-            this.txt_pos.Name = "txt_pos";
-            this.txt_pos.Size = new System.Drawing.Size(192, 38);
-            this.txt_pos.TabIndex = 38;
-            this.txt_pos.Text = "Labor";
+            this.logout_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout_btn.Location = new System.Drawing.Point(1810, 42);
+            this.logout_btn.Name = "logout_btn";
+            this.logout_btn.Size = new System.Drawing.Size(89, 44);
+            this.logout_btn.TabIndex = 39;
+            this.logout_btn.Text = "Out";
+            this.logout_btn.UseVisualStyleBackColor = true;
+            this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
             // 
             // ClickAdd
             // 
@@ -572,5 +603,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
         private System.Windows.Forms.Button cancel_btn;
         private System.Windows.Forms.Button add_btn;
         private System.Windows.Forms.TextBox txt_pos;
+        private System.Windows.Forms.Button static_btn;
+        private System.Windows.Forms.Button logout_btn;
     }
 }

@@ -51,6 +51,8 @@ namespace Final_WP_Project.View.Reception
             this.label3 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.static_btn = new System.Windows.Forms.Button();
+            this.reception_btn = new System.Windows.Forms.Button();
             this.report_btn = new System.Windows.Forms.Button();
             this.schedule_btn = new System.Windows.Forms.Button();
             this.room_btn = new System.Windows.Forms.Button();
@@ -106,6 +108,7 @@ namespace Final_WP_Project.View.Reception
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.logout_btn = new System.Windows.Forms.Button();
             this.main_pn.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -334,6 +337,9 @@ namespace Final_WP_Project.View.Reception
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.logout_btn);
+            this.panel1.Controls.Add(this.static_btn);
+            this.panel1.Controls.Add(this.reception_btn);
             this.panel1.Controls.Add(this.report_btn);
             this.panel1.Controls.Add(this.schedule_btn);
             this.panel1.Controls.Add(this.room_btn);
@@ -346,22 +352,47 @@ namespace Final_WP_Project.View.Reception
             this.panel1.Size = new System.Drawing.Size(2112, 128);
             this.panel1.TabIndex = 30;
             // 
+            // static_btn
+            // 
+            this.static_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.static_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.static_btn.Location = new System.Drawing.Point(1545, 0);
+            this.static_btn.Name = "static_btn";
+            this.static_btn.Size = new System.Drawing.Size(196, 128);
+            this.static_btn.TabIndex = 10;
+            this.static_btn.Text = "Static";
+            this.static_btn.UseVisualStyleBackColor = false;
+            this.static_btn.Click += new System.EventHandler(this.static_btn_Click);
+            // 
+            // reception_btn
+            // 
+            this.reception_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.reception_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reception_btn.Location = new System.Drawing.Point(570, 0);
+            this.reception_btn.Name = "reception_btn";
+            this.reception_btn.Size = new System.Drawing.Size(196, 128);
+            this.reception_btn.TabIndex = 9;
+            this.reception_btn.Text = "Reception";
+            this.reception_btn.UseVisualStyleBackColor = false;
+            this.reception_btn.Click += new System.EventHandler(this.reception_btn_Click);
+            // 
             // report_btn
             // 
             this.report_btn.BackColor = System.Drawing.SystemColors.Window;
             this.report_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.report_btn.Location = new System.Drawing.Point(1274, 0);
+            this.report_btn.Location = new System.Drawing.Point(1350, 0);
             this.report_btn.Name = "report_btn";
             this.report_btn.Size = new System.Drawing.Size(196, 128);
             this.report_btn.TabIndex = 8;
             this.report_btn.Text = "Report";
             this.report_btn.UseVisualStyleBackColor = false;
+            this.report_btn.Click += new System.EventHandler(this.report_btn_Click);
             // 
             // schedule_btn
             // 
             this.schedule_btn.BackColor = System.Drawing.SystemColors.Window;
             this.schedule_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.schedule_btn.Location = new System.Drawing.Point(1079, 0);
+            this.schedule_btn.Location = new System.Drawing.Point(1155, 0);
             this.schedule_btn.Name = "schedule_btn";
             this.schedule_btn.Size = new System.Drawing.Size(196, 128);
             this.schedule_btn.TabIndex = 7;
@@ -372,23 +403,25 @@ namespace Final_WP_Project.View.Reception
             // 
             this.room_btn.BackColor = System.Drawing.SystemColors.Window;
             this.room_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.room_btn.Location = new System.Drawing.Point(884, 0);
+            this.room_btn.Location = new System.Drawing.Point(960, 0);
             this.room_btn.Name = "room_btn";
             this.room_btn.Size = new System.Drawing.Size(196, 128);
             this.room_btn.TabIndex = 6;
             this.room_btn.Text = "Room";
             this.room_btn.UseVisualStyleBackColor = false;
+            this.room_btn.Click += new System.EventHandler(this.room_btn_Click);
             // 
             // employee_btn
             // 
             this.employee_btn.BackColor = System.Drawing.SystemColors.Window;
             this.employee_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employee_btn.Location = new System.Drawing.Point(689, 0);
+            this.employee_btn.Location = new System.Drawing.Point(765, 0);
             this.employee_btn.Name = "employee_btn";
             this.employee_btn.Size = new System.Drawing.Size(196, 128);
             this.employee_btn.TabIndex = 5;
             this.employee_btn.Text = "Employee";
             this.employee_btn.UseVisualStyleBackColor = false;
+            this.employee_btn.Click += new System.EventHandler(this.employee_btn_Click);
             // 
             // label1
             // 
@@ -955,6 +988,17 @@ namespace Final_WP_Project.View.Reception
             this.label14.TabIndex = 0;
             this.label14.Text = "Date:";
             // 
+            // logout_btn
+            // 
+            this.logout_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout_btn.Location = new System.Drawing.Point(1792, 42);
+            this.logout_btn.Name = "logout_btn";
+            this.logout_btn.Size = new System.Drawing.Size(89, 44);
+            this.logout_btn.TabIndex = 40;
+            this.logout_btn.Text = "Out";
+            this.logout_btn.UseVisualStyleBackColor = true;
+            this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
+            // 
             // RoomMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1055,5 +1099,8 @@ namespace Final_WP_Project.View.Reception
         private System.Windows.Forms.Button refresh_btn;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button status_btn;
+        private System.Windows.Forms.Button static_btn;
+        private System.Windows.Forms.Button reception_btn;
+        private System.Windows.Forms.Button logout_btn;
     }
 }

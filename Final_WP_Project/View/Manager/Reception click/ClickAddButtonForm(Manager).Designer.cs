@@ -64,7 +64,9 @@ namespace Final_WP_Project.View.Manager
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.static_btn = new System.Windows.Forms.Button();
             this.main_pn = new System.Windows.Forms.Panel();
+            this.logout_btn = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -82,10 +84,10 @@ namespace Final_WP_Project.View.Manager
             this.male_rbtn.BackColor = System.Drawing.Color.White;
             this.male_rbtn.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.male_rbtn.Checked = true;
-            this.male_rbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.male_rbtn.Font = new System.Drawing.Font("Poppins", 10.8F);
             this.male_rbtn.Location = new System.Drawing.Point(26, 3);
             this.male_rbtn.Name = "male_rbtn";
-            this.male_rbtn.Size = new System.Drawing.Size(72, 28);
+            this.male_rbtn.Size = new System.Drawing.Size(82, 38);
             this.male_rbtn.TabIndex = 0;
             this.male_rbtn.TabStop = true;
             this.male_rbtn.Text = "Male";
@@ -94,12 +96,12 @@ namespace Final_WP_Project.View.Manager
             // year_cb
             // 
             this.year_cb.BackColor = System.Drawing.Color.White;
-            this.year_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.year_cb.Font = new System.Drawing.Font("Poppins", 10.8F);
             this.year_cb.FormattingEnabled = true;
-            this.year_cb.ItemHeight = 22;
+            this.year_cb.ItemHeight = 31;
             this.year_cb.Location = new System.Drawing.Point(422, 586);
             this.year_cb.Name = "year_cb";
-            this.year_cb.Size = new System.Drawing.Size(135, 30);
+            this.year_cb.Size = new System.Drawing.Size(135, 39);
             this.year_cb.TabIndex = 37;
             this.year_cb.Text = "Year";
             // 
@@ -117,7 +119,7 @@ namespace Final_WP_Project.View.Manager
             // firstName_txt
             // 
             this.firstName_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.firstName_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstName_txt.Font = new System.Drawing.Font("Poppins", 15F);
             this.firstName_txt.Location = new System.Drawing.Point(3, 3);
             this.firstName_txt.Multiline = true;
             this.firstName_txt.Name = "firstName_txt";
@@ -130,12 +132,12 @@ namespace Final_WP_Project.View.Manager
             // month_cb
             // 
             this.month_cb.BackColor = System.Drawing.Color.White;
-            this.month_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.month_cb.Font = new System.Drawing.Font("Poppins", 10.8F);
             this.month_cb.FormattingEnabled = true;
-            this.month_cb.ItemHeight = 22;
+            this.month_cb.ItemHeight = 31;
             this.month_cb.Location = new System.Drawing.Point(234, 586);
             this.month_cb.Name = "month_cb";
-            this.month_cb.Size = new System.Drawing.Size(135, 30);
+            this.month_cb.Size = new System.Drawing.Size(135, 39);
             this.month_cb.TabIndex = 36;
             this.month_cb.Text = "Month";
             this.month_cb.SelectedIndexChanged += new System.EventHandler(this.month_cb_SelectedIndexChanged);
@@ -143,12 +145,12 @@ namespace Final_WP_Project.View.Manager
             // date_cb
             // 
             this.date_cb.BackColor = System.Drawing.Color.White;
-            this.date_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_cb.Font = new System.Drawing.Font("Poppins", 10.8F);
             this.date_cb.FormattingEnabled = true;
-            this.date_cb.ItemHeight = 22;
+            this.date_cb.ItemHeight = 31;
             this.date_cb.Location = new System.Drawing.Point(49, 586);
             this.date_cb.Name = "date_cb";
-            this.date_cb.Size = new System.Drawing.Size(135, 30);
+            this.date_cb.Size = new System.Drawing.Size(135, 39);
             this.date_cb.TabIndex = 35;
             this.date_cb.Text = "Date";
             this.date_cb.SelectedIndexChanged += new System.EventHandler(this.date_cb_SelectedIndexChanged);
@@ -157,26 +159,26 @@ namespace Final_WP_Project.View.Manager
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.Window;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Poppins", 15F);
             this.label6.Location = new System.Drawing.Point(39, 539);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(150, 29);
+            this.label6.Size = new System.Drawing.Size(174, 44);
             this.label6.TabIndex = 34;
             this.label6.Text = "Date of birth";
             // 
             // position_cb
             // 
             this.position_cb.BackColor = System.Drawing.Color.White;
-            this.position_cb.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.position_cb.Font = new System.Drawing.Font("Poppins", 10.8F);
             this.position_cb.FormattingEnabled = true;
-            this.position_cb.ItemHeight = 22;
+            this.position_cb.ItemHeight = 31;
             this.position_cb.Items.AddRange(new object[] {
             "Reception",
             "Manager",
             "Employee"});
             this.position_cb.Location = new System.Drawing.Point(49, 375);
             this.position_cb.Name = "position_cb";
-            this.position_cb.Size = new System.Drawing.Size(135, 30);
+            this.position_cb.Size = new System.Drawing.Size(135, 39);
             this.position_cb.TabIndex = 30;
             this.position_cb.Text = "Reception";
             // 
@@ -197,10 +199,10 @@ namespace Final_WP_Project.View.Manager
             this.other_rbtn.BackColor = System.Drawing.Color.White;
             this.other_rbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.other_rbtn.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.other_rbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.other_rbtn.Font = new System.Drawing.Font("Poppins", 10.8F);
             this.other_rbtn.Location = new System.Drawing.Point(24, 3);
             this.other_rbtn.Name = "other_rbtn";
-            this.other_rbtn.Size = new System.Drawing.Size(78, 28);
+            this.other_rbtn.Size = new System.Drawing.Size(89, 38);
             this.other_rbtn.TabIndex = 0;
             this.other_rbtn.TabStop = true;
             this.other_rbtn.Text = "Other";
@@ -221,10 +223,10 @@ namespace Final_WP_Project.View.Manager
             // 
             this.female_rbtn.AutoSize = true;
             this.female_rbtn.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.female_rbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.female_rbtn.Font = new System.Drawing.Font("Poppins", 10.8F);
             this.female_rbtn.Location = new System.Drawing.Point(14, 3);
             this.female_rbtn.Name = "female_rbtn";
-            this.female_rbtn.Size = new System.Drawing.Size(95, 28);
+            this.female_rbtn.Size = new System.Drawing.Size(108, 38);
             this.female_rbtn.TabIndex = 0;
             this.female_rbtn.TabStop = true;
             this.female_rbtn.Text = "Female";
@@ -253,10 +255,10 @@ namespace Final_WP_Project.View.Manager
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.Window;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Poppins", 15F);
             this.label5.Location = new System.Drawing.Point(41, 435);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 29);
+            this.label5.Size = new System.Drawing.Size(111, 44);
             this.label5.TabIndex = 31;
             this.label5.Text = "Gender";
             // 
@@ -264,10 +266,10 @@ namespace Final_WP_Project.View.Manager
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.Window;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Poppins", 15F);
             this.label4.Location = new System.Drawing.Point(41, 328);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 29);
+            this.label4.Size = new System.Drawing.Size(116, 44);
             this.label4.TabIndex = 24;
             this.label4.Text = "Position";
             // 
@@ -285,7 +287,7 @@ namespace Final_WP_Project.View.Manager
             // phone_txt
             // 
             this.phone_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.phone_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phone_txt.Font = new System.Drawing.Font("Poppins", 15F);
             this.phone_txt.Location = new System.Drawing.Point(3, 3);
             this.phone_txt.Multiline = true;
             this.phone_txt.Name = "phone_txt";
@@ -309,7 +311,7 @@ namespace Final_WP_Project.View.Manager
             // lastName_txt
             // 
             this.lastName_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lastName_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastName_txt.Font = new System.Drawing.Font("Poppins", 15F);
             this.lastName_txt.Location = new System.Drawing.Point(3, 3);
             this.lastName_txt.Multiline = true;
             this.lastName_txt.Name = "lastName_txt";
@@ -333,7 +335,7 @@ namespace Final_WP_Project.View.Manager
             // receptionID_txt
             // 
             this.receptionID_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.receptionID_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receptionID_txt.Font = new System.Drawing.Font("Poppins", 15F);
             this.receptionID_txt.Location = new System.Drawing.Point(2, 3);
             this.receptionID_txt.Multiline = true;
             this.receptionID_txt.Name = "receptionID_txt";
@@ -347,16 +349,16 @@ namespace Final_WP_Project.View.Manager
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.SystemColors.Window;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Poppins", 19.8F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(30, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(244, 38);
+            this.label3.Size = new System.Drawing.Size(270, 58);
             this.label3.TabIndex = 0;
             this.label3.Text = "Add Reception";
             // 
             // cancel_btn
             // 
-            this.cancel_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancel_btn.Font = new System.Drawing.Font("Poppins", 15F);
             this.cancel_btn.Location = new System.Drawing.Point(552, 36);
             this.cancel_btn.Name = "cancel_btn";
             this.cancel_btn.Size = new System.Drawing.Size(138, 44);
@@ -367,7 +369,7 @@ namespace Final_WP_Project.View.Manager
             // 
             // next_btn
             // 
-            this.next_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.next_btn.Font = new System.Drawing.Font("Poppins", 15F);
             this.next_btn.Location = new System.Drawing.Point(522, 652);
             this.next_btn.Name = "next_btn";
             this.next_btn.Size = new System.Drawing.Size(151, 44);
@@ -407,18 +409,19 @@ namespace Final_WP_Project.View.Manager
             // report_btn
             // 
             this.report_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.report_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.report_btn.Font = new System.Drawing.Font("Poppins", 15F);
             this.report_btn.Location = new System.Drawing.Point(1392, 0);
             this.report_btn.Name = "report_btn";
             this.report_btn.Size = new System.Drawing.Size(196, 128);
             this.report_btn.TabIndex = 8;
             this.report_btn.Text = "Report";
             this.report_btn.UseVisualStyleBackColor = false;
+            this.report_btn.Click += new System.EventHandler(this.report_btn_Click);
             // 
             // schedule_btn
             // 
             this.schedule_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.schedule_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schedule_btn.Font = new System.Drawing.Font("Poppins", 15F);
             this.schedule_btn.Location = new System.Drawing.Point(1197, 0);
             this.schedule_btn.Name = "schedule_btn";
             this.schedule_btn.Size = new System.Drawing.Size(196, 128);
@@ -429,45 +432,48 @@ namespace Final_WP_Project.View.Manager
             // room_btn
             // 
             this.room_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.room_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.room_btn.Font = new System.Drawing.Font("Poppins", 15F);
             this.room_btn.Location = new System.Drawing.Point(1002, 0);
             this.room_btn.Name = "room_btn";
             this.room_btn.Size = new System.Drawing.Size(196, 128);
             this.room_btn.TabIndex = 6;
             this.room_btn.Text = "Room";
             this.room_btn.UseVisualStyleBackColor = false;
+            this.room_btn.Click += new System.EventHandler(this.room_btn_Click);
             // 
             // employee_btn
             // 
             this.employee_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.employee_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employee_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.employee_btn.Location = new System.Drawing.Point(807, 0);
             this.employee_btn.Name = "employee_btn";
             this.employee_btn.Size = new System.Drawing.Size(196, 128);
             this.employee_btn.TabIndex = 5;
             this.employee_btn.Text = "Employee";
             this.employee_btn.UseVisualStyleBackColor = false;
+            this.employee_btn.Click += new System.EventHandler(this.employee_btn_Click);
             // 
             // reception_btn
             // 
             this.reception_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.reception_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reception_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.reception_btn.Location = new System.Drawing.Point(613, 0);
             this.reception_btn.Name = "reception_btn";
             this.reception_btn.Size = new System.Drawing.Size(196, 128);
             this.reception_btn.TabIndex = 4;
             this.reception_btn.Text = "Reception";
             this.reception_btn.UseVisualStyleBackColor = false;
+            this.reception_btn.Click += new System.EventHandler(this.reception_btn_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.Window;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 34.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Poppins", 34.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(44, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 67);
+            this.label1.Size = new System.Drawing.Size(199, 102);
             this.label1.TabIndex = 2;
             this.label1.Text = "Hotel";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -477,10 +483,10 @@ namespace Final_WP_Project.View.Manager
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.SystemColors.Window;
             this.label2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 34.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Poppins", 34.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(253, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(243, 67);
+            this.label2.Size = new System.Drawing.Size(288, 102);
             this.label2.TabIndex = 3;
             this.label2.Text = "Manage";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -488,6 +494,8 @@ namespace Final_WP_Project.View.Manager
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.logout_btn);
+            this.panel1.Controls.Add(this.static_btn);
             this.panel1.Controls.Add(this.report_btn);
             this.panel1.Controls.Add(this.schedule_btn);
             this.panel1.Controls.Add(this.room_btn);
@@ -501,6 +509,18 @@ namespace Final_WP_Project.View.Manager
             this.panel1.Size = new System.Drawing.Size(2112, 128);
             this.panel1.TabIndex = 25;
             // 
+            // static_btn
+            // 
+            this.static_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.static_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.static_btn.Location = new System.Drawing.Point(1587, 0);
+            this.static_btn.Name = "static_btn";
+            this.static_btn.Size = new System.Drawing.Size(196, 128);
+            this.static_btn.TabIndex = 11;
+            this.static_btn.Text = "Static";
+            this.static_btn.UseVisualStyleBackColor = false;
+            this.static_btn.Click += new System.EventHandler(this.static_btn_Click);
+            // 
             // main_pn
             // 
             this.main_pn.Location = new System.Drawing.Point(1, 132);
@@ -508,6 +528,17 @@ namespace Final_WP_Project.View.Manager
             this.main_pn.Size = new System.Drawing.Size(2098, 902);
             this.main_pn.TabIndex = 24;
             this.main_pn.Paint += new System.Windows.Forms.PaintEventHandler(this.main_pn_Paint);
+            // 
+            // logout_btn
+            // 
+            this.logout_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout_btn.Location = new System.Drawing.Point(1810, 42);
+            this.logout_btn.Name = "logout_btn";
+            this.logout_btn.Size = new System.Drawing.Size(89, 44);
+            this.logout_btn.TabIndex = 40;
+            this.logout_btn.Text = "Out";
+            this.logout_btn.UseVisualStyleBackColor = true;
+            this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
             // 
             // ClickAddButtonForm_Manager_
             // 
@@ -580,5 +611,7 @@ namespace Final_WP_Project.View.Manager
         private System.Windows.Forms.TextBox firstName_txt;
         private System.Windows.Forms.TextBox lastName_txt;
         private System.Windows.Forms.TextBox phone_txt;
+        private System.Windows.Forms.Button static_btn;
+        private System.Windows.Forms.Button logout_btn;
     }
 }

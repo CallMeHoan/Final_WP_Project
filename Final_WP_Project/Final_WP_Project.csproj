@@ -60,22 +60,20 @@
       <DependentUpon>ChangeText.cs</DependentUpon>
     </Compile>
     <Compile Include="Control\Program.cs" />
-    <Compile Include="Global.cs" />
+    <Compile Include="Model\Global.cs" />
     <Compile Include="Hotel_DatabaseDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Hotel_DatabaseDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Model\AcountFunction.cs" />
-    <Compile Include="Model\DbConnectFactory.cs" />
     <Compile Include="Model\My_DB.cs" />
     <Compile Include="Object\Human.cs" />
     <Compile Include="Object\RoomFunction.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Select_Employee.cs">
+    <Compile Include="View\Select_Employee.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Select_Employee.Designer.cs">
+    <Compile Include="View\Select_Employee.Designer.cs">
       <DependentUpon>Select_Employee.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LoginForm.cs">
@@ -84,29 +82,23 @@
     <Compile Include="View\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Manager\ClickAddButtonForm%28Manager%29.cs">
+    <Compile Include="View\Manager\Reception click\ClickAddButtonForm%28Manager%29.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Manager\ClickAddButtonForm%28Manager%29.Designer.cs">
+    <Compile Include="View\Manager\Reception click\ClickAddButtonForm%28Manager%29.Designer.cs">
       <DependentUpon>ClickAddButtonForm%28Manager%29.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Manager\ClickNext%28Manage%29.cs">
+    <Compile Include="View\Manager\Reception click\ClickNext%28Manage%29.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Manager\ClickNext%28Manage%29.Designer.cs">
+    <Compile Include="View\Manager\Reception click\ClickNext%28Manage%29.Designer.cs">
       <DependentUpon>ClickNext%28Manage%29.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Manager\ClickSchdule%28Schedule%29.cs">
+    <Compile Include="View\Manager\Schedule click\ClickSchdule%28Schedule%29.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Manager\ClickSchdule%28Schedule%29.Designer.cs">
+    <Compile Include="View\Manager\Schedule click\ClickSchdule%28Schedule%29.Designer.cs">
       <DependentUpon>ClickSchdule%28Schedule%29.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Manager\ComputeSalaryClick.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Manager\ComputeSalaryClick.designer.cs">
-      <DependentUpon>ComputeSalaryClick.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Manager\DayOff.cs">
       <SubType>Form</SubType>
@@ -138,10 +130,10 @@
     <Compile Include="View\Manager\Employee click\SalaryCompute.Designer.cs">
       <DependentUpon>SalaryCompute.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Manager\Main.cs">
+    <Compile Include="View\Manager\Schedule click\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Manager\Main.Designer.cs">
+    <Compile Include="View\Manager\Schedule click\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Manager\MainForm%28Manager%29.cs">
@@ -150,22 +142,22 @@
     <Compile Include="View\Manager\MainForm%28Manager%29.Designer.cs">
       <DependentUpon>MainForm%28Manager%29.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Manager\Notification%28Schedule%29.cs">
+    <Compile Include="View\Manager\Schedule click\Notification%28Schedule%29.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Manager\Notification%28Schedule%29.designer.cs">
+    <Compile Include="View\Manager\Schedule click\Notification%28Schedule%29.designer.cs">
       <DependentUpon>Notification%28Schedule%29.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Manager\ReceptionClickForm%28Manager%29.cs">
+    <Compile Include="View\Manager\Reception click\ReceptionClickForm%28Manager%29.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Manager\ReceptionClickForm%28Manager%29.Designer.cs">
+    <Compile Include="View\Manager\Reception click\ReceptionClickForm%28Manager%29.Designer.cs">
       <DependentUpon>ReceptionClickForm%28Manager%29.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Manager\ReceptionLineClickForm%28Manager%29.cs">
+    <Compile Include="View\Manager\Reception click\ReceptionLineClickForm%28Manager%29.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Manager\ReceptionLineClickForm%28Manager%29.Designer.cs">
+    <Compile Include="View\Manager\Reception click\ReceptionLineClickForm%28Manager%29.Designer.cs">
       <DependentUpon>ReceptionLineClickForm%28Manager%29.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Manager\ReportClick.cs">
@@ -174,58 +166,52 @@
     <Compile Include="View\Manager\ReportClick.designer.cs">
       <DependentUpon>ReportClick.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Manager\RoomClickForm%28Manager%29.cs">
+    <Compile Include="View\Manager\Schedule click\Schedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Manager\RoomClickForm%28Manager%29.Designer.cs">
-      <DependentUpon>RoomClickForm%28Manager%29.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View\Manager\Schedule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Manager\Schedule.designer.cs">
+    <Compile Include="View\Manager\Schedule click\Schedule.designer.cs">
       <DependentUpon>Schedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\Booking.cs">
+    <Compile Include="View\Manager\RoomClick\Booking.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\Booking.designer.cs">
+    <Compile Include="View\Manager\RoomClick\Booking.designer.cs">
       <DependentUpon>Booking.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\import.cs">
+    <Compile Include="View\Manager\RoomClick\import.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\import.designer.cs">
+    <Compile Include="View\Manager\RoomClick\import.designer.cs">
       <DependentUpon>import.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\Payment.cs">
+    <Compile Include="View\Manager\RoomClick\Payment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\Payment.designer.cs">
+    <Compile Include="View\Manager\RoomClick\Payment.designer.cs">
       <DependentUpon>Payment.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\RoomMain.cs">
+    <Compile Include="View\Manager\RoomClick\RoomMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\RoomMain.designer.cs">
+    <Compile Include="View\Manager\RoomClick\RoomMain.designer.cs">
       <DependentUpon>RoomMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\Service.cs">
+    <Compile Include="View\Manager\RoomClick\Service.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\Service.Designer.cs">
+    <Compile Include="View\Manager\RoomClick\Service.Designer.cs">
       <DependentUpon>Service.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\Status.cs">
+    <Compile Include="View\Manager\RoomClick\Status.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\Status.Designer.cs">
+    <Compile Include="View\Manager\RoomClick\Status.Designer.cs">
       <DependentUpon>Status.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\updateGoods.cs">
+    <Compile Include="View\Manager\RoomClick\updateGoods.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Reception\RoomClick\updateGoods.designer.cs">
+    <Compile Include="View\Manager\RoomClick\updateGoods.designer.cs">
       <DependentUpon>updateGoods.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="ChangeText.resx">
@@ -241,23 +227,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Select_Employee.resx">
+    <EmbeddedResource Include="View\Select_Employee.resx">
       <DependentUpon>Select_Employee.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Manager\ClickAddButtonForm%28Manager%29.resx">
+    <EmbeddedResource Include="View\Manager\Reception click\ClickAddButtonForm%28Manager%29.resx">
       <DependentUpon>ClickAddButtonForm%28Manager%29.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Manager\ClickNext%28Manage%29.resx">
+    <EmbeddedResource Include="View\Manager\Reception click\ClickNext%28Manage%29.resx">
       <DependentUpon>ClickNext%28Manage%29.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Manager\ClickSchdule%28Schedule%29.resx">
+    <EmbeddedResource Include="View\Manager\Schedule click\ClickSchdule%28Schedule%29.resx">
       <DependentUpon>ClickSchdule%28Schedule%29.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Manager\ComputeSalaryClick.resx">
-      <DependentUpon>ComputeSalaryClick.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Manager\DayOff.resx">
       <DependentUpon>DayOff.cs</DependentUpon>
@@ -274,49 +257,46 @@
     <EmbeddedResource Include="View\Manager\Employee click\SalaryCompute.resx">
       <DependentUpon>SalaryCompute.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Manager\Main.resx">
+    <EmbeddedResource Include="View\Manager\Schedule click\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Manager\MainForm%28Manager%29.resx">
       <DependentUpon>MainForm%28Manager%29.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Manager\Notification%28Schedule%29.resx">
+    <EmbeddedResource Include="View\Manager\Schedule click\Notification%28Schedule%29.resx">
       <DependentUpon>Notification%28Schedule%29.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Manager\ReceptionClickForm%28Manager%29.resx">
+    <EmbeddedResource Include="View\Manager\Reception click\ReceptionClickForm%28Manager%29.resx">
       <DependentUpon>ReceptionClickForm%28Manager%29.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Manager\ReceptionLineClickForm%28Manager%29.resx">
+    <EmbeddedResource Include="View\Manager\Reception click\ReceptionLineClickForm%28Manager%29.resx">
       <DependentUpon>ReceptionLineClickForm%28Manager%29.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Manager\ReportClick.resx">
       <DependentUpon>ReportClick.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Manager\RoomClickForm%28Manager%29.resx">
-      <DependentUpon>RoomClickForm%28Manager%29.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Manager\Schedule.resx">
+    <EmbeddedResource Include="View\Manager\Schedule click\Schedule.resx">
       <DependentUpon>Schedule.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Reception\RoomClick\Booking.resx">
+    <EmbeddedResource Include="View\Manager\RoomClick\Booking.resx">
       <DependentUpon>Booking.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Reception\RoomClick\import.resx">
+    <EmbeddedResource Include="View\Manager\RoomClick\import.resx">
       <DependentUpon>import.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Reception\RoomClick\Payment.resx">
+    <EmbeddedResource Include="View\Manager\RoomClick\Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Reception\RoomClick\RoomMain.resx">
+    <EmbeddedResource Include="View\Manager\RoomClick\RoomMain.resx">
       <DependentUpon>RoomMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Reception\RoomClick\Service.resx">
+    <EmbeddedResource Include="View\Manager\RoomClick\Service.resx">
       <DependentUpon>Service.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Reception\RoomClick\Status.resx">
+    <EmbeddedResource Include="View\Manager\RoomClick\Status.resx">
       <DependentUpon>Status.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Reception\RoomClick\updateGoods.resx">
+    <EmbeddedResource Include="View\Manager\RoomClick\updateGoods.resx">
       <DependentUpon>updateGoods.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Hotel_DatabaseDataSet.xsc">
@@ -392,5 +372,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

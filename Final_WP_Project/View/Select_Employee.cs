@@ -23,7 +23,7 @@ namespace Final_WP_Project
         {
 
             Human h = new Human();
-            SqlCommand command = new SqlCommand("Select id, name from employee");
+            SqlCommand command = new SqlCommand("Select id, name from employee where UserType = 'Reception' or UserType = 'Labor'");
             DataTable table = h.gethummans(command);
             for (int i = 0; i < table.Rows.Count; i++)
             {
@@ -55,6 +55,16 @@ namespace Final_WP_Project
         private void cbb_Select_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btn_CANCEL_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

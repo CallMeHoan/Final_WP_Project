@@ -280,7 +280,7 @@ namespace Final_WP_Project.View.Reception.Room
             this.date_dtp.Name = "date_dtp";
             this.date_dtp.Size = new System.Drawing.Size(211, 37);
             this.date_dtp.TabIndex = 98;
-            this.date_dtp.Value = new System.DateTime(2021, 5, 28, 0, 0, 0, 0);
+            this.date_dtp.Value = new System.DateTime(2021, 6, 2, 0, 0, 0, 0);
             // 
             // end_dtp
             // 

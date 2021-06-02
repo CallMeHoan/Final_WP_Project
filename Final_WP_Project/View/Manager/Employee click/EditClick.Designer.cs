@@ -56,6 +56,8 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.cancel_btn = new System.Windows.Forms.Button();
             this.save_btn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btn_remove = new System.Windows.Forms.Button();
             this.report_btn = new System.Windows.Forms.Button();
             this.schedule_btn = new System.Windows.Forms.Button();
             this.room_btn = new System.Windows.Forms.Button();
@@ -64,9 +66,9 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Salary_btn = new System.Windows.Forms.Button();
+            this.static_btn = new System.Windows.Forms.Button();
             this.main_pn = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.logout_btn = new System.Windows.Forms.Button();
             this.panel4.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
@@ -359,7 +361,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             // cancel_btn
             // 
             this.cancel_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancel_btn.Location = new System.Drawing.Point(520, 36);
+            this.cancel_btn.Location = new System.Drawing.Point(690, 27);
             this.cancel_btn.Name = "cancel_btn";
             this.cancel_btn.Size = new System.Drawing.Size(138, 49);
             this.cancel_btn.TabIndex = 25;
@@ -370,7 +372,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             // save_btn
             // 
             this.save_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.save_btn.Location = new System.Drawing.Point(349, 36);
+            this.save_btn.Location = new System.Drawing.Point(519, 27);
             this.save_btn.Name = "save_btn";
             this.save_btn.Size = new System.Drawing.Size(151, 49);
             this.save_btn.TabIndex = 24;
@@ -383,7 +385,8 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.panel2.BackColor = System.Drawing.Color.Transparent;
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.btn_remove);
             this.panel2.Controls.Add(this.year_cb);
             this.panel2.Controls.Add(this.month_cb);
             this.panel2.Controls.Add(this.date_cb);
@@ -403,8 +406,33 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.panel2.Controls.Add(this.save_btn);
             this.panel2.Location = new System.Drawing.Point(567, 206);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(873, 714);
+            this.panel2.Size = new System.Drawing.Size(873, 740);
             this.panel2.TabIndex = 26;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.Window;
+            this.button2.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(555, 666);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(273, 44);
+            this.button2.TabIndex = 39;
+            this.button2.Text = "Compute Salary";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Salary_btn_Click);
+            // 
+            // btn_remove
+            // 
+            this.btn_remove.BackColor = System.Drawing.Color.Red;
+            this.btn_remove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_remove.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_remove.Location = new System.Drawing.Point(39, 666);
+            this.btn_remove.Name = "btn_remove";
+            this.btn_remove.Size = new System.Drawing.Size(160, 44);
+            this.btn_remove.TabIndex = 40;
+            this.btn_remove.Text = "Remove";
+            this.btn_remove.UseVisualStyleBackColor = false;
+            this.btn_remove.Click += new System.EventHandler(this.btn_remove_Click);
             // 
             // report_btn
             // 
@@ -416,6 +444,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.report_btn.TabIndex = 8;
             this.report_btn.Text = "Report";
             this.report_btn.UseVisualStyleBackColor = false;
+            this.report_btn.Click += new System.EventHandler(this.report_btn_Click);
             // 
             // schedule_btn
             // 
@@ -438,6 +467,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.room_btn.TabIndex = 6;
             this.room_btn.Text = "Room";
             this.room_btn.UseVisualStyleBackColor = false;
+            this.room_btn.Click += new System.EventHandler(this.room_btn_Click);
             // 
             // employee_btn
             // 
@@ -449,6 +479,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.employee_btn.TabIndex = 5;
             this.employee_btn.Text = "Employee";
             this.employee_btn.UseVisualStyleBackColor = false;
+            this.employee_btn.Click += new System.EventHandler(this.employee_btn_Click);
             // 
             // reception_btn
             // 
@@ -460,6 +491,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.reception_btn.TabIndex = 4;
             this.reception_btn.Text = "Reception";
             this.reception_btn.UseVisualStyleBackColor = false;
+            this.reception_btn.Click += new System.EventHandler(this.reception_btn_Click);
             // 
             // label1
             // 
@@ -490,7 +522,8 @@ namespace Final_WP_Project.View.Manager.Employee_click
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.Salary_btn);
+            this.panel1.Controls.Add(this.logout_btn);
+            this.panel1.Controls.Add(this.static_btn);
             this.panel1.Controls.Add(this.report_btn);
             this.panel1.Controls.Add(this.schedule_btn);
             this.panel1.Controls.Add(this.room_btn);
@@ -504,17 +537,17 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.panel1.Size = new System.Drawing.Size(2112, 128);
             this.panel1.TabIndex = 25;
             // 
-            // Salary_btn
+            // static_btn
             // 
-            this.Salary_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.Salary_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Salary_btn.Location = new System.Drawing.Point(1585, 0);
-            this.Salary_btn.Name = "Salary_btn";
-            this.Salary_btn.Size = new System.Drawing.Size(196, 128);
-            this.Salary_btn.TabIndex = 9;
-            this.Salary_btn.Text = "Salary";
-            this.Salary_btn.UseVisualStyleBackColor = false;
-            this.Salary_btn.Click += new System.EventHandler(this.Salary_btn_Click);
+            this.static_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.static_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.static_btn.Location = new System.Drawing.Point(1585, 0);
+            this.static_btn.Name = "static_btn";
+            this.static_btn.Size = new System.Drawing.Size(196, 128);
+            this.static_btn.TabIndex = 9;
+            this.static_btn.Text = "Static";
+            this.static_btn.UseVisualStyleBackColor = false;
+            this.static_btn.Click += new System.EventHandler(this.static_btn_Click);
             // 
             // main_pn
             // 
@@ -524,18 +557,16 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.main_pn.TabIndex = 24;
             this.main_pn.Paint += new System.Windows.Forms.PaintEventHandler(this.main_pn_Paint);
             // 
-            // button1
+            // logout_btn
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(694, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(155, 49);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "Remove";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.logout_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout_btn.Location = new System.Drawing.Point(1805, 42);
+            this.logout_btn.Name = "logout_btn";
+            this.logout_btn.Size = new System.Drawing.Size(89, 44);
+            this.logout_btn.TabIndex = 40;
+            this.logout_btn.Text = "Out";
+            this.logout_btn.UseVisualStyleBackColor = true;
+            this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
             // 
             // EditClick
             // 
@@ -608,7 +639,9 @@ namespace Final_WP_Project.View.Manager.Employee_click
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel main_pn;
-        private System.Windows.Forms.Button Salary_btn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button static_btn;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_remove;
+        private System.Windows.Forms.Button logout_btn;
     }
 }

@@ -29,6 +29,8 @@ namespace Final_WP_Project.View.Reception.Schedule
             //Color for label
             this.label2.ForeColor = Color.FromArgb(48, 182, 251);
             //no border button
+            NoBorderButton(reception_btn);
+            NoBorderButton(static_btn);
             NoBorderButton(employee_btn);
             NoBorderButton(room_btn);
             NoBorderButton(schedule_btn);
@@ -55,9 +57,14 @@ namespace Final_WP_Project.View.Reception.Schedule
        
         private void Main_Load(object sender, EventArgs e)
         {
-            if(Global.isManager==false)
+            if (Global.isManager == false)
             {
-                button3.Visible = false;
+                reception_btn.Visible = false;
+                static_btn.Visible = false;
+            }
+            if (Global.isManager==false)
+            {
+                static_btn.Visible = false;
             }
             int x0 = 333;
             int y0 = 219;
@@ -358,6 +365,11 @@ namespace Final_WP_Project.View.Reception.Schedule
         {
             DayOff f = new DayOff();
             f.Show();
+        }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

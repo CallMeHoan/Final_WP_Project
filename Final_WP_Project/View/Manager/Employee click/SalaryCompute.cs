@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Final_WP_Project.View.Reception;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,6 +41,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             NoBorderButton(room_btn);
             NoBorderButton(schedule_btn);
             NoBorderButton(report_btn);
+            NoBorderButton(static_btn);
 
         }
         public void NoBorderButton(Button a)
@@ -57,6 +59,11 @@ namespace Final_WP_Project.View.Manager.Employee_click
 
         private void SalaryCompute_Load(object sender, EventArgs e)
         {
+            if (Global.isManager == false)
+            {
+                reception_btn.Visible = false;
+                static_btn.Visible = false;
+            }
             SqlCommand command = new SqlCommand("Select name, age, phone, salary from employee where id = @id");
             command.Parameters.Add("@id", SqlDbType.NVarChar).Value = id;
             Human h = new Human();
@@ -140,7 +147,9 @@ namespace Final_WP_Project.View.Manager.Employee_click
 
         private void report_btn_Click(object sender, EventArgs e)
         {
-
+            Close();
+            ReportClick f = new ReportClick();
+            f.Show();
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -151,6 +160,37 @@ namespace Final_WP_Project.View.Manager.Employee_click
         private void refresh_btn_Click(object sender, EventArgs e)
         {
 
+        }
+        private void reception_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+            ReceptionClickForm_Manager_ f = new ReceptionClickForm_Manager_();
+            f.Show();
+        }
+
+        private void employee_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+            EmployeeClick f = new EmployeeClick();
+            f.Show();
+        }
+
+        private void room_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+            RoomMain f = new RoomMain();
+            f.Show();
+        }
+
+        private void static_btn_Click(object sender, EventArgs e)
+        {
+            DayOff f = new DayOff();
+            f.Show();
+        }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

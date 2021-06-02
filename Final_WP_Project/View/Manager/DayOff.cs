@@ -21,6 +21,7 @@ namespace Final_WP_Project.View.Manager
 
         private void DayOff_Load(object sender, EventArgs e)
         {
+            
             Human h = new Human();
             SqlCommand command = new SqlCommand("Select id, name from Employee");
             DataTable table = h.gethummans(command);
@@ -112,6 +113,11 @@ namespace Final_WP_Project.View.Manager
         {
             ChangeText f = new ChangeText();
             f.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

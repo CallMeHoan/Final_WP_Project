@@ -32,6 +32,9 @@ namespace Final_WP_Project.View.Manager
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClickSchdule_Schedule_));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lb_dow = new System.Windows.Forms.Label();
+            this.lb_hour = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,18 +53,10 @@ namespace Final_WP_Project.View.Manager
             this.emp2_checkbox = new System.Windows.Forms.CheckBox();
             this.emp3_checkbox = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_refresh = new System.Windows.Forms.Button();
             this.close_btn = new System.Windows.Forms.Button();
             this.save_btn = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.ckb_outEmp = new System.Windows.Forms.CheckBox();
-            this.ckb_out_Mana = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lb_dow = new System.Windows.Forms.Label();
-            this.lb_hour = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btn_refresh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -80,6 +75,37 @@ namespace Final_WP_Project.View.Manager
             this.panel1.Size = new System.Drawing.Size(878, 87);
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Poppins", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(486, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(25, 42);
+            this.label7.TabIndex = 11;
+            this.label7.Text = ",";
+            // 
+            // lb_dow
+            // 
+            this.lb_dow.AutoSize = true;
+            this.lb_dow.Font = new System.Drawing.Font("Poppins", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_dow.Location = new System.Drawing.Point(304, 28);
+            this.lb_dow.Name = "lb_dow";
+            this.lb_dow.Size = new System.Drawing.Size(118, 42);
+            this.lb_dow.TabIndex = 9;
+            this.lb_dow.Text = "Monday";
+            // 
+            // lb_hour
+            // 
+            this.lb_hour.AutoSize = true;
+            this.lb_hour.Font = new System.Drawing.Font("Poppins", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_hour.Location = new System.Drawing.Point(517, 28);
+            this.lb_hour.Name = "lb_hour";
+            this.lb_hour.Size = new System.Drawing.Size(41, 42);
+            this.lb_hour.TabIndex = 7;
+            this.lb_hour.Text = "12";
+            this.lb_hour.Click += new System.EventHandler(this.lb_hour_Click);
             // 
             // label1
             // 
@@ -269,6 +295,19 @@ namespace Final_WP_Project.View.Manager
             this.panel2.Size = new System.Drawing.Size(866, 110);
             this.panel2.TabIndex = 20;
             // 
+            // btn_refresh
+            // 
+            this.btn_refresh.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btn_refresh.Font = new System.Drawing.Font("Poppins", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.ForeColor = System.Drawing.Color.White;
+            this.btn_refresh.Location = new System.Drawing.Point(52, 19);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(136, 46);
+            this.btn_refresh.TabIndex = 26;
+            this.btn_refresh.Text = "Refresh";
+            this.btn_refresh.UseVisualStyleBackColor = false;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
+            // 
             // close_btn
             // 
             this.close_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -294,119 +333,15 @@ namespace Final_WP_Project.View.Manager
             this.save_btn.UseVisualStyleBackColor = true;
             this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(250, 489);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(122, 34);
-            this.checkBox1.TabIndex = 21;
-            this.checkBox1.Text = "Check out";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // ckb_outEmp
-            // 
-            this.ckb_outEmp.AutoSize = true;
-            this.ckb_outEmp.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckb_outEmp.Location = new System.Drawing.Point(250, 348);
-            this.ckb_outEmp.Name = "ckb_outEmp";
-            this.ckb_outEmp.Size = new System.Drawing.Size(122, 34);
-            this.ckb_outEmp.TabIndex = 22;
-            this.ckb_outEmp.Text = "Check out";
-            this.ckb_outEmp.UseVisualStyleBackColor = true;
-            // 
-            // ckb_out_Mana
-            // 
-            this.ckb_out_Mana.AutoSize = true;
-            this.ckb_out_Mana.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckb_out_Mana.Location = new System.Drawing.Point(250, 199);
-            this.ckb_out_Mana.Name = "ckb_out_Mana";
-            this.ckb_out_Mana.Size = new System.Drawing.Size(122, 34);
-            this.ckb_out_Mana.TabIndex = 23;
-            this.ckb_out_Mana.Text = "Check out";
-            this.ckb_out_Mana.UseVisualStyleBackColor = true;
-            // 
-            // checkBox4
-            // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox4.Location = new System.Drawing.Point(677, 199);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(122, 34);
-            this.checkBox4.TabIndex = 24;
-            this.checkBox4.Text = "Check out";
-            this.checkBox4.UseVisualStyleBackColor = true;
-            // 
-            // checkBox5
-            // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox5.Location = new System.Drawing.Point(677, 348);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(122, 34);
-            this.checkBox5.TabIndex = 25;
-            this.checkBox5.Text = "Check out";
-            this.checkBox5.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Poppins", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(486, 24);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(25, 42);
-            this.label7.TabIndex = 11;
-            this.label7.Text = ",";
-            // 
-            // lb_dow
-            // 
-            this.lb_dow.AutoSize = true;
-            this.lb_dow.Font = new System.Drawing.Font("Poppins", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_dow.Location = new System.Drawing.Point(304, 28);
-            this.lb_dow.Name = "lb_dow";
-            this.lb_dow.Size = new System.Drawing.Size(118, 42);
-            this.lb_dow.TabIndex = 9;
-            this.lb_dow.Text = "Monday";
-            // 
-            // lb_hour
-            // 
-            this.lb_hour.AutoSize = true;
-            this.lb_hour.Font = new System.Drawing.Font("Poppins", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_hour.Location = new System.Drawing.Point(517, 28);
-            this.lb_hour.Name = "lb_hour";
-            this.lb_hour.Size = new System.Drawing.Size(41, 42);
-            this.lb_hour.TabIndex = 7;
-            this.lb_hour.Text = "12";
-            this.lb_hour.Click += new System.EventHandler(this.lb_hour_Click);
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // btn_refresh
-            // 
-            this.btn_refresh.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btn_refresh.Font = new System.Drawing.Font("Poppins", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_refresh.ForeColor = System.Drawing.Color.White;
-            this.btn_refresh.Location = new System.Drawing.Point(52, 19);
-            this.btn_refresh.Name = "btn_refresh";
-            this.btn_refresh.Size = new System.Drawing.Size(136, 46);
-            this.btn_refresh.TabIndex = 26;
-            this.btn_refresh.Text = "Refresh";
-            this.btn_refresh.UseVisualStyleBackColor = false;
-            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
             // ClickSchdule_Schedule_
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(845, 620);
-            this.Controls.Add(this.checkBox5);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.ckb_out_Mana);
-            this.Controls.Add(this.ckb_outEmp);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.emp3_checkbox);
             this.Controls.Add(this.emp2_checkbox);
@@ -461,11 +396,6 @@ namespace Final_WP_Project.View.Manager
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button close_btn;
         private System.Windows.Forms.Button save_btn;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox ckb_outEmp;
-        private System.Windows.Forms.CheckBox ckb_out_Mana;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lb_dow;
         private System.Windows.Forms.Label lb_hour;

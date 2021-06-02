@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Final_WP_Project.View.Reception;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -57,6 +58,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             NoBorderButton(room_btn);
             NoBorderButton(schedule_btn);
             NoBorderButton(report_btn);
+            NoBorderButton(static_btn);
         }
 
         //No border button
@@ -214,6 +216,11 @@ namespace Final_WP_Project.View.Manager.Employee_click
 
         private void ClickAdd_Load(object sender, EventArgs e)
         {
+            if (Global.isManager == false)
+            {
+                reception_btn.Visible = false;
+                static_btn.Visible = false;
+            }
             int i = 2021;
 
             for (; i > 1900; i--)
@@ -344,6 +351,44 @@ namespace Final_WP_Project.View.Manager.Employee_click
                     }
                 }
             }
+        }
+        private void reception_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+            ReceptionClickForm_Manager_ f = new ReceptionClickForm_Manager_();
+            f.Show();
+        }
+
+        private void employee_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+            EmployeeClick f = new EmployeeClick();
+            f.Show();
+        }
+
+        private void room_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+            RoomMain f = new RoomMain();
+            f.Show();
+        }
+
+        private void report_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+            ReportClick f = new ReportClick();
+            f.Show();
+        }
+
+        private void static_btn_Click(object sender, EventArgs e)
+        {
+            DayOff f = new DayOff();
+            f.Show();
+        }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

@@ -29,6 +29,8 @@ namespace Final_WP_Project.View.Manager.Employee_click
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.compute_btn = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.edit_btn = new System.Windows.Forms.Button();
@@ -42,13 +44,15 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.logout_btn = new System.Windows.Forms.Button();
+            this.static_btn = new System.Windows.Forms.Button();
             this.main_pn = new System.Windows.Forms.Panel();
             this.computeSalary_btn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.dgv_employee = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.dgv_employee = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.main_pn.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -112,6 +116,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.report_btn.TabIndex = 8;
             this.report_btn.Text = "Report";
             this.report_btn.UseVisualStyleBackColor = false;
+            this.report_btn.Click += new System.EventHandler(this.report_btn_Click);
             // 
             // schedule_btn
             // 
@@ -134,6 +139,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.room_btn.TabIndex = 6;
             this.room_btn.Text = "Room";
             this.room_btn.UseVisualStyleBackColor = false;
+            this.room_btn.Click += new System.EventHandler(this.room_btn_Click);
             // 
             // employee_btn
             // 
@@ -145,6 +151,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.employee_btn.TabIndex = 5;
             this.employee_btn.Text = "Employee";
             this.employee_btn.UseVisualStyleBackColor = false;
+            this.employee_btn.Click += new System.EventHandler(this.employee_btn_Click);
             // 
             // reception_btn
             // 
@@ -156,6 +163,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.reception_btn.TabIndex = 4;
             this.reception_btn.Text = "Reception";
             this.reception_btn.UseVisualStyleBackColor = false;
+            this.reception_btn.Click += new System.EventHandler(this.reception_btn_Click);
             // 
             // label1
             // 
@@ -186,6 +194,8 @@ namespace Final_WP_Project.View.Manager.Employee_click
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.logout_btn);
+            this.panel1.Controls.Add(this.static_btn);
             this.panel1.Controls.Add(this.report_btn);
             this.panel1.Controls.Add(this.schedule_btn);
             this.panel1.Controls.Add(this.room_btn);
@@ -198,6 +208,29 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2112, 128);
             this.panel1.TabIndex = 29;
+            // 
+            // logout_btn
+            // 
+            this.logout_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout_btn.Location = new System.Drawing.Point(1805, 42);
+            this.logout_btn.Name = "logout_btn";
+            this.logout_btn.Size = new System.Drawing.Size(89, 44);
+            this.logout_btn.TabIndex = 40;
+            this.logout_btn.Text = "Out";
+            this.logout_btn.UseVisualStyleBackColor = true;
+            this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
+            // 
+            // static_btn
+            // 
+            this.static_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.static_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.static_btn.Location = new System.Drawing.Point(1587, 0);
+            this.static_btn.Name = "static_btn";
+            this.static_btn.Size = new System.Drawing.Size(196, 128);
+            this.static_btn.TabIndex = 9;
+            this.static_btn.Text = "Static";
+            this.static_btn.UseVisualStyleBackColor = false;
+            this.static_btn.Click += new System.EventHandler(this.static_btn_Click);
             // 
             // main_pn
             // 
@@ -221,6 +254,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.computeSalary_btn.TabIndex = 25;
             this.computeSalary_btn.Text = "Compute salary";
             this.computeSalary_btn.UseVisualStyleBackColor = true;
+            this.computeSalary_btn.Click += new System.EventHandler(this.computeSalary_btn_Click);
             // 
             // panel2
             // 
@@ -230,6 +264,37 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1512, 568);
             this.panel2.TabIndex = 21;
+            // 
+            // dgv_employee
+            // 
+            this.dgv_employee.AllowUserToAddRows = false;
+            this.dgv_employee.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_employee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_employee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Poppins", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_employee.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgv_employee.Location = new System.Drawing.Point(103, 82);
+            this.dgv_employee.Name = "dgv_employee";
+            this.dgv_employee.RowHeadersVisible = false;
+            this.dgv_employee.RowHeadersWidth = 51;
+            this.dgv_employee.RowTemplate.Height = 24;
+            this.dgv_employee.Size = new System.Drawing.Size(1310, 402);
+            this.dgv_employee.TabIndex = 1;
+            this.dgv_employee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employee_CellClick);
+            this.dgv_employee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employee_CellContentClick);
             // 
             // button1
             // 
@@ -262,18 +327,6 @@ namespace Final_WP_Project.View.Manager.Employee_click
             this.button3.Text = "Add";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // dgv_employee
-            // 
-            this.dgv_employee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_employee.Location = new System.Drawing.Point(121, -7);
-            this.dgv_employee.Name = "dgv_employee";
-            this.dgv_employee.RowHeadersWidth = 51;
-            this.dgv_employee.RowTemplate.Height = 24;
-            this.dgv_employee.Size = new System.Drawing.Size(1271, 583);
-            this.dgv_employee.TabIndex = 1;
-            this.dgv_employee.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employee_CellClick);
-            this.dgv_employee.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_employee_CellContentClick);
             // 
             // EmployeeClick
             // 
@@ -322,5 +375,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dgv_employee;
+        private System.Windows.Forms.Button static_btn;
+        private System.Windows.Forms.Button logout_btn;
     }
 }

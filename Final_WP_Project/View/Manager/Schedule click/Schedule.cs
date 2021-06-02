@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Final_WP_Project.View.Manager.Employee_click;
+using Final_WP_Project.View.Reception;
+using Final_WP_Project.View.Reception.Schedule;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -31,6 +34,7 @@ namespace Final_WP_Project.View.Manager
             NoBorderButton(room_btn);
             NoBorderButton(schedule_btn);
             NoBorderButton(report_btn);
+            NoBorderButton(static_btn);
         }
 
         //No border button
@@ -54,7 +58,11 @@ namespace Final_WP_Project.View.Manager
         bool noice = true;
         private void Schedule_Load(object sender, EventArgs e)
         {
-           
+            if (Global.isManager == false)
+            {
+                reception_btn.Visible = false;
+                static_btn.Visible = false;
+            }
             Notification_Schedule_ f = new Notification_Schedule_();
             if (noice == true)
             {
@@ -511,12 +519,54 @@ namespace Final_WP_Project.View.Manager
                     MessageBox.Show("Error", "Oops", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
+            Close();
+            MainForm_Manager_ f = new MainForm_Manager_();
+            f.Show();
 
         }
 
         private void btn_refresh_Click(object sender, EventArgs e)
         {
             Schedule_Load(sender, e);
+        }
+
+        private void reception_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+            ReceptionClickForm_Manager_ f = new ReceptionClickForm_Manager_();
+            f.Show();
+        }
+
+        private void employee_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+            EmployeeClick f = new EmployeeClick();
+            f.Show();
+        }
+
+        private void room_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+            RoomMain f = new RoomMain();
+            f.Show();
+        }
+
+        private void report_btn_Click(object sender, EventArgs e)
+        {
+            Close();
+            ReportClick f = new ReportClick();
+            f.Show();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DayOff f = new DayOff();
+            f.Show();
+        }
+
+        private void logout_btn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 

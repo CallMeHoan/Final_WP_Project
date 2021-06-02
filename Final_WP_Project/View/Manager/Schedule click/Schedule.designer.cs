@@ -1,7 +1,7 @@
 ﻿
-namespace Final_WP_Project.View.Reception.Schedule
+namespace Final_WP_Project.View.Manager
 {
-    partial class Main
+    partial class Schedule
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,19 @@ namespace Final_WP_Project.View.Reception.Schedule
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schedule));
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.static_btn = new System.Windows.Forms.Button();
+            this.report_btn = new System.Windows.Forms.Button();
+            this.schedule_btn = new System.Windows.Forms.Button();
+            this.room_btn = new System.Windows.Forms.Button();
+            this.employee_btn = new System.Windows.Forms.Button();
+            this.reception_btn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.printPaycheck_btn = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_refresh = new System.Windows.Forms.Button();
+            this.btn_Save = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel80 = new System.Windows.Forms.Panel();
             this.panel73 = new System.Windows.Forms.Panel();
@@ -158,6 +165,7 @@ namespace Final_WP_Project.View.Reception.Schedule
             this.label10 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.Sdate_lb = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -181,20 +189,8 @@ namespace Final_WP_Project.View.Reception.Schedule
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lb_dow = new System.Windows.Forms.Label();
-            this.lb_hour = new System.Windows.Forms.Label();
-            this.lb_minute = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.report_btn = new System.Windows.Forms.Button();
-            this.schedule_btn = new System.Windows.Forms.Button();
-            this.room_btn = new System.Windows.Forms.Button();
-            this.employee_btn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.button3 = new System.Windows.Forms.Button();
+            this.logout_btn = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
             this.printPaycheck_btn.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel51.SuspendLayout();
@@ -218,6 +214,7 @@ namespace Final_WP_Project.View.Reception.Schedule
             this.panel41.SuspendLayout();
             this.panel42.SuspendLayout();
             this.panel43.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -225,57 +222,156 @@ namespace Final_WP_Project.View.Reception.Schedule
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.logout_btn);
+            this.panel1.Controls.Add(this.static_btn);
+            this.panel1.Controls.Add(this.report_btn);
+            this.panel1.Controls.Add(this.schedule_btn);
+            this.panel1.Controls.Add(this.room_btn);
+            this.panel1.Controls.Add(this.employee_btn);
+            this.panel1.Controls.Add(this.reception_btn);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.panel1.Location = new System.Drawing.Point(2, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(2112, 128);
+            this.panel1.TabIndex = 23;
+            // 
+            // static_btn
+            // 
+            this.static_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.static_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.static_btn.Location = new System.Drawing.Point(1587, 0);
+            this.static_btn.Name = "static_btn";
+            this.static_btn.Size = new System.Drawing.Size(196, 128);
+            this.static_btn.TabIndex = 10;
+            this.static_btn.Text = "Static";
+            this.static_btn.UseVisualStyleBackColor = false;
+            this.static_btn.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // report_btn
+            // 
+            this.report_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.report_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.report_btn.Location = new System.Drawing.Point(1392, 0);
+            this.report_btn.Name = "report_btn";
+            this.report_btn.Size = new System.Drawing.Size(196, 128);
+            this.report_btn.TabIndex = 8;
+            this.report_btn.Text = "Report";
+            this.report_btn.UseVisualStyleBackColor = false;
+            this.report_btn.Click += new System.EventHandler(this.report_btn_Click);
+            // 
+            // schedule_btn
+            // 
+            this.schedule_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.schedule_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.schedule_btn.Location = new System.Drawing.Point(1197, 0);
+            this.schedule_btn.Name = "schedule_btn";
+            this.schedule_btn.Size = new System.Drawing.Size(196, 128);
+            this.schedule_btn.TabIndex = 7;
+            this.schedule_btn.Text = "Schedule";
+            this.schedule_btn.UseVisualStyleBackColor = false;
+            // 
+            // room_btn
+            // 
+            this.room_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.room_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.room_btn.Location = new System.Drawing.Point(1002, 0);
+            this.room_btn.Name = "room_btn";
+            this.room_btn.Size = new System.Drawing.Size(196, 128);
+            this.room_btn.TabIndex = 6;
+            this.room_btn.Text = "Room";
+            this.room_btn.UseVisualStyleBackColor = false;
+            this.room_btn.Click += new System.EventHandler(this.room_btn_Click);
+            // 
+            // employee_btn
+            // 
+            this.employee_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.employee_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employee_btn.Location = new System.Drawing.Point(807, 0);
+            this.employee_btn.Name = "employee_btn";
+            this.employee_btn.Size = new System.Drawing.Size(196, 128);
+            this.employee_btn.TabIndex = 5;
+            this.employee_btn.Text = "Employee";
+            this.employee_btn.UseVisualStyleBackColor = false;
+            this.employee_btn.Click += new System.EventHandler(this.employee_btn_Click);
+            // 
+            // reception_btn
+            // 
+            this.reception_btn.BackColor = System.Drawing.SystemColors.Window;
+            this.reception_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reception_btn.Location = new System.Drawing.Point(613, 0);
+            this.reception_btn.Name = "reception_btn";
+            this.reception_btn.Size = new System.Drawing.Size(196, 128);
+            this.reception_btn.TabIndex = 4;
+            this.reception_btn.Text = "Reception";
+            this.reception_btn.UseVisualStyleBackColor = false;
+            this.reception_btn.Click += new System.EventHandler(this.reception_btn_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Window;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label1.Font = new System.Drawing.Font("Poppins", 34.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(44, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(199, 102);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Hotel";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.Window;
+            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.label2.Font = new System.Drawing.Font("Poppins", 34.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(253, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(288, 102);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Manage";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // printPaycheck_btn
             // 
-            this.printPaycheck_btn.Controls.Add(this.button2);
-            this.printPaycheck_btn.Controls.Add(this.label6);
-            this.printPaycheck_btn.Controls.Add(this.button1);
+            this.printPaycheck_btn.Controls.Add(this.btn_refresh);
+            this.printPaycheck_btn.Controls.Add(this.btn_Save);
             this.printPaycheck_btn.Controls.Add(this.panel3);
-            this.printPaycheck_btn.Controls.Add(this.label8);
-            this.printPaycheck_btn.Controls.Add(this.lb_dow);
-            this.printPaycheck_btn.Controls.Add(this.lb_hour);
-            this.printPaycheck_btn.Controls.Add(this.lb_minute);
-            this.printPaycheck_btn.Location = new System.Drawing.Point(1, 96);
+            this.printPaycheck_btn.Location = new System.Drawing.Point(1, 132);
             this.printPaycheck_btn.Name = "printPaycheck_btn";
-            this.printPaycheck_btn.Size = new System.Drawing.Size(2098, 935);
-            this.printPaycheck_btn.TabIndex = 31;
+            this.printPaycheck_btn.Size = new System.Drawing.Size(2098, 902);
+            this.printPaycheck_btn.TabIndex = 29;
+            this.printPaycheck_btn.Click += new System.EventHandler(this.printPaycheck_btn_Click);
             this.printPaycheck_btn.Paint += new System.Windows.Forms.PaintEventHandler(this.printPaycheck_btn_Paint);
             // 
-            // button2
+            // btn_refresh
             // 
-            this.button2.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(21, 205);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(170, 70);
-            this.button2.TabIndex = 35;
-            this.button2.Text = "Simulation";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn_refresh.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_refresh.Location = new System.Drawing.Point(34, 40);
+            this.btn_refresh.Name = "btn_refresh";
+            this.btn_refresh.Size = new System.Drawing.Size(130, 55);
+            this.btn_refresh.TabIndex = 30;
+            this.btn_refresh.Text = "Refresh";
+            this.btn_refresh.UseVisualStyleBackColor = true;
+            this.btn_refresh.Click += new System.EventHandler(this.btn_refresh_Click);
             // 
-            // label6
+            // btn_Save
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(170, 31);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 36);
-            this.label6.TabIndex = 34;
-            this.label6.Text = ",";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(21, 91);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 70);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Check Attendance";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btn_Save.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Save.Location = new System.Drawing.Point(34, 125);
+            this.btn_Save.Name = "btn_Save";
+            this.btn_Save.Size = new System.Drawing.Size(130, 51);
+            this.btn_Save.TabIndex = 28;
+            this.btn_Save.Text = "Save Schedule";
+            this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // panel3
             // 
@@ -356,7 +452,7 @@ namespace Final_WP_Project.View.Reception.Schedule
             this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.label4);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(239, 77);
+            this.panel3.Location = new System.Drawing.Point(220, 38);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1571, 799);
             this.panel3.TabIndex = 28;
@@ -632,6 +728,7 @@ namespace Final_WP_Project.View.Reception.Schedule
             this.panel65.Name = "panel65";
             this.panel65.Size = new System.Drawing.Size(188, 73);
             this.panel65.TabIndex = 38;
+            this.panel65.Paint += new System.Windows.Forms.PaintEventHandler(this.panel65_Paint);
             // 
             // panel48
             // 
@@ -1365,6 +1462,7 @@ namespace Final_WP_Project.View.Reception.Schedule
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(188, 73);
             this.panel12.TabIndex = 4;
+            this.panel12.Paint += new System.Windows.Forms.PaintEventHandler(this.panel12_Paint);
             // 
             // panel29
             // 
@@ -1381,6 +1479,7 @@ namespace Final_WP_Project.View.Reception.Schedule
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(188, 73);
             this.panel11.TabIndex = 4;
+            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
             // panel30
             // 
@@ -1491,10 +1590,24 @@ namespace Final_WP_Project.View.Reception.Schedule
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.Transparent;
+            this.panel10.Controls.Add(this.label8);
             this.panel10.Location = new System.Drawing.Point(202, 99);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(188, 73);
             this.panel10.TabIndex = 3;
+            this.panel10.Click += new System.EventHandler(this.panel10_Click);
+            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Poppins", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(2, 5);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(93, 25);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "View detail";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // panel9
             // 
@@ -1728,169 +1841,31 @@ namespace Final_WP_Project.View.Reception.Schedule
             this.label3.TabIndex = 0;
             this.label3.Text = "Time";
             // 
-            // label8
+            // logout_btn
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(237, 30);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(21, 36);
-            this.label8.TabIndex = 33;
-            this.label8.Text = ":";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.logout_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout_btn.Location = new System.Drawing.Point(1808, 42);
+            this.logout_btn.Name = "logout_btn";
+            this.logout_btn.Size = new System.Drawing.Size(89, 44);
+            this.logout_btn.TabIndex = 40;
+            this.logout_btn.Text = "Out";
+            this.logout_btn.UseVisualStyleBackColor = true;
+            this.logout_btn.Click += new System.EventHandler(this.logout_btn_Click);
             // 
-            // lb_dow
-            // 
-            this.lb_dow.AutoSize = true;
-            this.lb_dow.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_dow.Location = new System.Drawing.Point(26, 31);
-            this.lb_dow.Name = "lb_dow";
-            this.lb_dow.Size = new System.Drawing.Size(100, 36);
-            this.lb_dow.TabIndex = 32;
-            this.lb_dow.Text = "Monday";
-            this.lb_dow.Click += new System.EventHandler(this.lb_dow_Click);
-            // 
-            // lb_hour
-            // 
-            this.lb_hour.AutoSize = true;
-            this.lb_hour.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_hour.Location = new System.Drawing.Point(197, 31);
-            this.lb_hour.Name = "lb_hour";
-            this.lb_hour.Size = new System.Drawing.Size(34, 36);
-            this.lb_hour.TabIndex = 30;
-            this.lb_hour.Text = "12";
-            this.lb_hour.Click += new System.EventHandler(this.lb_hour_Click);
-            // 
-            // lb_minute
-            // 
-            this.lb_minute.AutoSize = true;
-            this.lb_minute.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_minute.Location = new System.Drawing.Point(264, 30);
-            this.lb_minute.Name = "lb_minute";
-            this.lb_minute.Size = new System.Drawing.Size(42, 36);
-            this.lb_minute.TabIndex = 31;
-            this.lb_minute.Text = "40";
-            this.lb_minute.Click += new System.EventHandler(this.lb_minute_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.report_btn);
-            this.panel1.Controls.Add(this.schedule_btn);
-            this.panel1.Controls.Add(this.room_btn);
-            this.panel1.Controls.Add(this.employee_btn);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.panel1.Location = new System.Drawing.Point(2, 3);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2112, 112);
-            this.panel1.TabIndex = 29;
-            // 
-            // report_btn
-            // 
-            this.report_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.report_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.report_btn.Location = new System.Drawing.Point(1274, 0);
-            this.report_btn.Name = "report_btn";
-            this.report_btn.Size = new System.Drawing.Size(196, 128);
-            this.report_btn.TabIndex = 8;
-            this.report_btn.Text = "Report";
-            this.report_btn.UseVisualStyleBackColor = false;
-            // 
-            // schedule_btn
-            // 
-            this.schedule_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.schedule_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.schedule_btn.Location = new System.Drawing.Point(1079, 0);
-            this.schedule_btn.Name = "schedule_btn";
-            this.schedule_btn.Size = new System.Drawing.Size(196, 128);
-            this.schedule_btn.TabIndex = 7;
-            this.schedule_btn.Text = "Schedule";
-            this.schedule_btn.UseVisualStyleBackColor = false;
-            // 
-            // room_btn
-            // 
-            this.room_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.room_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.room_btn.Location = new System.Drawing.Point(884, 0);
-            this.room_btn.Name = "room_btn";
-            this.room_btn.Size = new System.Drawing.Size(196, 128);
-            this.room_btn.TabIndex = 6;
-            this.room_btn.Text = "Room";
-            this.room_btn.UseVisualStyleBackColor = false;
-            // 
-            // employee_btn
-            // 
-            this.employee_btn.BackColor = System.Drawing.SystemColors.Window;
-            this.employee_btn.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.employee_btn.Location = new System.Drawing.Point(689, 0);
-            this.employee_btn.Name = "employee_btn";
-            this.employee_btn.Size = new System.Drawing.Size(196, 128);
-            this.employee_btn.TabIndex = 5;
-            this.employee_btn.Text = "Employee";
-            this.employee_btn.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.SystemColors.Window;
-            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label1.Font = new System.Drawing.Font("Poppins", 34.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(44, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 102);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Hotel";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.Window;
-            this.label2.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.label2.Font = new System.Drawing.Font("Poppins", 34.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(253, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(288, 102);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Manage";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // timer2
-            // 
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.SystemColors.Window;
-            this.button3.Font = new System.Drawing.Font("Poppins", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(1467, 0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(196, 128);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Static";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // Main
+            // Schedule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 1033);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.printPaycheck_btn);
-            this.Name = "Main";
-            this.Text = "Main";
+            this.Controls.Add(this.panel1);
+            this.Name = "Schedule";
+            this.Text = "Schedule";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Main_Load);
+            this.Load += new System.EventHandler(this.Schedule_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.printPaycheck_btn.ResumeLayout(false);
-            this.printPaycheck_btn.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel51.ResumeLayout(false);
@@ -1933,6 +1908,8 @@ namespace Final_WP_Project.View.Reception.Schedule
             this.panel42.PerformLayout();
             this.panel43.ResumeLayout(false);
             this.panel43.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -1947,53 +1924,102 @@ namespace Final_WP_Project.View.Reception.Schedule
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.Panel panel21;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.Panel panel23;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Panel panel36;
-        private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Panel panel26;
-        private System.Windows.Forms.Panel panel37;
-        private System.Windows.Forms.Panel panel38;
-        private System.Windows.Forms.Label label78;
-        private System.Windows.Forms.Label label79;
-        private System.Windows.Forms.Panel panel39;
-        private System.Windows.Forms.Label label80;
-        private System.Windows.Forms.Label label81;
-        private System.Windows.Forms.Panel panel40;
-        private System.Windows.Forms.Label label82;
-        private System.Windows.Forms.Label label83;
-        private System.Windows.Forms.Panel panel41;
-        private System.Windows.Forms.Label label84;
-        private System.Windows.Forms.Label label85;
-        private System.Windows.Forms.Panel panel42;
-        private System.Windows.Forms.Label label86;
-        private System.Windows.Forms.Label label87;
-        private System.Windows.Forms.Panel panel43;
-        private System.Windows.Forms.Label label88;
-        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button report_btn;
+        private System.Windows.Forms.Button schedule_btn;
+        private System.Windows.Forms.Button room_btn;
+        private System.Windows.Forms.Button employee_btn;
+        private System.Windows.Forms.Button reception_btn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel printPaycheck_btn;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label Sdate_lb;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label Fdate_lb;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label Thdate_lb;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label Wdate_lb;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label Tdate_lb;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label Mdate_lb;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Panel panel80;
+        private System.Windows.Forms.Panel panel73;
+        private System.Windows.Forms.Panel panel81;
+        private System.Windows.Forms.Panel panel66;
+        private System.Windows.Forms.Panel panel82;
+        private System.Windows.Forms.Panel panel74;
+        private System.Windows.Forms.Panel panel83;
+        private System.Windows.Forms.Panel panel59;
+        private System.Windows.Forms.Panel panel84;
+        private System.Windows.Forms.Panel panel75;
+        private System.Windows.Forms.Panel panel85;
+        private System.Windows.Forms.Panel panel67;
+        private System.Windows.Forms.Panel panel86;
+        private System.Windows.Forms.Panel panel76;
+        private System.Windows.Forms.Panel panel45;
+        private System.Windows.Forms.Panel panel77;
+        private System.Windows.Forms.Panel panel68;
+        private System.Windows.Forms.Panel panel78;
+        private System.Windows.Forms.Panel panel60;
+        private System.Windows.Forms.Panel panel79;
+        private System.Windows.Forms.Panel panel69;
+        private System.Windows.Forms.Panel panel31;
+        private System.Windows.Forms.Panel panel70;
+        private System.Windows.Forms.Panel panel61;
+        private System.Windows.Forms.Panel panel71;
+        private System.Windows.Forms.Panel panel46;
+        private System.Windows.Forms.Panel panel72;
+        private System.Windows.Forms.Panel panel62;
+        private System.Windows.Forms.Panel panel32;
+        private System.Windows.Forms.Panel panel63;
+        private System.Windows.Forms.Panel panel47;
+        private System.Windows.Forms.Panel panel64;
+        private System.Windows.Forms.Panel panel24;
+        private System.Windows.Forms.Panel panel65;
+        private System.Windows.Forms.Panel panel48;
+        private System.Windows.Forms.Panel panel49;
+        private System.Windows.Forms.Panel panel16;
+        private System.Windows.Forms.Panel panel50;
+        private System.Windows.Forms.Panel panel34;
+        private System.Windows.Forms.Panel panel51;
+        private System.Windows.Forms.Panel panel52;
+        private System.Windows.Forms.Label label106;
+        private System.Windows.Forms.Label label107;
         private System.Windows.Forms.Panel panel53;
         private System.Windows.Forms.Label label108;
         private System.Windows.Forms.Label label109;
-        private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.Label label106;
         private System.Windows.Forms.Panel panel54;
         private System.Windows.Forms.Label label110;
         private System.Windows.Forms.Label label111;
@@ -2016,108 +2042,53 @@ namespace Final_WP_Project.View.Reception.Schedule
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Panel panel19;
-        private System.Windows.Forms.Panel panel27;
-        private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Panel panel28;
-        private System.Windows.Forms.Label Sdate_lb;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Panel panel21;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Panel panel23;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Panel panel36;
+        private System.Windows.Forms.Panel panel26;
+        private System.Windows.Forms.Panel panel37;
+        private System.Windows.Forms.Panel panel38;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.Panel panel39;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.Label label81;
+        private System.Windows.Forms.Panel panel40;
+        private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.Panel panel41;
+        private System.Windows.Forms.Label label84;
+        private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.Panel panel42;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.Panel panel43;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.Label label89;
         private System.Windows.Forms.Panel panel14;
+        private System.Windows.Forms.Panel panel27;
         private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Panel panel28;
+        private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Panel panel29;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panel30;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label Fdate_lb;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label Mdate_lb;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label Tdate_lb;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label Wdate_lb;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label Thdate_lb;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label107;
-        private System.Windows.Forms.Panel panel84;
-        private System.Windows.Forms.Panel panel85;
-        private System.Windows.Forms.Panel panel75;
-        private System.Windows.Forms.Panel panel67;
-        private System.Windows.Forms.Panel panel86;
-        private System.Windows.Forms.Panel panel77;
-        private System.Windows.Forms.Panel panel68;
-        private System.Windows.Forms.Panel panel45;
-        private System.Windows.Forms.Panel panel78;
-        private System.Windows.Forms.Panel panel76;
-        private System.Windows.Forms.Panel panel60;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel printPaycheck_btn;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel80;
-        private System.Windows.Forms.Panel panel73;
-        private System.Windows.Forms.Panel panel81;
-        private System.Windows.Forms.Panel panel66;
-        private System.Windows.Forms.Panel panel82;
-        private System.Windows.Forms.Panel panel74;
-        private System.Windows.Forms.Panel panel83;
-        private System.Windows.Forms.Panel panel59;
-        private System.Windows.Forms.Panel panel79;
-        private System.Windows.Forms.Panel panel69;
-        private System.Windows.Forms.Panel panel31;
-        private System.Windows.Forms.Panel panel70;
-        private System.Windows.Forms.Panel panel61;
-        private System.Windows.Forms.Panel panel71;
-        private System.Windows.Forms.Panel panel46;
-        private System.Windows.Forms.Panel panel72;
-        private System.Windows.Forms.Panel panel62;
-        private System.Windows.Forms.Panel panel32;
-        private System.Windows.Forms.Panel panel63;
-        private System.Windows.Forms.Panel panel47;
-        private System.Windows.Forms.Panel panel64;
-        private System.Windows.Forms.Panel panel24;
-        private System.Windows.Forms.Panel panel65;
-        private System.Windows.Forms.Panel panel48;
         private System.Windows.Forms.Panel panel33;
-        private System.Windows.Forms.Panel panel49;
-        private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.Panel panel50;
-        private System.Windows.Forms.Panel panel34;
-        private System.Windows.Forms.Panel panel51;
-        private System.Windows.Forms.Panel panel52;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button report_btn;
-        private System.Windows.Forms.Button schedule_btn;
-        private System.Windows.Forms.Button room_btn;
-        private System.Windows.Forms.Button employee_btn;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lb_dow;
-        private System.Windows.Forms.Label lb_hour;
-        private System.Windows.Forms.Label lb_minute;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_Save;
+        private System.Windows.Forms.Button btn_refresh;
+        private System.Windows.Forms.Button static_btn;
+        private System.Windows.Forms.Button logout_btn;
     }
 }
