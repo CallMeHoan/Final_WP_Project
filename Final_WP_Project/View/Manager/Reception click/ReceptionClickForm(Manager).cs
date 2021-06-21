@@ -53,7 +53,7 @@ namespace Final_WP_Project.View
                 static_btn.Visible = false;
             }
             Human stdl = new Human();
-            SqlCommand command = new SqlCommand("Select e.ID, e.Name, e.Phone, e.Salary, e.Age from Employee e where e.UserType = 'Reception';");
+            SqlCommand command = new SqlCommand("Select * from ViewReception;");
             dataGirdview_Reception.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             dataGirdview_Reception.RowTemplate.Height = 200;

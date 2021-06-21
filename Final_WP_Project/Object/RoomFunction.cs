@@ -14,7 +14,7 @@ namespace Final_WP_Project.Object
         MY_DB my_db = new MY_DB();
         public bool Booking(string empid, string roomid, string cusid, TimeSpan start, TimeSpan end, string date, string state)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Booking (EmployeeID, RoomID, CustomerID, StartTime, EndTime, Date, State) VALUES( @empID, @RoomID, @CusID, @start, @end, @date, @state ); ");
+            SqlCommand command = new SqlCommand("SP_Booking @empID, @RoomID, @CusID, @start, @end, @date, @state ; ");
             command.Connection = my_db.getConnection;
             my_db.openConnection();
             command.Parameters.Add("@empID", SqlDbType.NVarChar).Value = empid;

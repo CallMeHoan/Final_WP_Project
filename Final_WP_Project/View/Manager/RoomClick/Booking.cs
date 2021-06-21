@@ -59,7 +59,7 @@ namespace Final_WP_Project.View.Reception.Room
             if (Verify())
             {
                 
-                if (room.Booking(EmpID, RoomID, CusID, StartTime, EndTime, formatdate, state) == true && room.NewCustomer(CusID, name, phone, cmnd) == true)
+                if ( room.NewCustomer(CusID, name, phone, cmnd) == true && room.Booking(EmpID, RoomID, CusID, StartTime, EndTime, formatdate, state) == true)
                 {
                     MessageBox.Show("Booking succesfully!", "Booking", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DialogResult dialogResult = MessageBox.Show("Do you want to order goods", "Service", MessageBoxButtons.YesNo);
@@ -162,6 +162,11 @@ namespace Final_WP_Project.View.Reception.Room
             cusID_cb.Text = dt.Rows[0][0].ToString();
             phone_txt.Text = dt.Rows[0][1].ToString();
             cmnd_txt.Text = dt.Rows[0][2].ToString();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

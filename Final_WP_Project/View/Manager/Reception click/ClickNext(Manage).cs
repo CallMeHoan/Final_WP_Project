@@ -156,7 +156,7 @@ namespace Final_WP_Project.View.Manager
                     DialogResult a = MessageBox.Show("Are you sure to add this employee?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (a == DialogResult.Yes)
                     {
-                        if (employee.InsertHummans(id.ToString(), userName_txt.Text, password_txt.Text, name, phone, age, position))
+                        if (employee.InsertHummans(id.ToString(), userName_txt.Text, password_txt.Text, name, phone, age, position,gender))
                         {
                             MessageBox.Show("Added Employee", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -181,7 +181,7 @@ namespace Final_WP_Project.View.Manager
                     DialogResult a = MessageBox.Show("Are you sure to add this employee?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (a == DialogResult.Yes)
                     {
-                        if (employee.InsertHummans(id.ToString(), userName_txt.Text, password_txt.Text, name, phone, age, position))
+                        if (employee.InsertHummans(id.ToString(), userName_txt.Text, password_txt.Text, name, phone, age, position, gender))
                         {
                             MessageBox.Show("Added Employee", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
@@ -206,7 +206,7 @@ namespace Final_WP_Project.View.Manager
                     DialogResult a = MessageBox.Show("Are you sure to add this employee?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                     if (a == DialogResult.Yes)
                     {
-                        if (employee.InsertHummans(id.ToString(), userName_txt.Text, password_txt.Text, name, phone, age, position))
+                        if (employee.InsertHummans(id.ToString(), userName_txt.Text, password_txt.Text, name, phone, age, position, gender))
                         {
                             MessageBox.Show("Added Employee", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }

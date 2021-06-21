@@ -168,5 +168,18 @@ namespace Final_WP_Project.View.Reception.Room
         {
 
         }
+
+        private void amount_txt_TextChanged(object sender, EventArgs e)
+        {
+            total_txt.Text = "";
+            if (amount_txt.Text != "")
+            {
+                total_txt.Text = (Convert.ToDouble(amount_txt.Text) * Convert.ToDouble(unitprice_txt.Text)).ToString()+".0000";
+            }
+            else
+            {
+                total_txt.Text = "0";
+            }
+        }
     }
 }

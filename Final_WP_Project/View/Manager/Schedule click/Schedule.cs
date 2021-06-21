@@ -139,13 +139,13 @@ namespace Final_WP_Project.View.Manager
 
             Human h = new Human();
 
-            SqlCommand command = new SqlCommand("Select name from Employee where usertype = 'reception'");
+            SqlCommand command = new SqlCommand("Select * from fn_SelectReception()");
             DataTable table = h.gethummans(command); // table chứa Lễ tân
 
-            SqlCommand command1 = new SqlCommand("Select name from Employee where usertype = 'Manager'");
+            SqlCommand command1 = new SqlCommand("Select * from fn_SelectManager()");
             DataTable table1 = h.gethummans(command1); // table chứa Quản lí
 
-            SqlCommand command2 = new SqlCommand("Select name from Employee where usertype = 'Labor'");
+            SqlCommand command2 = new SqlCommand("Select * from fn_SelectLabor()");
             DataTable table2 = h.gethummans(command2); // table chứa Lao công
 
             int k = 1;
@@ -414,9 +414,9 @@ namespace Final_WP_Project.View.Manager
             //        MessageBox.Show(i.ToString());
             //    }
             //}
-            SqlCommand command3 = new SqlCommand("Select name,usertype from Employee where usertype = 'reception' or usertype = 'Manager'");
+            SqlCommand command3 = new SqlCommand("Select * from fn_SelectReceptionOrManager()");
             DataTable table3 = h.gethummans(command3);
-            SqlCommand command4 = new SqlCommand("Select name,usertype from Employee where usertype = 'Labor'");
+            SqlCommand command4 = new SqlCommand("Select * from fn_SelectLaborType()");
             DataTable table4 = h.gethummans(command4);
             int randomc = new Random(DateTime.Now.Millisecond + 2021).Next(0, 6);
             for (int i = 0; i <4;i++)

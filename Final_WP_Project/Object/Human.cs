@@ -21,10 +21,10 @@ namespace Final_WP_Project
             mydb.closeConnection();
             return table;
         }
-        public bool InsertHummans(string id, string acc, string pass, string name, int phone, int age, string usertype)
+        public bool InsertHummans(string id, string acc, string pass, string name, int phone, int age, string usertype, string gender)
         {
             MY_DB my_db = new MY_DB();
-            SqlCommand command = new SqlCommand("INSERT INTO Login VALUES( @id, @acc, @pass); INSERT INTO Employee(ID, Name, Phone,Age, UserType) VALUES(@id, @name, @phone, @age, @usertype); ");
+            SqlCommand command = new SqlCommand("sp_InsertEmployee @id, @acc, @pass, @name, @phone, @age, @usertype, @gender");
             command.Connection = my_db.getConnection;
             my_db.openConnection();
             command.Parameters.Add("@id", SqlDbType.NVarChar).Value = id;
@@ -34,6 +34,7 @@ namespace Final_WP_Project
             command.Parameters.Add("@phone", SqlDbType.Int).Value = phone;
             command.Parameters.Add("@age", SqlDbType.Int).Value = age;
             command.Parameters.Add("@usertype", SqlDbType.NVarChar).Value = usertype;
+            command.Parameters.Add("@gender", SqlDbType.NVarChar).Value = gender;
             if ((command.ExecuteNonQuery() > 0))
             {
                 my_db.closeConnection();
@@ -45,10 +46,10 @@ namespace Final_WP_Project
                 return false;
             }
         }
-        public bool InsertHummansII(string id, string name, int phone, int age, string usertype)
+        public bool InsertHummansII(string id, string name, int phone, int age, string usertype,string gender)
         {
             MY_DB my_db = new MY_DB();
-            SqlCommand command = new SqlCommand("INSERT INTO Employee(ID, Name, Phone,Age, UserType) VALUES(@id, @name, @phone, @age, @usertype); ");
+            SqlCommand command = new SqlCommand("sp_InsertEmployeeII @id, @name, @phone, @age, @usertype, @gender; ");
             command.Connection = my_db.getConnection;
             my_db.openConnection();
             command.Parameters.Add("@id", SqlDbType.NVarChar).Value = id;
@@ -56,6 +57,8 @@ namespace Final_WP_Project
             command.Parameters.Add("@phone", SqlDbType.Int).Value = phone;
             command.Parameters.Add("@age", SqlDbType.Int).Value = age;
             command.Parameters.Add("@usertype", SqlDbType.NVarChar).Value = usertype;
+            command.Parameters.Add("@gender", SqlDbType.NVarChar).Value = gender;
+
             if ((command.ExecuteNonQuery() > 0))
             {
                 my_db.closeConnection();
@@ -70,7 +73,7 @@ namespace Final_WP_Project
         public bool UpdateHumans(string id, string name, int phone, int age, string usertype, string gender)
         {
             MY_DB mydb = new MY_DB();
-            SqlCommand command = new SqlCommand("UPDATE Employee SET id = @id, name = @name, phone = @phone, age = @age, Usertype = @usertype, gender = @gender WHERE id = @id", mydb.getConnection);
+            SqlCommand command = new SqlCommand(" sp_UpdateEmployee @id, @name, @phone, @age, @usertype, @gender", mydb.getConnection);
             command.Parameters.Add("@id", SqlDbType.Int).Value = id;
             command.Parameters.Add("@name", SqlDbType.VarChar).Value = name;
             command.Parameters.Add("@phone", SqlDbType.VarChar).Value = phone;
@@ -92,7 +95,7 @@ namespace Final_WP_Project
         public bool deleteEmployee(string id)
         {
             MY_DB mydb = new MY_DB();
-            SqlCommand command = new SqlCommand("Delete from Employee where id = @id", mydb.getConnection);
+            SqlCommand command = new SqlCommand("sp_DeleteEmployee @id", mydb.getConnection);
             command.Parameters.Add("@id", SqlDbType.NVarChar).Value = id;
             mydb.openConnection();
             if (command.ExecuteNonQuery() == 1)
@@ -110,7 +113,7 @@ namespace Final_WP_Project
         {
             Human h = new Human();
             MY_DB db = new MY_DB();
-            SqlCommand command4 = new SqlCommand("Delete from Workday");
+            SqlCommand command4 = new SqlCommand("sp_DeleteWorkday");
             h.gethummans(command4);
             int k = 0;
             for (int i = 0; i < 8; i++)
@@ -334,7 +337,7 @@ namespace Final_WP_Project
                 dayy = "cn";
             }
 
-            SqlCommand command = new SqlCommand("Select attendance from workday where Employeeid = @id and DayofWeek = @day");
+            SqlCommand command = new SqlCommand("Select * from fn_CheckAttendanceDay (@id, @day)");
             command.Parameters.Add("@id", SqlDbType.VarChar).Value = id;
             command.Parameters.Add("@day", SqlDbType.VarChar).Value = dayy;
             DataTable table = gethummans(command);

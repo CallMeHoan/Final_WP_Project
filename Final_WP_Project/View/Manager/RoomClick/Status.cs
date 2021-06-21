@@ -26,7 +26,7 @@ namespace Final_WP_Project.View.Reception.RoomClick
         {
             // TODO: This line of code loads data into the 'viduDataSet.Room' table. You can move, or remove it, as needed.
         
-            SqlCommand command = new SqlCommand("Select roomid from room");
+            SqlCommand command = new SqlCommand("Select id from room");
             Human h = new Human();
             DataTable table = h.gethummans(command);
             for (int i = 0; i < table.Rows.Count; i++)

@@ -55,7 +55,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
                 static_btn.Visible = false;
             }
             Human stdl = new Human();
-            SqlCommand command = new SqlCommand("Select e.ID, e.Name, e.Phone, e.Salary, e.Age from Employee e where e.UserType = 'Labor';");
+            SqlCommand command = new SqlCommand("Select * from ViewLabor;");
             dgv_employee.ReadOnly = true;
             DataGridViewImageColumn picCol = new DataGridViewImageColumn();
             dgv_employee.RowTemplate.Height = 200;
@@ -93,7 +93,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
         private void dgv_employee_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Human human = new Human();
-            SqlCommand command = new SqlCommand("Select id, name, phone, age, usertype, gender from Employee where id = @id");
+            SqlCommand command = new SqlCommand("Select * from fn_ChooseEmpoyee(@id)");
             command.Parameters.Add("@id", SqlDbType.NVarChar).Value = dgv_employee[0, e.RowIndex].Value.ToString();
             DataTable table = human.gethummans(command);
             int id; string name; int phone; string position; string gender; string age;

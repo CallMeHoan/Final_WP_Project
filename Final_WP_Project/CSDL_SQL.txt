@@ -1,0 +1,875 @@
+USE [Hotel_Database]
+GO
+/****** Object:  User [dev]    Script Date: 2021-06-21 3:26:24 PM ******/
+CREATE USER [dev] WITHOUT LOGIN WITH DEFAULT_SCHEMA=[dbo]
+GO
+/****** Object:  Table [dbo].[WorkDay]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[WorkDay](
+	[EmployeeID] [nchar](10) NULL,
+	[StartTime] [nvarchar](50) NULL,
+	[EndTime] [nvarchar](50) NULL,
+	[Attendance] [nvarchar](50) NULL,
+	[DayofWeek] [nvarchar](50) NULL,
+	[IDShift] [nvarchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[IDShift] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_CheckAttendanceDay]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   function [dbo].[fn_CheckAttendanceDay] (@id nvarchar(10), @day nvarchar(10))
+returns table
+as
+return
+Select attendance 
+from workday 
+where Employeeid = @id and DayofWeek = @day
+ 
+GO
+/****** Object:  Table [dbo].[Employee]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Employee](
+	[ID] [nchar](10) NOT NULL,
+	[Name] [nvarchar](max) NOT NULL,
+	[Phone] [int] NULL,
+	[Age] [int] NULL,
+	[UserType] [nchar](10) NULL,
+	[Salary] [money] NULL,
+	[BookingID] [nchar](10) NULL,
+	[ManagerID] [nchar](10) NULL,
+	[Gender] [nchar](10) NULL,
+ CONSTRAINT [PK_Employee] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_SelectManager]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   function [dbo].[fn_SelectManager] ()
+returns table
+as
+return
+Select name from Employee where usertype = 'Manager'
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_SelectReception]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   function [dbo].[fn_SelectReception] ()
+returns table
+as
+return
+Select name from Employee where usertype = 'Reception'
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_SelectLabor]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   function [dbo].[fn_SelectLabor] ()
+returns table
+as
+return
+Select name from Employee where usertype = 'Labor'
+GO
+/****** Object:  Table [dbo].[Goods]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Goods](
+	[GoodID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[Amount] [int] NULL,
+	[UnitPrice] [money] NULL,
+	[TotalPrice] [money] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[GoodID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_SumPriceFood]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   function [dbo].[fn_SumPriceFood] ()
+returns table
+as
+return
+Select Sum(TotalPrice) as 'Tong tien' from goods
+GO
+/****** Object:  Table [dbo].[Bill]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Bill](
+	[RoomID] [nchar](10) NOT NULL,
+	[CustomerID] [nchar](10) NULL,
+	[Service] [money] NULL,
+	[RoomPrice] [money] NULL,
+	[Total] [money] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[RoomID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_SumPriceBill]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   function [dbo].[fn_SumPriceBill] ()
+returns table
+as
+return
+Select Sum(Service) as 'Tong tien service', Sum(roomprice) as 'Tong tien phong', Sum(total) as 'Tong tien'  from bill
+GO
+/****** Object:  View [dbo].[ViewReception]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   view [dbo].[ViewReception] as
+Select e.ID, e.Name, e.Phone, e.Salary, e.Age from Employee e where e.UserType = 'Reception'
+GO
+/****** Object:  View [dbo].[ViewLabor]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   view [dbo].[ViewLabor] as
+Select e.ID, e.Name, e.Phone, e.Salary, e.Age from Employee e where e.UserType = 'Labor'
+
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_ChooseEmpoyee]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create   function [dbo].[fn_ChooseEmpoyee] (@id nvarchar(10))
+returns table
+as
+return
+Select id, name, phone, age, usertype, gender from Employee where id = @id
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_SelectLaborType]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   function [dbo].[fn_SelectLaborType] ()
+returns table
+as
+return
+Select name,usertype from Employee where usertype = 'Labor'
+GO
+/****** Object:  UserDefinedFunction [dbo].[fn_SelectReceptionOrManager]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   function [dbo].[fn_SelectReceptionOrManager] ()
+returns table
+as
+return
+Select name,usertype from Employee where usertype = 'reception' or usertype = 'Manager'
+GO
+/****** Object:  Table [dbo].[Booking]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Booking](
+	[EmployeeID] [nchar](10) NULL,
+	[RoomID] [nchar](10) NULL,
+	[StartTime] [time](7) NULL,
+	[EndTime] [time](7) NULL,
+	[Date] [date] NULL,
+	[State] [nvarchar](50) NULL,
+	[CustomerID] [nchar](10) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Customer]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Customer](
+	[CustomerID] [nchar](10) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[Phone] [nchar](10) NULL,
+	[CMND] [nvarchar](50) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[CustomerID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Login]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Login](
+	[ID] [nchar](10) NOT NULL,
+	[Account] [nchar](10) NULL,
+	[Password] [nchar](10) NULL,
+	[Usertype] [nchar](10) NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Room]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Room](
+	[ID] [nchar](10) NOT NULL,
+	[Floor] [int] NULL,
+	[Rank] [nchar](10) NULL,
+	[Price] [money] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Service]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Service](
+	[RoomID] [nchar](10) NOT NULL,
+	[CustomerID] [nchar](10) NULL,
+	[GoodID] [int] NULL,
+	[Amount] [int] NULL
+) ON [PRIMARY]
+GO
+INSERT [dbo].[Booking] ([EmployeeID], [RoomID], [StartTime], [EndTime], [Date], [State], [CustomerID]) VALUES (N'1         ', N'101       ', CAST(N'01:00:00' AS Time), CAST(N'12:00:00' AS Time), CAST(N'2021-06-02' AS Date), N'Booked', N'1         ')
+GO
+INSERT [dbo].[Booking] ([EmployeeID], [RoomID], [StartTime], [EndTime], [Date], [State], [CustomerID]) VALUES (N'1         ', N'101       ', CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(N'2021-06-02' AS Date), N'Booked', N'2         ')
+GO
+INSERT [dbo].[Booking] ([EmployeeID], [RoomID], [StartTime], [EndTime], [Date], [State], [CustomerID]) VALUES (N'1         ', N'102       ', CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(N'2021-06-02' AS Date), N'Booked', N'3         ')
+GO
+INSERT [dbo].[Booking] ([EmployeeID], [RoomID], [StartTime], [EndTime], [Date], [State], [CustomerID]) VALUES (N'1         ', N'102       ', CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(N'2021-06-02' AS Date), N'Booked', N'12354     ')
+GO
+INSERT [dbo].[Booking] ([EmployeeID], [RoomID], [StartTime], [EndTime], [Date], [State], [CustomerID]) VALUES (N'1         ', N'101       ', CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(N'2021-06-02' AS Date), N'Booked', N'3214      ')
+GO
+INSERT [dbo].[Booking] ([EmployeeID], [RoomID], [StartTime], [EndTime], [Date], [State], [CustomerID]) VALUES (N'1         ', N'101       ', CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(N'2021-06-02' AS Date), N'Booked', N'4         ')
+GO
+INSERT [dbo].[Booking] ([EmployeeID], [RoomID], [StartTime], [EndTime], [Date], [State], [CustomerID]) VALUES (N'1         ', N'102       ', CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(N'2021-06-02' AS Date), N'Booked', N'56        ')
+GO
+INSERT [dbo].[Booking] ([EmployeeID], [RoomID], [StartTime], [EndTime], [Date], [State], [CustomerID]) VALUES (N'1         ', N'101       ', CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(N'2021-06-02' AS Date), N'Booked', N'124       ')
+GO
+INSERT [dbo].[Booking] ([EmployeeID], [RoomID], [StartTime], [EndTime], [Date], [State], [CustomerID]) VALUES (N'1         ', N'101       ', CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(N'2021-06-02' AS Date), N'Booked', N'21        ')
+GO
+INSERT [dbo].[Booking] ([EmployeeID], [RoomID], [StartTime], [EndTime], [Date], [State], [CustomerID]) VALUES (N'1         ', N'101       ', CAST(N'00:00:00' AS Time), CAST(N'00:00:00' AS Time), CAST(N'2021-06-02' AS Date), N'Booked', N'133       ')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Name], [Phone], [CMND]) VALUES (N'1         ', N'2', N'312       ', N'123')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Name], [Phone], [CMND]) VALUES (N'12354     ', N'2', N'312       ', N'123')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Name], [Phone], [CMND]) VALUES (N'124       ', N'2', N'312       ', N'123')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Name], [Phone], [CMND]) VALUES (N'133       ', N'2', N'312       ', N'123')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Name], [Phone], [CMND]) VALUES (N'2         ', N'2', N'312       ', N'123')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Name], [Phone], [CMND]) VALUES (N'21        ', N'2', N'312       ', N'123')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Name], [Phone], [CMND]) VALUES (N'3         ', N'2', N'312       ', N'123')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Name], [Phone], [CMND]) VALUES (N'3214      ', N'2', N'312       ', N'123')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Name], [Phone], [CMND]) VALUES (N'4         ', N'2', N'312       ', N'123')
+GO
+INSERT [dbo].[Customer] ([CustomerID], [Name], [Phone], [CMND]) VALUES (N'56        ', N'2', N'312       ', N'123')
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [Phone], [Age], [UserType], [Salary], [BookingID], [ManagerID], [Gender]) VALUES (N'1         ', N'Dat Nguyen', 84666, 20, N'Manager   ', 200.0000, NULL, NULL, N'Male      ')
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [Phone], [Age], [UserType], [Salary], [BookingID], [ManagerID], [Gender]) VALUES (N'10        ', N'Nam Vo', 84176, 21, N'Labor     ', 30.0000, NULL, NULL, N'Male      ')
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [Phone], [Age], [UserType], [Salary], [BookingID], [ManagerID], [Gender]) VALUES (N'11        ', N'Sang Tran', 84677, 21, N'Labor     ', 30.0000, NULL, NULL, N'Female    ')
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [Phone], [Age], [UserType], [Salary], [BookingID], [ManagerID], [Gender]) VALUES (N'12        ', N'Vu Toan', 84512, 19, N'Labor     ', 30.0000, NULL, NULL, N'Male      ')
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [Phone], [Age], [UserType], [Salary], [BookingID], [ManagerID], [Gender]) VALUES (N'2         ', N'Hoan Nguyen', 84123, 20, N'Manager   ', 200.0000, NULL, NULL, N'Male      ')
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [Phone], [Age], [UserType], [Salary], [BookingID], [ManagerID], [Gender]) VALUES (N'3         ', N'Huy Nguyen', 84114, 20, N'Reception ', 50.0000, NULL, NULL, N'Male      ')
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [Phone], [Age], [UserType], [Salary], [BookingID], [ManagerID], [Gender]) VALUES (N'4         ', N'Trang Nguyen', 84065, 18, N'Reception ', 50.0000, NULL, NULL, N'Female    ')
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [Phone], [Age], [UserType], [Salary], [BookingID], [ManagerID], [Gender]) VALUES (N'5         ', N'Nhung Pham', 84412, 19, N'Reception ', 50.0000, NULL, NULL, N'Female    ')
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [Phone], [Age], [UserType], [Salary], [BookingID], [ManagerID], [Gender]) VALUES (N'6         ', N'Thanh Vo', 84214, 18, N'Reception ', 50.0000, NULL, NULL, N'Male      ')
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [Phone], [Age], [UserType], [Salary], [BookingID], [ManagerID], [Gender]) VALUES (N'7         ', N'Minh Pham', 84111, 19, N'Labor     ', 30.0000, NULL, NULL, N'Male      ')
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [Phone], [Age], [UserType], [Salary], [BookingID], [ManagerID], [Gender]) VALUES (N'8         ', N'Nhung Quynh', 84616, 20, N'Labor     ', 30.0000, NULL, NULL, N'Female    ')
+GO
+INSERT [dbo].[Employee] ([ID], [Name], [Phone], [Age], [UserType], [Salary], [BookingID], [ManagerID], [Gender]) VALUES (N'9         ', N'Tuan Tran', 84989, 18, N'Labor     ', 30.0000, NULL, NULL, N'Male      ')
+GO
+SET IDENTITY_INSERT [dbo].[Goods] ON 
+GO
+INSERT [dbo].[Goods] ([GoodID], [Name], [Amount], [UnitPrice], [TotalPrice]) VALUES (1, N'Cocacola', 15, 15.0000, 75.0000)
+GO
+INSERT [dbo].[Goods] ([GoodID], [Name], [Amount], [UnitPrice], [TotalPrice]) VALUES (2, N'BeefSteak', 20, 250.0000, 5000.0000)
+GO
+INSERT [dbo].[Goods] ([GoodID], [Name], [Amount], [UnitPrice], [TotalPrice]) VALUES (3, N'PureWater', 15, 5.0000, 75.0000)
+GO
+INSERT [dbo].[Goods] ([GoodID], [Name], [Amount], [UnitPrice], [TotalPrice]) VALUES (4, N'Noodles', 20, 5.0000, 100.0000)
+GO
+INSERT [dbo].[Goods] ([GoodID], [Name], [Amount], [UnitPrice], [TotalPrice]) VALUES (5, N'Pepsi', 15, 15.0000, 75.0000)
+GO
+SET IDENTITY_INSERT [dbo].[Goods] OFF
+GO
+INSERT [dbo].[Login] ([ID], [Account], [Password], [Usertype]) VALUES (N'1         ', N'dat       ', N'123       ', N'Manager   ')
+GO
+INSERT [dbo].[Login] ([ID], [Account], [Password], [Usertype]) VALUES (N'10        ', N'nam       ', N'123       ', N'Labor     ')
+GO
+INSERT [dbo].[Login] ([ID], [Account], [Password], [Usertype]) VALUES (N'2         ', N'hoan      ', N'123       ', N'Manager   ')
+GO
+INSERT [dbo].[Login] ([ID], [Account], [Password], [Usertype]) VALUES (N'3         ', N'huy       ', N'123       ', N'Reception ')
+GO
+INSERT [dbo].[Room] ([ID], [Floor], [Rank], [Price]) VALUES (N'101       ', 1, NULL, 200.0000)
+GO
+INSERT [dbo].[Room] ([ID], [Floor], [Rank], [Price]) VALUES (N'102       ', 1, NULL, 250.0000)
+GO
+INSERT [dbo].[Room] ([ID], [Floor], [Rank], [Price]) VALUES (N'103       ', 1, NULL, 200.0000)
+GO
+INSERT [dbo].[Room] ([ID], [Floor], [Rank], [Price]) VALUES (N'104       ', 1, NULL, 300.0000)
+GO
+INSERT [dbo].[Room] ([ID], [Floor], [Rank], [Price]) VALUES (N'201       ', 2, NULL, 300.0000)
+GO
+INSERT [dbo].[Room] ([ID], [Floor], [Rank], [Price]) VALUES (N'202       ', 2, NULL, 200.0000)
+GO
+INSERT [dbo].[Room] ([ID], [Floor], [Rank], [Price]) VALUES (N'203       ', 2, NULL, 300.0000)
+GO
+INSERT [dbo].[Room] ([ID], [Floor], [Rank], [Price]) VALUES (N'204       ', 2, NULL, 250.0000)
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'7h', N'9h30', N'Present', N'2', N'0')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'7h', N'9h30', N'Late', N'2', N'1')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'5         ', N'7h', N'9h30', N'Present', N'5', N'10')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'1h', N'3h30', N'Present', N'4', N'100')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'3         ', N'1h', N'3h30', N'Present', N'4', N'101')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'1h', N'3h30', N'Present', N'5', N'102')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'3         ', N'1h', N'3h30', N'Present', N'5', N'103')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'1h', N'3h30', N'Present', N'6', N'104')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'1h', N'3h30', N'Present', N'6', N'105')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'1h', N'3h30', N'Present', N'7', N'106')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'5         ', N'1h', N'3h30', N'Present', N'7', N'107')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'1h', N'3h30', N'Present', N'cn', N'108')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'7         ', N'1h', N'3h30', N'Present', N'cn', N'109')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'9         ', N'7h', N'9h30', N'Late', N'5', N'11')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'4h', N'6h30', N'Present', N'2', N'110')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'6         ', N'4h', N'6h30', N'Present', N'2', N'111')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'4h', N'6h30', N'Present', N'3', N'112')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'6         ', N'4h', N'6h30', N'Present', N'3', N'113')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'4h', N'6h30', N'Present', N'4', N'114')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'3         ', N'4h', N'6h30', N'Present', N'4', N'115')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'4h', N'6h30', N'Present', N'5', N'116')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'3         ', N'4h', N'6h30', N'Present', N'5', N'117')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'4h', N'6h30', N'Present', N'6', N'118')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'4h', N'6h30', N'Present', N'6', N'119')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'7h', N'9h30', N'Late', N'6', N'12')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'4h', N'6h30', N'Present', N'7', N'120')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'5         ', N'4h', N'6h30', N'Present', N'7', N'121')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'4h', N'6h30', N'Present', N'cn', N'122')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'7         ', N'4h', N'6h30', N'Present', N'cn', N'123')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'3         ', N'7h', N'9h30', N'Present', N'6', N'13')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'10        ', N'7h', N'9h30', N'Present', N'6', N'14')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'7h', N'9h30', N'Present', N'7', N'15')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'6         ', N'7h', N'9h30', N'Present', N'7', N'16')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'11        ', N'7h', N'9h30', N'Present', N'7', N'17')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'7h', N'9h30', N'Present', N'cn', N'18')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'11        ', N'7h', N'9h30', N'Present', N'cn', N'19')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'12        ', N'7h', N'9h30', N'Late', N'2', N'2')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'10h', N'12h30', N'Present', N'2', N'20')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'10h', N'12h30', N'Present', N'2', N'21')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'10h', N'12h30', N'Present', N'3', N'22')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'10h', N'12h30', N'Present', N'3', N'23')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'10h', N'12h30', N'Present', N'4', N'24')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'5         ', N'10h', N'12h30', N'Present', N'4', N'25')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'10h', N'12h30', N'Present', N'5', N'26')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'5         ', N'10h', N'12h30', N'Present', N'5', N'27')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'10h', N'12h30', N'Present', N'6', N'28')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'3         ', N'10h', N'12h30', N'Present', N'6', N'29')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'7h', N'9h30', N'Absent', N'3', N'3')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'10h', N'12h30', N'Present', N'7', N'30')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'6         ', N'10h', N'12h30', N'Present', N'7', N'31')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'10h', N'12h30', N'Absent', N'cn', N'32')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'11        ', N'10h', N'12h30', N'Late', N'cn', N'33')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'13h', N'15h30', N'Present', N'2', N'34')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'13h', N'15h30', N'Present', N'2', N'35')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'13h', N'15h30', N'Present', N'3', N'36')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'13h', N'15h30', N'Present', N'3', N'37')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'13h', N'15h30', N'Present', N'4', N'38')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'5         ', N'13h', N'15h30', N'Present', N'4', N'39')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'7h', N'9h30', N'Late', N'3', N'4')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'13h', N'15h30', N'Present', N'5', N'40')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'5         ', N'13h', N'15h30', N'Present', N'5', N'41')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'13h', N'15h30', N'Present', N'6', N'42')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'3         ', N'13h', N'15h30', N'Present', N'6', N'43')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'13h', N'15h30', N'Absent', N'7', N'44')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'6         ', N'13h', N'15h30', N'Present', N'7', N'45')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'13h', N'15h30', N'Present', N'cn', N'46')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'11        ', N'13h', N'15h30', N'Present', N'cn', N'47')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'16h', N'18h30', N'Present', N'2', N'48')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'16h', N'18h30', N'Present', N'2', N'49')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'7         ', N'7h', N'9h30', N'Late', N'3', N'5')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'16h', N'18h30', N'Present', N'3', N'50')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'16h', N'18h30', N'Present', N'3', N'51')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'16h', N'18h30', N'Present', N'4', N'52')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'5         ', N'16h', N'18h30', N'Present', N'4', N'53')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'16h', N'18h30', N'Present', N'5', N'54')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'5         ', N'16h', N'18h30', N'Present', N'5', N'55')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'16h', N'18h30', N'Present', N'6', N'56')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'3         ', N'16h', N'18h30', N'Present', N'6', N'57')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'16h', N'18h30', N'Present', N'7', N'58')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'6         ', N'16h', N'18h30', N'Present', N'7', N'59')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'7h', N'9h30', N'Present', N'4', N'6')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'16h', N'18h30', N'Present', N'cn', N'60')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'11        ', N'16h', N'18h30', N'Present', N'cn', N'61')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'19h', N'21h30', N'Present', N'2', N'62')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'6         ', N'19h', N'21h30', N'Present', N'2', N'63')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'7         ', N'19h', N'21h30', N'Present', N'2', N'64')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'19h', N'21h30', N'Present', N'3', N'65')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'6         ', N'19h', N'21h30', N'Present', N'3', N'66')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'8         ', N'19h', N'21h30', N'Absent', N'3', N'67')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'19h', N'21h30', N'Present', N'4', N'68')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'3         ', N'19h', N'21h30', N'Present', N'4', N'69')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'5         ', N'7h', N'9h30', N'Present', N'4', N'7')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'9         ', N'19h', N'21h30', N'Present', N'4', N'70')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'19h', N'21h30', N'Present', N'5', N'71')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'3         ', N'19h', N'21h30', N'Present', N'5', N'72')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'10        ', N'19h', N'21h30', N'Present', N'5', N'73')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'19h', N'21h30', N'Present', N'6', N'74')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'19h', N'21h30', N'Present', N'6', N'75')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'11        ', N'19h', N'21h30', N'Present', N'6', N'76')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'19h', N'21h30', N'Present', N'7', N'77')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'5         ', N'19h', N'21h30', N'Present', N'7', N'78')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'12        ', N'19h', N'21h30', N'Present', N'7', N'79')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'8         ', N'7h', N'9h30', N'Late', N'4', N'8')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'19h', N'21h30', N'Present', N'cn', N'80')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'7         ', N'19h', N'21h30', N'Present', N'cn', N'81')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'22h', N'0h30', N'Present', N'2', N'82')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'6         ', N'22h', N'0h30', N'Present', N'2', N'83')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'22h', N'0h30', N'Present', N'3', N'84')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'6         ', N'22h', N'0h30', N'Present', N'3', N'85')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'22h', N'0h30', N'Present', N'4', N'86')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'3         ', N'22h', N'0h30', N'Present', N'4', N'87')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'22h', N'0h30', N'Absent', N'5', N'88')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'3         ', N'22h', N'0h30', N'Present', N'5', N'89')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'7h', N'9h30', N'Present', N'5', N'9')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'22h', N'0h30', N'Present', N'6', N'90')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'22h', N'0h30', N'Present', N'6', N'91')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'22h', N'0h30', N'Present', N'7', N'92')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'5         ', N'22h', N'0h30', N'Present', N'7', N'93')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'4         ', N'22h', N'0h30', N'Present', N'cn', N'94')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'7         ', N'22h', N'0h30', N'Present', N'cn', N'95')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'2         ', N'1h', N'3h30', N'Present', N'2', N'96')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'6         ', N'1h', N'3h30', N'Present', N'2', N'97')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'1         ', N'1h', N'3h30', N'Present', N'3', N'98')
+GO
+INSERT [dbo].[WorkDay] ([EmployeeID], [StartTime], [EndTime], [Attendance], [DayofWeek], [IDShift]) VALUES (N'6         ', N'1h', N'3h30', N'Late', N'3', N'99')
+GO
+ALTER TABLE [dbo].[Bill]  WITH CHECK ADD  CONSTRAINT [FK_Bill_Customer] FOREIGN KEY([CustomerID])
+REFERENCES [dbo].[Customer] ([CustomerID])
+GO
+ALTER TABLE [dbo].[Bill] CHECK CONSTRAINT [FK_Bill_Customer]
+GO
+ALTER TABLE [dbo].[Booking]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Customer] FOREIGN KEY([CustomerID])
+REFERENCES [dbo].[Customer] ([CustomerID])
+GO
+ALTER TABLE [dbo].[Booking] CHECK CONSTRAINT [FK_Booking_Customer]
+GO
+ALTER TABLE [dbo].[Booking]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Employee] FOREIGN KEY([EmployeeID])
+REFERENCES [dbo].[Employee] ([ID])
+GO
+ALTER TABLE [dbo].[Booking] CHECK CONSTRAINT [FK_Booking_Employee]
+GO
+ALTER TABLE [dbo].[Booking]  WITH CHECK ADD  CONSTRAINT [FK_Booking_Room] FOREIGN KEY([RoomID])
+REFERENCES [dbo].[Room] ([ID])
+GO
+ALTER TABLE [dbo].[Booking] CHECK CONSTRAINT [FK_Booking_Room]
+GO
+ALTER TABLE [dbo].[Service]  WITH CHECK ADD  CONSTRAINT [FK_Service_Goods] FOREIGN KEY([GoodID])
+REFERENCES [dbo].[Goods] ([GoodID])
+GO
+ALTER TABLE [dbo].[Service] CHECK CONSTRAINT [FK_Service_Goods]
+GO
+ALTER TABLE [dbo].[Service]  WITH CHECK ADD  CONSTRAINT [FK_Service_Room] FOREIGN KEY([RoomID])
+REFERENCES [dbo].[Room] ([ID])
+GO
+ALTER TABLE [dbo].[Service] CHECK CONSTRAINT [FK_Service_Room]
+GO
+ALTER TABLE [dbo].[WorkDay]  WITH CHECK ADD  CONSTRAINT [FK_WorkDay_Employee] FOREIGN KEY([EmployeeID])
+REFERENCES [dbo].[Employee] ([ID])
+GO
+ALTER TABLE [dbo].[WorkDay] CHECK CONSTRAINT [FK_WorkDay_Employee]
+GO
+/****** Object:  StoredProcedure [dbo].[SP_Bill]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create   proc [dbo].[SP_Bill]
+@rid nchar(10), @cusid nchar(10), @service money, @rMoney money, @total money
+as
+begin
+	INSERT INTO Bill (RoomID, CustomerID, Service, RoomPrice, Total) VALUES(@rid, @cusid, @service, @rMoney, @total);
+end
+GO
+/****** Object:  StoredProcedure [dbo].[SP_Booking]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create   proc [dbo].[SP_Booking]
+ @empID nchar(10), @RoomID nchar(10), @CusID nchar(10), @start time, @end time, @date date, @state nvarchar(50)
+as
+begin
+	INSERT INTO Booking (EmployeeID, RoomID, CustomerID, StartTime, EndTime, Date, State) VALUES( @empID, @RoomID, @CusID, @start, @end, @date, @state );
+end
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ChangeStatus]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create   proc [dbo].[SP_ChangeStatus]
+@roomid Nvarchar(50) ,@date date
+as
+begin
+	insert into Booking (RoomID, Date, State) values (@roomid,@date,'Unavailable');
+end
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ChangeStatusToAvailable]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create   proc [dbo].[SP_ChangeStatusToAvailable]
+@roomid Nvarchar(50) ,@date date
+as
+begin
+	DELETE FROM Booking WHERE RoomID = @roomid and Date = @date and State = 'Unavailable';
+end
+GO
+/****** Object:  StoredProcedure [dbo].[sp_DeleteEmployee]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   proc [dbo].[sp_DeleteEmployee](@id nvarchar(10))
+as
+Delete from WorkDay where EmployeeID = @id
+Delete from Employee where id = @id
+GO
+/****** Object:  StoredProcedure [dbo].[SP_DeleteService]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create   proc [dbo].[SP_DeleteService]
+@rid nchar(10), @cid nchar(10)
+as
+begin
+	DELETE FROM Service WHERE RoomID =  @rid and CustomerID = @cid
+end
+GO
+/****** Object:  StoredProcedure [dbo].[sp_DeleteWorkday]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   proc [dbo].[sp_DeleteWorkday] 
+as
+Delete from WorkDay
+GO
+/****** Object:  StoredProcedure [dbo].[SP_ImportGood]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create   proc [dbo].[SP_ImportGood]
+@Name Nvarchar(50), @Amount int, @Unitprice Money
+as
+begin
+	INSERT INTO Goods (Name, Amount, UnitPrice) VALUES(@name, @amount, @unitprice); 
+end
+GO
+/****** Object:  StoredProcedure [dbo].[SP_InputService]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create   proc [dbo].[SP_InputService]
+@rid nchar(10), @cid nchar(10), @gid nchar(10), @amount int
+as
+begin
+	INSERT INTO Service (RoomID, CustomerID, GoodID, Amount) VALUES(@rid, @cid, @gid, @amount);
+end
+GO
+/****** Object:  StoredProcedure [dbo].[sp_InsertEmployee]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+Create   proc [dbo].[sp_InsertEmployee](@id nvarchar(10), @acc nvarchar(10), @pass nvarchar(10), @name nvarchar(max), @phone int, @age int, @usertype nchar(10), @gender nchar(10))
+as 
+INSERT INTO Employee(ID, Name, Phone, Age, UserType, Gender) VALUES(@id, @name, @phone, @age, @usertype, @gender);   INSERT INTO Login VALUES( @id, @acc, @pass, @usertype)
+GO
+/****** Object:  StoredProcedure [dbo].[sp_InsertEmployeeII]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   proc [dbo].[sp_InsertEmployeeII](@id nvarchar(10), @name nvarchar(10), @phone int, @age int, @usertype nchar(10), @gender nchar(10))
+as 
+INSERT INTO Employee(ID, Name, Phone,Age, UserType, gender) VALUES(@id, @name, @phone, @age, @usertype, @gender)
+GO
+/****** Object:  StoredProcedure [dbo].[SP_NewCustomer]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create   proc [dbo].[SP_NewCustomer]
+@CusID nvarchar(50), @Cusname nvarchar(50), @phone nvarchar(50), @cmnd nvarchar(50)
+as
+begin
+	INSERT INTO Customer (CustomerID, Name, Phone, CMND) VALUES(@CusID, @Cusname, @phone, @cmnd); 
+end
+GO
+/****** Object:  StoredProcedure [dbo].[sp_UpdateAttendanceAbsent]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   proc [dbo].[sp_UpdateAttendanceAbsent](@id nvarchar(10))
+as
+UPDATE WorkDay SET Attendance = 'Absent' WHERE IDShift = @id
+GO
+/****** Object:  StoredProcedure [dbo].[sp_UpdateAttendanceLate]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   proc [dbo].[sp_UpdateAttendanceLate](@id nvarchar(10))
+as
+UPDATE WorkDay SET Attendance = 'Late' WHERE IDShift =  @id 
+GO
+/****** Object:  StoredProcedure [dbo].[sp_UpdateAttendancePresent]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+Create   proc [dbo].[sp_UpdateAttendancePresent](@id nvarchar(10))
+as
+UPDATE WorkDay SET Attendance = 'Present' WHERE IDShift =  @id ;
+GO
+/****** Object:  StoredProcedure [dbo].[SP_UpdateBooking]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create   proc [dbo].[SP_UpdateBooking]
+@empID nchar(10), @RoomID nchar(10), @CusID nchar(10), @start time, @end time, @date date
+as
+begin
+	Update Booking set State = 'Paid' 
+	where
+		EmployeeID = @empID and 
+		RoomID = @RoomID and 
+		CustomerID = @CusID and 
+		StartTime = @start and 
+		EndTime = @end and 
+		Date = @date
+end
+GO
+/****** Object:  StoredProcedure [dbo].[sp_UpdateEmployee]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+Create   proc [dbo].[sp_UpdateEmployee](@id nvarchar(10), @name nvarchar(max), @phone int, @age int, @usertype nchar(10), @gender nvarchar(10))
+as
+UPDATE Employee SET id = @id, name = @name, phone = @phone, age = @age, Usertype = @usertype, gender = @gender WHERE id = @id
+GO
+/****** Object:  StoredProcedure [dbo].[SP_UpdateGood]    Script Date: 2021-06-21 3:26:25 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create   proc [dbo].[SP_UpdateGood]
+@amount int, @name nvarchar(50)
+as
+begin
+	Update Goods set Amount -= @amount where Name = @name
+end
+GO

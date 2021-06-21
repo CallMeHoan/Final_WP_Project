@@ -80,8 +80,14 @@ namespace Final_WP_Project.View.Manager
             soldGood_lb.Text = table1.Rows[0][0].ToString();
             string l = totalSalarry().ToString().Trim();
             paid_lb.Text = l+".000";
-            total_lb.Text = ((Convert.ToDouble(vanguard_lb.Text) + Convert.ToDouble(soldGood_lb.Text)) - (Convert.ToDouble(goods_lb.Text) + Convert.ToDouble(l))).ToString() + ".000";
-            
+            try
+            {
+                total_lb.Text = ((Convert.ToDouble(vanguard_lb.Text) + Convert.ToDouble(soldGood_lb.Text)) - (Convert.ToDouble(goods_lb.Text) + Convert.ToDouble(l))).ToString() + ".000";
+            }
+            catch
+            {
+                total_lb.Text = "Processing...";
+            }
         }
         public float totalSalarry()
         {

@@ -125,6 +125,7 @@ namespace Final_WP_Project.View.Reception.Room
             this.amount_txt.Name = "amount_txt";
             this.amount_txt.Size = new System.Drawing.Size(123, 38);
             this.amount_txt.TabIndex = 40;
+            this.amount_txt.TextChanged += new System.EventHandler(this.amount_txt_TextChanged);
             // 
             // label2
             // 

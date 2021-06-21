@@ -327,6 +327,19 @@ namespace Final_WP_Project.View.Manager.Employee_click
 
         private void add_btn_Click(object sender, EventArgs e)
         {
+            string gender = "";
+            if (male_rbtn.Checked)
+            {
+                gender = "Male";
+            }
+            else if (female_rbtn.Checked)
+            {
+                gender = "Female";
+            }
+            else
+            {
+                gender = "Other";
+            }
             Human employee = new Human();
             string command1="";
             command1 = "Select Count(ID) From Employee where UserType = 'labor';";
@@ -341,7 +354,7 @@ namespace Final_WP_Project.View.Manager.Employee_click
                 DialogResult a = MessageBox.Show("Are you sure to add this employee?", "Information", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (a == DialogResult.Yes)
                 {
-                    if (employee.InsertHummansII(receptionID_txt.Text.ToString(), firstName_txt.Text + " " + lastName_txt.Text, Convert.ToInt32(phone_txt.Text), (DateTime.Now.Year - Convert.ToInt32(year_cb.Text)), txt_pos.Text))
+                    if (employee.InsertHummansII(receptionID_txt.Text.ToString(), firstName_txt.Text + " " + lastName_txt.Text, Convert.ToInt32(phone_txt.Text), (DateTime.Now.Year - Convert.ToInt32(year_cb.Text)), txt_pos.Text,gender ))
                     {
                         MessageBox.Show("Added Employee", "Sucess", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
