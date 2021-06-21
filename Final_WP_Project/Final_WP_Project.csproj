@@ -325,7 +325,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CSDL_SQL.txt" />
+    <Content Include="DBMSOFF.txt" />
     <Content Include="Picture\Picture2.png" />
     <Content Include="Picture\Picture3.png" />
     <Content Include="Picture\Picture4.png" />

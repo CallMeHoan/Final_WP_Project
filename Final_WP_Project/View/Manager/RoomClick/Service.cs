@@ -17,6 +17,7 @@ namespace Final_WP_Project.View.Reception.Room
         RoomFunction room = new RoomFunction();
         string rid;
         string cid;
+        bool have = false;
         public Service(string roomid, string cusid)
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace Final_WP_Project.View.Reception.Room
         }
         public void add_btn_Click(object sender, EventArgs e)
         {
+            have = true;
             int amount = Convert.ToInt32(amount_txt.Text);
             SqlCommand command = new SqlCommand("Select Goodid from goods where name = '" + food_cb.Text + "'");
             Human h = new Human();
@@ -79,13 +81,16 @@ namespace Final_WP_Project.View.Reception.Room
         //Function
         private void close_btn_Click(object sender, EventArgs e)
         {
-            if (room.deleteService(rid, cid))
+            if (have == true)
             {
-                MessageBox.Show("Do you want to leave without saving changes?", "Service", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            }
-            else
-            {
-                MessageBox.Show("Can't do this right now", "Service", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (room.deleteService(rid, cid))
+                {
+                    MessageBox.Show("Do you want to leave without saving changes?", "Service", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                }
+                else
+                {
+                    MessageBox.Show("Can't do this right now", "Service", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             Close();
 

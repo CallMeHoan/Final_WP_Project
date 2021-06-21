@@ -104,7 +104,7 @@ namespace Final_WP_Project.View.Reception.Room
             string[] subs = formatTime.Split(':');
             double hourtoDouble = Convert.ToDouble(subs[0]) + Convert.ToDouble(subs[1]) / 60 + Convert.ToDouble(subs[2]) / 3600;
 
-            string money = "Select Price from Room where RoomID = '" + roomID_txt.Text + "'";
+            string money = "Select Price from Room where ID = '" + roomID_txt.Text + "'";
 
             SqlCommand cmdd = new SqlCommand(money, mydb.getConnection);
             DataTable dt2 = new DataTable();
@@ -121,6 +121,7 @@ namespace Final_WP_Project.View.Reception.Room
 
             //Total money
             totalMoney_txt.Text = (Convert.ToDouble(roomMoney_txt.Text) + serviceMoney).ToString();
+          //  Payment_Load(sender, e);
         }
 
         private void cusName_cb_SelectedIndexChanged(object sender, EventArgs e)
@@ -161,7 +162,7 @@ namespace Final_WP_Project.View.Reception.Room
             string[] subs = formatTime.Split(':');
             double hourtoDouble = Convert.ToDouble(subs[0]) + Convert.ToDouble(subs[1]) / 60 + Convert.ToDouble(subs[2]) / 3600;
 
-            string money = "Select Price from Room where RoomID = '" + roomID_txt.Text + "'";
+            string money = "Select Price from Room where ID = '" + roomID_txt.Text + "'";
 
             SqlCommand cmdd = new SqlCommand(money, mydb.getConnection);
             Human h1 = new Human();
@@ -178,7 +179,7 @@ namespace Final_WP_Project.View.Reception.Room
 
             //Total money
             totalMoney_txt.Text = (Convert.ToDouble(roomMoney_txt.Text) + serviceMoney).ToString();
-            Payment_Load(sender, e);
+          //  Payment_Load(sender, e);
         }
 
         private void save_btn_Click(object sender, EventArgs e)

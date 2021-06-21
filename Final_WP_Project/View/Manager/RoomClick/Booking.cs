@@ -58,26 +58,32 @@ namespace Final_WP_Project.View.Reception.Room
 
             if (Verify())
             {
-                
-                if ( room.NewCustomer(CusID, name, phone, cmnd) == true && room.Booking(EmpID, RoomID, CusID, StartTime, EndTime, formatdate, state) == true)
+                try
                 {
-                    MessageBox.Show("Booking succesfully!", "Booking", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    DialogResult dialogResult = MessageBox.Show("Do you want to order goods", "Service", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
+                    if (room.NewCustomer(CusID, name, phone, cmnd) == true && room.Booking(EmpID, RoomID, CusID, StartTime, EndTime, formatdate, state) == true)
                     {
-                        Close();
-                        Service sv = new Service(RoomID, CusID);
-                        sv.Show();
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        Close();
-                    }
+                        MessageBox.Show("Booking succesfully!", "Booking", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        DialogResult dialogResult = MessageBox.Show("Do you want to order goods", "Service", MessageBoxButtons.YesNo);
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            Close();
+                            Service sv = new Service(RoomID, CusID);
+                            sv.Show();
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            Close();
+                        }
 
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error!", "Booking", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                else
+                catch(Exception ee)
                 {
-                    MessageBox.Show("Error!", "Booking", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Error: "+ee.Message);
                 }
             }
             else

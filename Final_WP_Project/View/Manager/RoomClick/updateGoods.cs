@@ -67,6 +67,7 @@ namespace Final_WP_Project.View.Reception.RoomClick
 
         private void updateGoods_Load(object sender, EventArgs e)
         {
+            
             Human h = new Human();
             SqlCommand command = new SqlCommand("Select Goodid, name, amount, unitprice from Goods");
             DataTable table = h.gethummans(command);
@@ -113,7 +114,6 @@ namespace Final_WP_Project.View.Reception.RoomClick
 
         private void food_cb_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

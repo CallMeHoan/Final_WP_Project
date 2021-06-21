@@ -37,7 +37,7 @@ namespace Final_WP_Project.Object
         }
         public bool NewCustomer(string cusid, string cusname, string phone, string cmnd)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Customer (CustomerID, Name, Phone, CMND) VALUES(@CusID, @Cusname, @phone, @cmnd); ");
+            SqlCommand command = new SqlCommand("SP_NewCustomer @CusID, @Cusname, @phone, @cmnd; ");
             command.Connection = my_db.getConnection;
             my_db.openConnection();
             command.Parameters.Add("@CusID", SqlDbType.NVarChar).Value = cusid;
@@ -57,7 +57,7 @@ namespace Final_WP_Project.Object
         }
         public bool ChangeStatusToAvailable(string date, string roomid)
         {
-            SqlCommand command = new SqlCommand("DELETE FROM Booking WHERE RoomID = @roomid and Date = @date and State = 'Unavailable'", my_db.getConnection);
+            SqlCommand command = new SqlCommand("SP_ChangeStatusToAvailable @roomid , @date", my_db.getConnection);
             command.Parameters.Add("@roomid", SqlDbType.NVarChar).Value = roomid;
             command.Parameters.Add("@date", SqlDbType.Date).Value = date;
             my_db.openConnection();
@@ -74,7 +74,7 @@ namespace Final_WP_Project.Object
         }
         public bool ChangeStatusToUnavailable(string date, string roomid)
         {
-            SqlCommand command = new SqlCommand("insert into Booking (RoomID, Date, State) values (@roomid,@date,'Unavailable' )", my_db.getConnection);
+            SqlCommand command = new SqlCommand("SP_ChangeStatus @roomid,@date ", my_db.getConnection);
             command.Parameters.Add("@roomid", SqlDbType.NVarChar).Value = roomid;
             command.Parameters.Add("@date", SqlDbType.Date).Value = date;
             my_db.openConnection();
@@ -91,7 +91,7 @@ namespace Final_WP_Project.Object
         }
         public bool Import(string name, int amount, float money)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Goods (Name, Amount, UnitPrice) VALUES(@name, @amount, @unitprice); ");
+            SqlCommand command = new SqlCommand("SP_ImportGood @name, @amount, @unitprice; ");
             command.Connection = my_db.getConnection;
             my_db.openConnection();
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
@@ -110,7 +110,7 @@ namespace Final_WP_Project.Object
         }
         public bool UpdateGood(string name, int amount, float money)
         {
-            SqlCommand command = new SqlCommand("  Update Goods set Amount += @amount, UnitPrice = @unitprice where Name = @name");
+            SqlCommand command = new SqlCommand("  SP_UpdateGood @amount, @name");
             command.Connection = my_db.getConnection;
             my_db.openConnection();
             command.Parameters.Add("@name", SqlDbType.NVarChar).Value = name;
@@ -167,7 +167,7 @@ namespace Final_WP_Project.Object
         }
         public bool NewService(string rid, string cid, string goodid, int amount)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Service (RoomID, CustomerID, GoodID, Amount) VALUES(@rid, @cid, @gid, @amount); ");
+            SqlCommand command = new SqlCommand("SP_InputService @rid, @cid, @gid, @amount");
             command.Connection = my_db.getConnection;
             my_db.openConnection();
             command.Parameters.Add("@rid", SqlDbType.NVarChar).Value = rid;
@@ -187,7 +187,7 @@ namespace Final_WP_Project.Object
         }
         public bool deleteService(string rid, string cid)
         {
-            SqlCommand command = new SqlCommand("DELETE FROM Service WHERE RoomID =  @rid and CustomerID = @cid");
+            SqlCommand command = new SqlCommand("SP_DeleteService @rid, @cid");
             command.Connection = my_db.getConnection;
             command.Parameters.Add("@rid", SqlDbType.NVarChar).Value = rid.Trim();
             command.Parameters.Add("@cid", SqlDbType.NVarChar).Value = cid.Trim();
@@ -225,7 +225,7 @@ namespace Final_WP_Project.Object
         }
         public bool Bill(string rid, string cusid, double service, double roomMoney, double total)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO Bill (RoomID, CustomerID, Service, RoomPrice, Total) VALUES(@rid, @cusid, @service, @rMoney, @total); ");
+            SqlCommand command = new SqlCommand("SP_Bill @rid, @cusid, @service, @rMoney, @total ");
             command.Connection = my_db.getConnection;
             my_db.openConnection();
             command.Parameters.Add("@rid", SqlDbType.NVarChar).Value = rid;
@@ -246,7 +246,8 @@ namespace Final_WP_Project.Object
         }
         public bool UpdateBooking(string empid, string roomid, string cusid, TimeSpan start, TimeSpan end, string date)
         {
-            SqlCommand command = new SqlCommand("  Update Booking set State = 'Paid' where EmployeeID = @empID and RoomID = @RoomID and CustomerID = @CusID and StartTime = @start and EndTime = @end and Date = @date");
+            SqlCommand command = new SqlCommand("  SP_UpdateBooking @empID, @RoomID, @CusID, @start, @end, @date" +
+                "");
             command.Connection = my_db.getConnection;
             my_db.openConnection();
             command.Parameters.Add("@empID", SqlDbType.NVarChar).Value = empid;
